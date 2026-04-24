@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ct2pqh4kkh12r"]
+
+[ext_resource type="Script" uid="uid://cb88f8br2k86p" path="res://Scripts/mux.gd" id="1_m54a6"]
+
+[node name="MUX" type="Node2D" unique_id=1810147326]
+script = ExtResource("1_m54a6")
