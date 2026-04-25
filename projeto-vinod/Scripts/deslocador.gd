@@ -1,7 +1,8 @@
 extends BlocoBase
 
 func quando_clica_botao(controle : String):
-	# Falta pegar dado
+	# pegar dado
+	pega_dados()
 	
 	# Desloca # Exemplo: '011' -> '0110' -> '110'
 	if (controle == '1'):

@@ -1,7 +1,8 @@
 extends BlocoBase
 
 func quando_clica_botao(controle : String):
-	# Falta pegar dado
+	# pegar dado
+	pega_dados()
 	
 	# Dependendo do controle, seleciona uma saída (0 - dado 1, 1 - dado 2);
 	if (controle == '0'):
