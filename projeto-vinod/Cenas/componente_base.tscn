@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cngerlf1ubjgi"]
 
-[ext_resource type="Script" uid="uid://c5f2nmnpgiels" path="res://Scripts/bloco_base.gd" id="1_fuj6g"]
+[ext_resource type="Script" uid="uid://c5f2nmnpgiels" path="res://Scripts/componente_base.gd" id="1_fuj6g"]
 
 [node name="BlocoBase" type="Node2D" unique_id=1556937510]
 script = ExtResource("1_fuj6g")
