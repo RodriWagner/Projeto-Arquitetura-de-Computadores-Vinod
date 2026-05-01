@@ -7,15 +7,15 @@ func clock():
 	# Deslocamento à direita # Exemplo: '011' -> '0110' -> '110'
 	elif (controle == "01"):
 		# Adiciona o 0 no final
-		entrada_1 = entrada_1 + '0'
+		var aux_1 = entrada_1 + '0'
 		# Toma a string apenas da posição 1 até o final
-		saida = entrada_1.substr(1)
+		saida = aux_1.substr(1)
 	# Deslocamento à esquerda # Exemplo: '010' -> '0010' -> '001'
 	elif (controle == '10'):
 		# Adiciona o 0 no começo
-		saida = '0' + entrada_1
+		var aux_1 = '0' + entrada_1
 		# Toma a string apenas da posição 0 até penultimo
-		entrada_1 = entrada_1.substr(0, -2)
+		saida = aux_1.substr(0, -2)
 	else:
 		print("Erro Deslocador: Controle inválido: " + controle)
 		
