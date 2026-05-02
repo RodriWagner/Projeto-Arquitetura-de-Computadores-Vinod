@@ -8,6 +8,9 @@ extends Node2D
 @export var timer_dos_ciclos : Timer
 @export var tempo_entre_ciclos : float = 2
 
+@export_group("Componentes")
+@export var lista_de_componentes : Dictionary[String, ComponenteBase]
+
 ## Incrementa o subciclo em 1 unicade levando em conta que
 ## ao incrementar o quarto subciclo, ele volta para o primeiro
 func incrementa_subciclo(novo_subciclo : int):
@@ -21,13 +24,30 @@ func incrementa_subciclo(novo_subciclo : int):
 func atualiza_subciclos():
 	match subciclo:
 		1:
-			print(subciclo)
+			# Envia controles
+			lista_de_componentes["MIR"].agir()
+			# Seleciona registradores e coloca nos barramentos A e B
+			lista_de_componentes["registradores"].agir()
 		2:
-			print(subciclo)
+			# Carrega Lacths A e B
+			lista_de_componentes["LatchA"].agir()
+			lista_de_componentes["LatchB"].agir()
+			# Se controle do MAR for 1, ele age, capturando o que estiver no Latch B e acessa a memória
+			lista_de_componentes["MAR"].agir()
 		3:
-			print(subciclo)
+			# AMUX está sempre ativo, mas ativamos por código para otimizar simulação
+			lista_de_componentes["AMUX"].agir()
+			# ULA faz operação
+			lista_de_componentes["ULA"].agir()
+			# Deslocador faz o deslocamento dependendo do controle e manda para Barramento C
+			lista_de_componentes["Deslocador"].agir()
 		4:
-			print(subciclo)
+			# MPC age
+			lista_de_componentes["MPC"].agir()
+			# Enable C age, escolhendo se vai, ou não, gravar em um registrador o que está no barramento C
+			lista_de_componentes["ENC"].agir()
+			# MBR age, gravando dado ou pegando seguindo localização do MAR
+			lista_de_componentes["MBR"].agir()
 	subciclo = incrementa_subciclo(subciclo);
 
 ## Função chamada toda vez que um ciclo é atualizado.

@@ -17,11 +17,11 @@ var controle : String = ""
 @export var saida : String = ""
 
 
-## Essa função vai ser chamada quando o clock ativar esse componente
+## Essa função vai ser chamada quando o agir ativar esse componente
 ## É dever essa função, a partir de um controle, executar a seguinte lista:
 ## 1) Processar dado(s) de entrada
 ## 2) Armazenar um dado em "saida"
-func clock():
+func agir():
 	# Processa
 	# Armazena
 	pass

@@ -1,6 +1,6 @@
 extends ComponenteBase
 
-func clock():
+func agir():
 	# Sem deslocamento
 	if (controle == "00"):
 		saida = entrada_1
