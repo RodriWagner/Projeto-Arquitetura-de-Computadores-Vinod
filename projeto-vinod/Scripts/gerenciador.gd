@@ -26,27 +26,19 @@ func atualiza_subciclos():
 		1:
 			# Envia controles
 			lista_de_componentes["MIR"].agir()
-			# Seleciona registradores e coloca nos barramentos A e B
-			lista_de_componentes["registradores"].agir()
 		2:
 			# Carrega Lacths A e B
 			lista_de_componentes["LatchA"].agir()
 			lista_de_componentes["LatchB"].agir()
-			# Se controle do MAR for 1, ele age, capturando o que estiver no Latch B e acessa a memória
-			lista_de_componentes["MAR"].agir()
 		3:
 			# AMUX está sempre ativo, mas ativamos por código para otimizar simulação
-			lista_de_componentes["AMUX"].agir()
-			# ULA faz operação
-			lista_de_componentes["ULA"].agir()
-			# Deslocador faz o deslocamento dependendo do controle e manda para Barramento C
-			lista_de_componentes["Deslocador"].agir()
+			lista_de_componentes["MAR"].agir()
 		4:
-			# MPC age
+			# Habilita saída do MPC
 			lista_de_componentes["MPC"].agir()
-			# Enable C age, escolhendo se vai, ou não, gravar em um registrador o que está no barramento C
-			lista_de_componentes["ENC"].agir()
-			# MBR age, gravando dado ou pegando seguindo localização do MAR
+			# Grava dado do barramento C no registrador indicado (a depender do EnC)
+			lista_de_componentes["DecoderC"].agir()
+			# MBR pega dado para ser gravado na memória
 			lista_de_componentes["MBR"].agir()
 	subciclo = incrementa_subciclo(subciclo);
 
