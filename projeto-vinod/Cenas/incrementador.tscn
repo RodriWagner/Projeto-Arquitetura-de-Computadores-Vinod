@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://2uxsx4v5tu5u"]
+
+[ext_resource type="Script" uid="uid://wmvvqakwppwo" path="res://Scripts/incrementador.gd" id="1_1x2jg"]
+
+[node name="Incrementador" type="Node2D" unique_id=197948484]
+script = ExtResource("1_1x2jg")
