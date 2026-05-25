@@ -15,7 +15,7 @@ func agir():
 		# Adiciona o 0 no começo
 		var aux_1 = '0' + entrada_1
 		# Toma a string apenas da posição 0 até penultimo
-		saida = aux_1.substr(0, -2)
+		saida = aux_1.substr(0, aux_1.length() - 1)
 	else:
 		print("Erro Deslocador: Controle inválido: " + controle)
 		
