@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bjpj3jryauww0"]
+
+[ext_resource type="Script" uid="uid://bvod281lqdyvk" path="res://Scripts/decoder.gd" id="1_xahhi"]
+
+[node name="Decoder" type="Node2D" unique_id=603825268]
+script = ExtResource("1_xahhi")
