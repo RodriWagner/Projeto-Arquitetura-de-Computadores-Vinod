@@ -4,14 +4,4 @@
 
 [node name="LeitorDeMacro" type="Node2D" unique_id=761820345 node_paths=PackedStringArray("leitor")]
 script = ExtResource("1_0fxv3")
-leitor = NodePath("codigo_macro")
-
-[node name="codigo_macro" type="TextEdit" parent="." unique_id=1692294991]
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 257.0
-offset_top = 110.0
-offset_right = 973.0
-offset_bottom = 398.0
-placeholder_text = "DIGITE O CÓDIGO AQUI"
+leitor = NodePath("")

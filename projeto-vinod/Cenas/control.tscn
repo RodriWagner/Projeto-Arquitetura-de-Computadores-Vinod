@@ -1,0 +1,167 @@
+[gd_scene format=3 uid="uid://diow27j08h5ox"]
+
+[ext_resource type="Texture2D" uid="uid://c7ucp1ko1p0p8" path="res://Imagens/imagem processador.png" id="1_0fbet"]
+[ext_resource type="Texture2D" uid="uid://cx04hw2qsveih" path="res://Imagens/processador sem fio.png" id="2_62e2m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uchyk"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Interface" type="Control" unique_id=1786879715]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2071102827]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uchyk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=541106867]
+layout_mode = 2
+
+[node name="Componentes" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=54325199]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.42
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer/Componentes" unique_id=1157504782]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.63
+
+[node name="Processador com fio" type="TextureRect" parent="PanelContainer/HBoxContainer/Componentes/PanelContainer" unique_id=316753912]
+layout_mode = 2
+texture = ExtResource("1_0fbet")
+expand_mode = 1
+
+[node name="Processador sem fio" type="TextureRect" parent="PanelContainer/HBoxContainer/Componentes/PanelContainer" unique_id=1747559469]
+layout_mode = 2
+texture = ExtResource("2_62e2m")
+expand_mode = 1
+
+[node name="Botões e Texto" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=1211319637]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/HBoxContainer/Botões e Texto" unique_id=1796451956]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2" unique_id=1560896118]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer" unique_id=266216180]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.37
+
+[node name="seta_esq" type="Button" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer" unique_id=147312589]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "<"
+
+[node name="seta_dir" type="Button" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer" unique_id=268120333]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = ">"
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer" unique_id=217875517]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.58
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/PanelContainer" unique_id=1999796614]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "MACROINSTRUÇÃO"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/PanelContainer" unique_id=478432949]
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/PanelContainer/CanvasLayer" unique_id=1534547524]
+anchors_preset = -1
+anchor_left = 0.58900005
+anchor_top = 0.081
+anchor_right = 0.99700004
+anchor_bottom = 0.59300005
+offset_left = -0.88012695
+offset_top = -0.48000336
+offset_right = -0.2401123
+offset_bottom = -0.44006348
+
+[node name="codigo_macro" type="TextEdit" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/PanelContainer/CanvasLayer/ColorRect" unique_id=674906271]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+placeholder_text = "DIGITE O CÓDIGO AQUI"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer" unique_id=1813561386]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="diminuir_vel" type="Button" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer2" unique_id=252345325]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-"
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer2" unique_id=1930290664]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "VELOCIDADE"
+
+[node name="aumentar_vel" type="Button" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer2" unique_id=682489559]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer" unique_id=1673034030]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer5" unique_id=1244434778]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "OPÇÃO POR SUBCICLO"
+
+[node name="ativa_opcao_por_subciclo" type="Button" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer5" unique_id=427716134]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ATIVA FUNÇÃO"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer" unique_id=656677944]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="pausa" type="Button" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer3" unique_id=485689351]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "PAUSA"
+
+[node name="avança" type="Button" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer3" unique_id=93858]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AVANÇA"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer" unique_id=1072083071]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="voltar_menu" type="Button" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer4" unique_id=1552232350]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "VOLTAR PARA O MENU"
+
+[node name="iniciar_simulação" type="Button" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer4" unique_id=975688691]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "INICIAR SIMULAÇÃO"
