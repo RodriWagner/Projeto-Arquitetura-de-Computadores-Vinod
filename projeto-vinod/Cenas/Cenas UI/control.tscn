@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c41mcgxf5p6cx"]
 
-[ext_resource type="Texture2D" uid="uid://dm1eqknkaqxa2" path="res://imagem processador.png" id="1_0fbet"]
-[ext_resource type="Texture2D" uid="uid://c0khjkfk6px6j" path="res://processador sem fio.png" id="2_62e2m"]
+[ext_resource type="Texture2D" uid="uid://c7ucp1ko1p0p8" path="res://Imagens/imagem processador.png" id="1_jmrqb"]
+[ext_resource type="Texture2D" uid="uid://cx04hw2qsveih" path="res://Imagens/processador sem fio.png" id="2_loqao"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uchyk"]
 bg_color = Color(1, 1, 1, 1)
@@ -38,12 +38,12 @@ size_flags_stretch_ratio = 1.63
 
 [node name="Processador com fio" type="TextureRect" parent="PanelContainer/HBoxContainer/Componentes/PanelContainer" unique_id=316753912]
 layout_mode = 2
-texture = ExtResource("1_0fbet")
+texture = ExtResource("1_jmrqb")
 expand_mode = 1
 
 [node name="Processador sem fio" type="TextureRect" parent="PanelContainer/HBoxContainer/Componentes/PanelContainer" unique_id=1747559469]
 layout_mode = 2
-texture = ExtResource("2_62e2m")
+texture = ExtResource("2_loqao")
 expand_mode = 1
 
 [node name="Botões e Texto" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=1211319637]
