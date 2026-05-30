@@ -1,12 +1,10 @@
-[gd_scene format=3 uid="uid://dqily4ev16fae"]
+[gd_scene format=3 uid="uid://ctqsf57s84qvv"]
 
 [ext_resource type="Script" uid="uid://k56h22r4a55y" path="res://Scripts/gerenciador.gd" id="1_y2nxc"]
 
 [node name="Gerenciador" type="Node2D" unique_id=2039617576 node_paths=PackedStringArray("timer_dos_ciclos")]
 script = ExtResource("1_y2nxc")
 timer_dos_ciclos = NodePath("TimerDosCiclos")
-
-[node name="Componentes" type="Node2D" parent="." unique_id=1990502764]
 
 [node name="Botões" type="Control" parent="." unique_id=32269160]
 layout_mode = 3
