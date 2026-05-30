@@ -96,17 +96,30 @@ func _remove_labels(texto_em_linhas : PackedStringArray, lista_de_labels : Array
 ## O conteudo é transformado em binario e adicionado ao opcode.
 ## A instrução completa é retornado em formato de string.
 func _instrucao_binario(instrucao : String, conteudo : String, lista_de_labels : Array[Dictionary]) -> String:
+	var instrucao_binario : String = traducao_opcode[instrucao];
 	if (conteudo.is_valid_int()):
 		var conteudo_binario : String = decimal_para_binario(int(conteudo));
-		var instrucao_binario : String = traducao_opcode[instrucao];
 		var zero_faltando = 16 - instrucao_binario.length() - conteudo_binario.length();
 		if (zero_faltando > 0):
 			conteudo_binario = "0".repeat(zero_faltando) + conteudo_binario;
 		elif (zero_faltando < 0):
-			print("Numero grande demais")
+			print("Numero grande demais, perda de dados");
+			conteudo_binario.substr(zero_faltando*(-1));
 		var instrucao_completa = instrucao_binario + conteudo_binario;
 		return instrucao_completa;
-	return traducao_opcode[instrucao];
+	else:
+		for i in lista_de_labels:
+			if (conteudo in i.keys()):
+				var label_binario = decimal_para_binario(i[conteudo])
+				var zero_faltando = 16 - instrucao_binario.length() - label_binario.length();
+				if (zero_faltando > 0):
+					label_binario = "0".repeat(zero_faltando) + label_binario;
+				elif (zero_faltando < 0):
+					print("Numero grande demais, perda de dados");
+					label_binario.substr(zero_faltando*(-1));
+				var instrucao_completa = instrucao_binario + label_binario;
+				return instrucao_completa;
+		return traducao_opcode[instrucao];
 
 ## Função responsável por tratar todo o texto em Macro Instrução inserido pelo usuário.
 ## Transforma a escrita humana em binário para o resto do sistema usar.
@@ -134,3 +147,6 @@ func trata_texto() -> PackedStringArray:
 	
 	# retorna a lista de instruções (so que em binário)
 	return lista_de_binario;
+
+func _ready() -> void:
+	print(trata_texto())

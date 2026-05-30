@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c7ucp1ko1p0p8" path="res://Imagens/imagem processador.png" id="1_jmrqb"]
 [ext_resource type="Texture2D" uid="uid://cx04hw2qsveih" path="res://Imagens/processador sem fio.png" id="2_loqao"]
+[ext_resource type="PackedScene" uid="uid://dybyv16fmmv1w" path="res://Cenas/Cenas de lógica interna/LeitorDeMacro.tscn" id="3_loqao"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uchyk"]
 bg_color = Color(1, 1, 1, 1)
@@ -104,6 +105,9 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 placeholder_text = "DIGITE O CÓDIGO AQUI"
+
+[node name="LeitorDeMacro" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/PanelContainer/CanvasLayer/ColorRect/codigo_macro" unique_id=761820345 node_paths=PackedStringArray("leitor") instance=ExtResource("3_loqao")]
+leitor = NodePath("..")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer" unique_id=1813561386]
 layout_mode = 2
