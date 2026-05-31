@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c6iinwo5ipvlv"]
 
-[ext_resource type="Script" uid="uid://cluxya58n4b6s" path="res://Scripts/ula.gd" id="1_gbl1x"]
+[ext_resource type="Script" uid="uid://cluxya58n4b6s" path="res://Scripts/ScriptsLogicaInterna/Componentes/ula.gd" id="1_gbl1x"]
 
 [node name="ula" type="Node2D" unique_id=1882756823]
 script = ExtResource("1_gbl1x")

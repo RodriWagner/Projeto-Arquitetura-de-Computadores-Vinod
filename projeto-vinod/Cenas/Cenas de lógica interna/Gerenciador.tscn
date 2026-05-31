@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ctqsf57s84qvv"]
 
-[ext_resource type="Script" uid="uid://k56h22r4a55y" path="res://Scripts/gerenciador.gd" id="1_y2nxc"]
+[ext_resource type="Script" uid="uid://k56h22r4a55y" path="res://Scripts/ScriptsLogicaInterna/gerenciador.gd" id="1_y2nxc"]
 
 [node name="Gerenciador" type="Node2D" unique_id=2039617576 node_paths=PackedStringArray("timer_dos_subciclos")]
 script = ExtResource("1_y2nxc")

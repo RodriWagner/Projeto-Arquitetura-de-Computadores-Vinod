@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmkvf0b0r2noa"]
 
-[ext_resource type="Script" uid="uid://mckjp53wml0e" path="res://Scripts/barramento.gd" id="1_63veg"]
+[ext_resource type="Script" uid="uid://mckjp53wml0e" path="res://Scripts/ScriptsLogicaInterna/Componentes/barramento.gd" id="1_63veg"]
 
 [node name="Barramento" type="Node2D" unique_id=1135549944]
 script = ExtResource("1_63veg")

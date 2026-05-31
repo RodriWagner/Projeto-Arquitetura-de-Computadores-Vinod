@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://w3w5c5rngag8"]
 
-[ext_resource type="Script" uid="uid://di0kauo8wpgww" path="res://Scripts/registrador_base.gd" id="1_reljr"]
+[ext_resource type="Script" uid="uid://di0kauo8wpgww" path="res://Scripts/ScriptsLogicaInterna/Componentes/registrador_base.gd" id="1_reljr"]
 
 [node name="RegistradorBase" type="Node2D" unique_id=368368964]
 script = ExtResource("1_reljr")

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c41mcgxf5p6cx"]
 
 [ext_resource type="Texture2D" uid="uid://c7ucp1ko1p0p8" path="res://Imagens/imagem processador.png" id="1_jmrqb"]
-[ext_resource type="Script" uid="uid://bx30tptdlv2px" path="res://Scripts/Interface.gd" id="1_loqao"]
+[ext_resource type="Script" uid="uid://bx30tptdlv2px" path="res://Scripts/ScriptsUI/Interface.gd" id="1_loqao"]
 [ext_resource type="Texture2D" uid="uid://cx04hw2qsveih" path="res://Imagens/processador sem fio.png" id="2_loqao"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uchyk"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dh2cptw8ppwur"]
 
-[ext_resource type="Script" uid="uid://up2j87d4ykmu" path="res://Scripts/deslocador.gd" id="1_j7do4"]
+[ext_resource type="Script" uid="uid://up2j87d4ykmu" path="res://Scripts/ScriptsLogicaInterna/Componentes/deslocador.gd" id="1_j7do4"]
 
 [node name="Deslocador" type="Node2D" unique_id=1526665294]
 script = ExtResource("1_j7do4")
