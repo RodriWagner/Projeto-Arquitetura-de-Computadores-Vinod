@@ -169,4 +169,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "INICIAR SIMULAÇÃO"
 
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer3/pausa" to="." method="_on_pausa_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer3/avança" to="." method="_on_avança_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer4/iniciar_simulação" to="." method="_on_iniciar_simulação_pressed"]
