@@ -7,7 +7,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uchyk"]
 bg_color = Color(1, 1, 1, 1)
 
-[node name="Interface" type="Control" unique_id=1786879715 node_paths=PackedStringArray("leitor_de_texto")]
+[node name="Interface" type="Control" unique_id=1786879715 node_paths=PackedStringArray("leitor_de_texto", "velocidade_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_loqao")
 leitor_de_texto = NodePath("PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/PanelContainer/CanvasLayer/ColorRect/codigo_macro")
+velocidade_label = NodePath("PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer2/Label")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=2071102827]
 layout_mode = 1
@@ -120,7 +121,7 @@ text = "-"
 [node name="Label" type="Label" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer2" unique_id=1930290664]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "VELOCIDADE"
+text = "TEMPO ENTRE SUBCICLOS"
 
 [node name="aumentar_vel" type="Button" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer2" unique_id=682489559]
 layout_mode = 2
@@ -169,6 +170,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "INICIAR SIMULAÇÃO"
 
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer2/diminuir_vel" to="." method="_on_diminuir_vel_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer2/aumentar_vel" to="." method="_on_aumentar_vel_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer3/pausa" to="." method="_on_pausa_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer3/avança" to="." method="_on_avança_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer4/iniciar_simulação" to="." method="_on_iniciar_simulação_pressed"]

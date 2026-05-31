@@ -7,6 +7,9 @@ class_name Gerenciador extends Node2D
 @export var timer_ativado : bool = false
 @export var timer_dos_subciclos : Timer
 @export var tempo_entre_subciclos : float = 2
+@export var tempo_entre_subciclos_min : float = 0.5
+@export var tempo_entre_subciclos_max : float = 3.0
+var mudanca_de_tempo : float = 0.25
 
 @export_group("Componentes")
 @export var lista_de_componentes : Dictionary[String, ComponenteBase]
@@ -58,3 +61,15 @@ func _ativa_desativa_timer() -> void:
 	else:
 		timer_ativado = true
 		timer_dos_subciclos.start(tempo_entre_subciclos)
+
+func decrementa_intervalo_timer():
+	if (tempo_entre_subciclos > tempo_entre_subciclos_min):
+		tempo_entre_subciclos -= mudanca_de_tempo
+	else:
+		tempo_entre_subciclos = tempo_entre_subciclos_min
+	
+func aumenta_intervalo_timer():
+	if (tempo_entre_subciclos < tempo_entre_subciclos_max):
+		tempo_entre_subciclos += mudanca_de_tempo
+	else:
+		tempo_entre_subciclos = tempo_entre_subciclos_max

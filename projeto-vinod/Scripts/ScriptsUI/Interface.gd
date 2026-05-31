@@ -9,8 +9,12 @@ extends Control
 
 @export_subgroup("Gerenciador de Tempo")
 @export var gerenciador : Gerenciador;
+@export var velocidade_label : Label;
 
 var iniciou : bool = false
+
+func _ready() -> void:
+	velocidade_label.text = "TEMPO ENTRE SUBCICLOS: " + str(gerenciador.tempo_entre_subciclos) + "s"
 
 func _on_iniciar_simulação_pressed() -> void:
 	# Escreve programa na memória
@@ -33,3 +37,13 @@ func _on_pausa_pressed() -> void:
 	else:
 		gerenciador.timer_ativado = true
 		pause.text = "PAUSA"
+
+
+func _on_aumentar_vel_pressed() -> void:
+	gerenciador.aumenta_intervalo_timer()
+	velocidade_label.text = "TEMPO ENTRE SUBCICLOS: " + str(gerenciador.tempo_entre_subciclos) + "s"
+
+
+func _on_diminuir_vel_pressed() -> void:
+	gerenciador.decrementa_intervalo_timer()
+	velocidade_label.text = "TEMPO ENTRE SUBCICLOS: " + str(gerenciador.tempo_entre_subciclos) + "s"
