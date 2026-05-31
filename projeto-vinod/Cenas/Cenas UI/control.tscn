@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c7ucp1ko1p0p8" path="res://Imagens/imagem processador.png" id="1_jmrqb"]
 [ext_resource type="Script" uid="uid://bx30tptdlv2px" path="res://Scripts/ScriptsUI/Interface.gd" id="1_loqao"]
 [ext_resource type="Texture2D" uid="uid://cx04hw2qsveih" path="res://Imagens/processador sem fio.png" id="2_loqao"]
+[ext_resource type="Script" uid="uid://d1deiaevcxc5e" path="res://Scripts/ScriptsUI/controla_visibilidade.gd" id="4_4jskr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uchyk"]
 bg_color = Color(1, 1, 1, 1)
@@ -15,7 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_loqao")
-leitor_de_texto = NodePath("PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/PanelContainer/CanvasLayer/ColorRect/codigo_macro")
+leitor_de_texto = NodePath("PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/macroinstrucao/codigo_macro")
 velocidade_label = NodePath("PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer2/Label")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=2071102827]
@@ -78,36 +79,53 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = ">"
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer" unique_id=217875517]
+[node name="controla_visibilidade" type="Control" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer" unique_id=1004069146 node_paths=PackedStringArray("MacroInstrucao", "MicroInstrucao")]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 4.58
+size_flags_stretch_ratio = 6.12
+script = ExtResource("4_4jskr")
+MacroInstrucao = NodePath("macroinstrucao")
+MicroInstrucao = NodePath("microinstrucao")
 
-[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/PanelContainer" unique_id=1999796614]
+[node name="macroinstrucao" type="VBoxContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade" unique_id=57218423]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/macroinstrucao" unique_id=1999796614]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "MACROINSTRUÇÃO"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/PanelContainer" unique_id=478432949]
+[node name="codigo_macro" type="TextEdit" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/macroinstrucao" unique_id=674906271]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "DIGITE O CÓDIGO AQUI"
 
-[node name="ColorRect" type="ColorRect" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/PanelContainer/CanvasLayer" unique_id=1534547524]
-anchors_preset = -1
-anchor_left = 0.58900005
-anchor_top = 0.081
-anchor_right = 0.99700004
-anchor_bottom = 0.59300005
-offset_left = -0.88012695
-offset_top = -0.48000336
-offset_right = -0.2401123
-offset_bottom = -0.44006348
-
-[node name="codigo_macro" type="TextEdit" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/PanelContainer/CanvasLayer/ColorRect" unique_id=674906271]
+[node name="microinstrucao" type="VBoxContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade" unique_id=1954092893]
+visible = false
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-placeholder_text = "DIGITE O CÓDIGO AQUI"
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/microinstrucao" unique_id=1981997528]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+text = "MICROINSTRUÇÃO"
+
+[node name="codigo_micro" type="TextEdit" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/microinstrucao" unique_id=1506595967]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 16.69
+editable = false
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer" unique_id=1813561386]
 layout_mode = 2
@@ -170,6 +188,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "INICIAR SIMULAÇÃO"
 
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer/seta_esq" to="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade" method="_on_seta_esq_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer/seta_dir" to="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade" method="_on_seta_dir_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer2/diminuir_vel" to="." method="_on_diminuir_vel_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer2/aumentar_vel" to="." method="_on_aumentar_vel_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer3/pausa" to="." method="_on_pausa_pressed"]
