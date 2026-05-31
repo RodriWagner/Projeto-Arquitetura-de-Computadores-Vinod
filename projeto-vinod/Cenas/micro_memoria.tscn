@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://liwhxf8uc651"]
+
+[ext_resource type="Script" uid="uid://bktjmdq5gkse5" path="res://Scripts/micro_memoria.gd" id="1_225bx"]
+
+[node name="micro_memoria" type="Node2D" unique_id=1430280428]
+script = ExtResource("1_225bx")
