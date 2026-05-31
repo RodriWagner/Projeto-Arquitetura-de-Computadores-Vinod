@@ -13,7 +13,7 @@ class_name Gerenciador extends Node2D
 
 ## Incrementa o subciclo em 1 unicade levando em conta que
 ## ao incrementar o quarto subciclo, ele volta para o primeiro
-func incrementa_subciclo(novo_subciclo : int):
+func _incrementa_subciclo(novo_subciclo : int):
 	if novo_subciclo < 4:
 		novo_subciclo += 1
 	else:
@@ -40,7 +40,7 @@ func atualiza_subciclos():
 			lista_de_componentes["DecoderC"].agir()
 			# MBR pega dado para ser gravado na memória
 			lista_de_componentes["MBR"].agir()
-	subciclo = incrementa_subciclo(subciclo);
+	subciclo = _incrementa_subciclo(subciclo);
 
 ## Função chamada toda vez que um ciclo é atualizado.
 ## Responsável fazer subciclos em frames diferentes e seguidos, compondo um ciclo.
