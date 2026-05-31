@@ -1,12 +1,12 @@
-extends Node2D
+class_name Gerenciador extends Node2D
 
 ## Subciclo atual. Varia entre 1 e 4.
 @export_range(1, 4) var subciclo : int = 1
 
 @export_group("Timer dos Ciclos")
 @export var timer_ativado : bool = false
-@export var timer_dos_ciclos : Timer
-@export var tempo_entre_ciclos : float = 2
+@export var timer_dos_subciclos : Timer
+@export var tempo_entre_subciclos : float = 2
 
 @export_group("Componentes")
 @export var lista_de_componentes : Dictionary[String, ComponenteBase]
@@ -54,7 +54,7 @@ func atualiza_ciclos():
 func _ativa_desativa_timer() -> void:
 	if timer_ativado:
 		timer_ativado = false
-		timer_dos_ciclos.stop()
+		timer_dos_subciclos.stop()
 	else:
 		timer_ativado = true
-		timer_dos_ciclos.start(tempo_entre_ciclos)
+		timer_dos_subciclos.start(tempo_entre_subciclos)

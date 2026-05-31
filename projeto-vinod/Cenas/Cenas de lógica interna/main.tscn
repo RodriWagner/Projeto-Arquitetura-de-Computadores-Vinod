@@ -7,12 +7,13 @@
 
 [node name="main" type="Node2D" unique_id=1166532672]
 
-[node name="Interface" parent="." unique_id=1786879715 node_paths=PackedStringArray("leitor_de_macro", "memoria_principal") instance=ExtResource("1_bna0h")]
+[node name="Interface" parent="." unique_id=1786879715 node_paths=PackedStringArray("leitor_de_macro", "memoria_principal", "gerenciador") instance=ExtResource("1_bna0h")]
 offset_left = 2.0
 offset_right = 1278.0
 offset_bottom = 718.0
 leitor_de_macro = NodePath("../LeitorDeMacro")
 memoria_principal = NodePath("../MemoriaPrincipal")
+gerenciador = NodePath("../Gerenciador")
 
 [node name="MemoriaPrincipal" parent="." unique_id=266650011 instance=ExtResource("2_qahpq")]
 
