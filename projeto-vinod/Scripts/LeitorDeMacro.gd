@@ -1,4 +1,4 @@
-extends Node2D
+class_name LeitorDeMacro extends Node2D
 
 var traducao_opcode : Dictionary = {
 		"LOAD" : "0000",
@@ -27,7 +27,7 @@ var traducao_opcode : Dictionary = {
 		"" : "0000000000000000"
 	}
 
-func decimal_para_binario(numero: int) -> String:
+func _decimal_para_binario(numero: int) -> String:
 	if numero == 0:
 		return "0"
 	
@@ -44,7 +44,7 @@ func decimal_para_binario(numero: int) -> String:
 
 ## Limpa os espaços do inicio e final de cada linha. 
 ## Retorna a lista limpa.
-func limpa_espacos(texto_em_linhas : PackedStringArray) -> PackedStringArray:
+func _limpa_espacos(texto_em_linhas : PackedStringArray) -> PackedStringArray:
 	var i : int = 0;
 	var tam_lista : int = texto_em_linhas.size();
 	while (i < tam_lista):
@@ -97,7 +97,7 @@ func _remove_labels(texto_em_linhas : PackedStringArray, lista_de_labels : Array
 func _instrucao_binario(instrucao : String, conteudo : String, lista_de_labels : Array[Dictionary]) -> String:
 	var instrucao_binario : String = traducao_opcode[instrucao];
 	if (conteudo.is_valid_int()):
-		var conteudo_binario : String = decimal_para_binario(int(conteudo));
+		var conteudo_binario : String = _decimal_para_binario(int(conteudo));
 		var zero_faltando = 16 - instrucao_binario.length() - conteudo_binario.length();
 		if (zero_faltando > 0):
 			conteudo_binario = "0".repeat(zero_faltando) + conteudo_binario;
@@ -109,7 +109,7 @@ func _instrucao_binario(instrucao : String, conteudo : String, lista_de_labels :
 	else:
 		for i in lista_de_labels:
 			if (conteudo in i.keys()):
-				var label_binario = decimal_para_binario(i[conteudo])
+				var label_binario = _decimal_para_binario(i[conteudo])
 				var zero_faltando = 16 - instrucao_binario.length() - label_binario.length();
 				if (zero_faltando > 0):
 					label_binario = "0".repeat(zero_faltando) + label_binario;
@@ -128,7 +128,7 @@ func trata_texto(texto : String) -> PackedStringArray:
 		return [];
 		
 	# separa o texto em linhas
-	var texto_em_linhas : PackedStringArray = limpa_espacos(texto.split("\n"));
+	var texto_em_linhas : PackedStringArray = _limpa_espacos(texto.split("\n"));
 	# guarda aonde estarão os pulos
 	var lista_de_labels : Array[Dictionary] = _armazena_labels(texto_em_linhas);
 	# remove os labels para passarmos a tratar do código

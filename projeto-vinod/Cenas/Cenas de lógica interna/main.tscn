@@ -1,3 +1,22 @@
 [gd_scene format=3 uid="uid://7l7gujmdmgnc"]
 
+[ext_resource type="PackedScene" uid="uid://c41mcgxf5p6cx" path="res://Cenas/Cenas UI/control.tscn" id="1_bna0h"]
+[ext_resource type="PackedScene" uid="uid://ctqsf57s84qvv" path="res://Cenas/Cenas de lógica interna/Gerenciador.tscn" id="2_0d1f0"]
+[ext_resource type="PackedScene" uid="uid://b0cyc2md1xldw" path="res://Cenas/Cenas de lógica interna/MemoriaPrincipal.tscn" id="2_qahpq"]
+[ext_resource type="PackedScene" uid="uid://dybyv16fmmv1w" path="res://Cenas/Cenas de lógica interna/LeitorDeMacro.tscn" id="4_uv7h8"]
+
 [node name="main" type="Node2D" unique_id=1166532672]
+
+[node name="Interface" parent="." unique_id=1786879715 node_paths=PackedStringArray("leitor_de_macro", "memoria_principal") instance=ExtResource("1_bna0h")]
+offset_left = 2.0
+offset_right = 1278.0
+offset_bottom = 718.0
+leitor_de_macro = NodePath("../LeitorDeMacro")
+memoria_principal = NodePath("../MemoriaPrincipal")
+
+[node name="MemoriaPrincipal" parent="." unique_id=266650011 instance=ExtResource("2_qahpq")]
+
+[node name="Gerenciador" parent="." unique_id=2039617576 instance=ExtResource("2_0d1f0")]
+
+[node name="LeitorDeMacro" parent="." unique_id=761820345 instance=ExtResource("4_uv7h8")]
+position = Vector2(2, 0)

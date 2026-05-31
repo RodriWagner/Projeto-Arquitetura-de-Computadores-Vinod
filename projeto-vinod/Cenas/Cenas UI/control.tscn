@@ -1,19 +1,21 @@
 [gd_scene format=3 uid="uid://c41mcgxf5p6cx"]
 
 [ext_resource type="Texture2D" uid="uid://c7ucp1ko1p0p8" path="res://Imagens/imagem processador.png" id="1_jmrqb"]
+[ext_resource type="Script" uid="uid://bx30tptdlv2px" path="res://Scripts/Interface.gd" id="1_loqao"]
 [ext_resource type="Texture2D" uid="uid://cx04hw2qsveih" path="res://Imagens/processador sem fio.png" id="2_loqao"]
-[ext_resource type="PackedScene" uid="uid://dybyv16fmmv1w" path="res://Cenas/Cenas de lógica interna/LeitorDeMacro.tscn" id="3_loqao"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uchyk"]
 bg_color = Color(1, 1, 1, 1)
 
-[node name="Interface" type="Control" unique_id=1786879715]
+[node name="Interface" type="Control" unique_id=1786879715 node_paths=PackedStringArray("leitor_de_texto")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_loqao")
+leitor_de_texto = NodePath("PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/PanelContainer/CanvasLayer/ColorRect/codigo_macro")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=2071102827]
 layout_mode = 1
@@ -104,15 +106,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-text = "ADDD 5
-SUBD 4
-JUMP else
-ADDD 5
-else:"
 placeholder_text = "DIGITE O CÓDIGO AQUI"
-
-[node name="LeitorDeMacro" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/PanelContainer/CanvasLayer/ColorRect/codigo_macro" unique_id=761820345 node_paths=PackedStringArray("leitor") instance=ExtResource("3_loqao")]
-leitor = NodePath("..")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer" unique_id=1813561386]
 layout_mode = 2
@@ -174,3 +168,5 @@ text = "VOLTAR PARA O MENU"
 layout_mode = 2
 size_flags_horizontal = 3
 text = "INICIAR SIMULAÇÃO"
+
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer4/iniciar_simulação" to="." method="_on_iniciar_simulação_pressed"]
