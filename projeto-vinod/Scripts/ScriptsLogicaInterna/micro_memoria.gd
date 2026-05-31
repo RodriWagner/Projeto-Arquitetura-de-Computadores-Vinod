@@ -1,4 +1,4 @@
-class_name MicroMemoria extends ComponenteBase
+extends ComponenteBase
 
 var microinstructions: PackedStringArray = []
 
@@ -492,7 +492,7 @@ func _ready() -> void:
 	
 
 	# 52: alu:=tir; if n then goto 56;
-	microinstructions.append("")
+	microinstructions.append("00110000000000000101010000111000")
 		#"name": "alu := tir; if n then goto 56",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
@@ -501,236 +501,234 @@ func _ready() -> void:
 	
 
 	# 53: mar:=ac; rd;
-	microinstructions.append({
-		"name": "mar := ac; rd",
-		"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
-		"MBR": "0", "MAR": "1", "RD": "1", "WR": "0", "ENC": "0",
-		"C": "0000", "B": "0001", "A": "0101",
-		"ADDR": "00000000"
-	})
+	microinstructions.append("00010000110000000001010100000000")
+		#"name": "mar := ac; rd",
+		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
+		#"MBR": "0", "MAR": "1", "RD": "1", "WR": "0", "ENC": "0",
+		#"C": "0000", "B": "0001", "A": "0101",
+		#"ADDR": "00000000"
+	
 
 	# 54: sp:=sp + (-1); rd;
-	microinstructions.append({
-		"name": "sp := sp + (-1); rd",
-		"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
-		"MBR": "0", "MAR": "0", "RD": "1", "WR": "0", "ENC": "1",
-		"C": "0010", "B": "0111", "A": "0010",
-		"ADDR": "00000000"
-	})
+	microinstructions.append("00000000010100100111001000000000")
+		#"name": "sp := sp + (-1); rd",
+		#"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
+		#"MBR": "0", "MAR": "0", "RD": "1", "WR": "0", "ENC": "1",
+		#"C": "0010", "B": "0111", "A": "0010",
+		#"ADDR": "00000000"
+	
 
 	# 55: mar:=sp; wr; goto 10;
-	microinstructions.append({
-		"name": "mar := sp; wr; goto 10",
-		"AMUX": "0", "COND": "11", "ULA": "10", "DESL": "00",
-		"MBR": "0", "MAR": "1", "RD": "0", "WR": "1", "ENC": "0",
-		"C": "0000", "B": "0010", "A": "0101",
-		"ADDR": "00001010"
-	})
+	microinstructions.append("01110000101000000010010100001010")
+		#"name": "mar := sp; wr; goto 10",
+		#"AMUX": "0", "COND": "11", "ULA": "10", "DESL": "00",
+		#"MBR": "0", "MAR": "1", "RD": "0", "WR": "1", "ENC": "0",
+		#"C": "0000", "B": "0010", "A": "0101",
+		#"ADDR": "00001010"
+	
 
 	# 56: mar:=sp; sp:=sp + 1; rd;
-	microinstructions.append({
-		"name": "mar := sp; sp := sp + 1; rd",
-		"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
-		"MBR": "0", "MAR": "1", "RD": "1", "WR": "0", "ENC": "1",
-		"C": "0010", "B": "0010", "A": "0110",
-		"ADDR": "00000000"
-	})
+	microinstructions.append("00000000110100100010011000000000")
+		#"name": "mar := sp; sp := sp + 1; rd",
+		#"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
+		#"MBR": "0", "MAR": "1", "RD": "1", "WR": "0", "ENC": "1",
+		#"C": "0010", "B": "0010", "A": "0110",
+		#"ADDR": "00000000"
+	
 
 	# 57: rd;
-	microinstructions.append({
-		"name": "rd",
-		"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
-		"MBR": "0", "MAR": "0", "RD": "1", "WR": "0", "ENC": "0",
-		"C": "0000", "B": "0101", "A": "0101",
-		"ADDR": "00000000"
-	})
-
+	microinstructions.append("00010000010000000101010100000000")
+		#"name": "rd",
+		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
+		#"MBR": "0", "MAR": "0", "RD": "1", "WR": "0", "ENC": "0",
+		#"C": "0000", "B": "0101", "A": "0101",
+		#"ADDR": "00000000"
+	
+	
 	# 58: mar:=ac; wr; goto 10;
-	microinstructions.append({
-		"name": "mar := ac; wr; goto 10",
-		"AMUX": "0", "COND": "11", "ULA": "10", "DESL": "00",
-		"MBR": "0", "MAR": "1", "RD": "0", "WR": "1", "ENC": "0",
-		"C": "0000", "B": "0001", "A": "0101",
-		"ADDR": "00001010"
-	})
+	microinstructions.append("01110000101000000001010100001010")
+		#"name": "mar := ac; wr; goto 10",
+		#"AMUX": "0", "COND": "11", "ULA": "10", "DESL": "00",
+		#"MBR": "0", "MAR": "1", "RD": "0", "WR": "1", "ENC": "0",
+		#"C": "0000", "B": "0001", "A": "0101",
+		#"ADDR": "00001010"
+	
 
 	# 59: alu:=tir; if n then goto 62;
-	microinstructions.append({
-		"name": "alu := tir; if n then goto 62",
-		"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
-		"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
-		"C": "0000", "B": "0101", "A": "0100",
-		"ADDR": "00111110"
-	})
+	microinstructions.append("00110000000000000101010000111110")
+		#"name": "alu := tir; if n then goto 62",
+		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
+		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
+		#"C": "0000", "B": "0101", "A": "0100",
+		#"ADDR": "00111110"
+	
 
 	# 60: sp:=sp + (-1);
-	microinstructions.append({
-		"name": "sp := sp + (-1)",
-		"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
-		"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
-		"C": "0010", "B": "0111", "A": "0010",
-		"ADDR": "00000000"
-	})
+	microinstructions.append("00000000010100100111001000000000")
+		#"name": "sp := sp + (-1); rd",
+		#"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
+		#"MBR": "0", "MAR": "0", "RD": "1", "WR": "0", "ENC": "1",
+		#"C": "0010", "B": "0111", "A": "0010",
+		#"ADDR": "00000000"
+	
 
 	# 61: mar:=sp; mbr:=ac; wr; goto 10;
-	microinstructions.append({
-		"name": "mar := sp; mbr := ac; wr; goto 10",
-		"AMUX": "0", "COND": "11", "ULA": "10", "DESL": "00",
-		"MBR": "1", "MAR": "1", "RD": "0", "WR": "1", "ENC": "0",
-		"C": "0000", "B": "0010", "A": "0001",
-		"ADDR": "00001010"
-	})
+	microinstructions.append("01110001101000000010000100001010")
+		#"name": "mar := sp; mbr := ac; wr; goto 10",
+		#"AMUX": "0", "COND": "11", "ULA": "10", "DESL": "00",
+		#"MBR": "1", "MAR": "1", "RD": "0", "WR": "1", "ENC": "0",
+		#"C": "0000", "B": "0010", "A": "0001",
+		#"ADDR": "00001010"
+	
 
 	# 62: mar:=sp; sp:=sp + 1; rd;
-	microinstructions.append({
-		"name": "mar := sp; sp := sp + 1; rd",
-		"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
-		"MBR": "0", "MAR": "1", "RD": "1", "WR": "0", "ENC": "1",
-		"C": "0010", "B": "0010", "A": "0110",
-		"ADDR": "00000000"
-	})
+	microinstructions.append("00000000110100100010011000000000")
+		#"name": "mar := sp; sp := sp + 1; rd",
+		#"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
+		#"MBR": "0", "MAR": "1", "RD": "1", "WR": "0", "ENC": "1",
+		#"C": "0010", "B": "0010", "A": "0110",
+		#"ADDR": "00000000"
+	
 
 	# 63: rd;
-	microinstructions.append({
-		"name": "rd",
-		"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
-		"MBR": "0", "MAR": "0", "RD": "1", "WR": "0", "ENC": "0",
-		"C": "0000", "B": "0101", "A": "0101",
-		"ADDR": "00000000"
-	})
+	microinstructions.append("00010000010000000101010100000000")
+		#"name": "rd",
+		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
+		#"MBR": "0", "MAR": "0", "RD": "1", "WR": "0", "ENC": "0",
+		#"C": "0000", "B": "0101", "A": "0101",
+		#"ADDR": "00000000"
 
 	# 64: ac:=mbr; goto 0;
-	microinstructions.append({
-		"name": "ac := mbr; goto 0",
-		"AMUX": "1", "COND": "11", "ULA": "10", "DESL": "00",
-		"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
-		"C": "0001", "B": "0101", "A": "0101",
-		"ADDR": "00000000"
-	})
+	microinstructions.append("11110000000100010101010100000000")
+		#"name": "ac := mbr; goto 0",
+		#"AMUX": "1", "COND": "11", "ULA": "10", "DESL": "00",
+		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
+		#"C": "0001", "B": "0101", "A": "0101",
+		#"ADDR": "00000000"
+	
 
 	# 65: tir:=lshift(tir); if n then goto 73;
-	microinstructions.append({
-		"name": "tir := lshift(tir); if n then goto 73",
-		"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "10",
-		"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
-		"C": "0100", "B": "0101", "A": "0100",
-		"ADDR": "01001001"
-	})
+	microinstructions.append("00110100000101000101010001001001")
+		#"name": "tir := lshift(tir); if n then goto 73",
+		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "10",
+		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
+		#"C": "0100", "B": "0101", "A": "0100",
+		#"ADDR": "01001001"
+	
 
 	# 66: alu:=tir; if n then goto 70;
-	microinstructions.append({
-		"name": "alu := tir; if n then goto 70",
-		"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
-		"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
-		"C": "0000", "B": "0101", "A": "0100",
-		"ADDR": "01000110"
-	})
+	microinstructions.append("00110000000000000101010001000110")
+		#"name": "alu := tir; if n then goto 70",
+		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
+		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
+		#"C": "0000", "B": "0101", "A": "0100",
+		#"ADDR": "01000110"
+	
 
 	# 67: mar:=sp; sp:=sp + 1; rd;
-	microinstructions.append({
-		"name": "mar := sp; sp := sp + 1; rd",
-		"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
-		"MBR": "0", "MAR": "1", "RD": "1", "WR": "0", "ENC": "1",
-		"C": "0010", "B": "0010", "A": "0110",
-		"ADDR": "00000000"
-	})
+	microinstructions.append("00000000110100100010011000000000")
+		#"name": "mar := sp; sp := sp + 1; rd",
+		#"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
+		#"MBR": "0", "MAR": "1", "RD": "1", "WR": "0", "ENC": "1",
+		#"C": "0010", "B": "0010", "A": "0110",
+		#"ADDR": "00000000"
+	
 
 	# 68: rd;
-	microinstructions.append({
-		"name": "rd",
-		"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
-		"MBR": "0", "MAR": "0", "RD": "1", "WR": "0", "ENC": "0",
-		"C": "0000", "B": "0101", "A": "0101",
-		"ADDR": "00000000"
-	})
+	microinstructions.append("00010000010000000101010100000000")
+		#"name": "rd",
+		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
+		#"MBR": "0", "MAR": "0", "RD": "1", "WR": "0", "ENC": "0",
+		#"C": "0000", "B": "0101", "A": "0101",
+		#"ADDR": "00000000"
 
 	# 69: pc:=mbr; goto 0;
-	microinstructions.append({
-		"name": "pc := mbr; goto 0",
-		"AMUX": "1", "COND": "11", "ULA": "10", "DESL": "00",
-		"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
-		"C": "0000", "B": "0101", "A": "0101",
-		"ADDR": "00000000"
-	})
-
+	microinstructions.append("11110000000100000101010100000000")
+		#"name": "pc := mbr; goto 0",
+		#"AMUX": "1", "COND": "11", "ULA": "10", "DESL": "00",
+		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
+		#"C": "0000", "B": "0101", "A": "0101",
+		#"ADDR": "00000000"
+	
+	
 	# 70: a:=ac;
-	microinstructions.append({
-		"name": "a := ac",
-		"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
-		"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
-		"C": "1010", "B": "0101", "A": "0001",
-		"ADDR": "00000000"
-	})
+	microinstructions.append("00010000000110100101000100000000")
+		#"name": "a := ac",
+		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
+		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
+		#"C": "1010", "B": "0101", "A": "0001",
+		#"ADDR": "00000000"
+	
 
 	# 71: ac:=sp;
-	microinstructions.append({
-		"name": "ac := sp",
-		"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
-		"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
-		"C": "0001", "B": "0101", "A": "0010",
-		"ADDR": "00000000"
-	})
+	microinstructions.append("00010000000100010101001000000000")
+		#"name": "ac := sp",
+		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
+		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
+		#"C": "0001", "B": "0101", "A": "0010",
+		#"ADDR": "00000000"
+	
 
 	# 72: sp:=a; goto 0;
-	microinstructions.append({
-		"name": "sp := a; goto 0",
-		"AMUX": "0", "COND": "11", "ULA": "10", "DESL": "00",
-		"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
-		"C": "0010", "B": "0101", "A": "1010",
-		"ADDR": "00000000"
-	})
+	microinstructions.append("01110000000100100101101000000000")
+		#"name": "sp := a; goto 0",
+		#"AMUX": "0", "COND": "11", "ULA": "10", "DESL": "00",
+		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
+		#"C": "0010", "B": "0101", "A": "1010",
+		#"ADDR": "00000000"
+	
 
 	# 73: alu:=tir; if n then goto 76;
-	microinstructions.append({
-		"name": "alu := tir; if n then goto 76",
-		"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
-		"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
-		"C": "0000", "B": "0101", "A": "0100",
-		"ADDR": "01001100"
-	})
+	microinstructions.append("00110000000000000101010001001100")
+		#"name": "alu := tir; if n then goto 76",
+		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
+		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
+		#"C": "0000", "B": "0101", "A": "0100",
+		#"ADDR": "01001100"
+	
 
 	# 74: a:=band(ir,smask);
-	microinstructions.append({
-		"name": "a := band(ir,smask)",
-		"AMUX": "0", "COND": "00", "ULA": "01", "DESL": "00",
-		"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
-		"C": "1010", "B": "1001", "A": "0011",
-		"ADDR": "00000000"
-	})
+	microinstructions.append("00001000000110101001001100000000")
+		#"name": "a := band(ir,smask)",
+		#"AMUX": "0", "COND": "00", "ULA": "01", "DESL": "00",
+		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
+		#"C": "1010", "B": "1001", "A": "0011",
+		#"ADDR": "00000000"
+	
 
 	# 75: sp:=sp + a; goto 0;
-	microinstructions.append({
-		"name": "sp := sp + a; goto 0",
-		"AMUX": "0", "COND": "11", "ULA": "00", "DESL": "00",
-		"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
-		"C": "0010", "B": "1010", "A": "0010",
-		"ADDR": "00000000"
-	})
+	microinstructions.append("01100000000100101010001000000000")
+		#"name": "sp := sp + a; goto 0",
+		#"AMUX": "0", "COND": "11", "ULA": "00", "DESL": "00",
+		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
+		#"C": "0010", "B": "1010", "A": "0010",
+		#"ADDR": "00000000"
+	
 
 	# 76: a:=band(ir,smask);
-	microinstructions.append({
-		"name": "a := band(ir,smask)",
-		"AMUX": "0", "COND": "00", "ULA": "01", "DESL": "00",
-		"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
-		"C": "1010", "B": "1001", "A": "0011",
-		"ADDR": "00000000"
-	})
+	microinstructions.append("00001000000110101001001100000000")
+		#"name": "a := band(ir,smask)",
+		#"AMUX": "0", "COND": "00", "ULA": "01", "DESL": "00",
+		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
+		#"C": "1010", "B": "1001", "A": "0011",
+		#"ADDR": "00000000"
+	
 
 	# 77: a:=inv(a);
-	microinstructions.append({
-		"name": "a := inv(a)",
-		"AMUX": "0", "COND": "00", "ULA": "11", "DESL": "00",
-		"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
-		"C": "1010", "B": "0101", "A": "1010",
-		"ADDR": "00000000"
-	})
+	microinstructions.append("00011000000110100101101000000000")
+		#"name": "a := inv(a)",
+		#"AMUX": "0", "COND": "00", "ULA": "11", "DESL": "00",
+		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
+		#"C": "1010", "B": "0101", "A": "1010",
+		#"ADDR": "00000000"
+	
 
 	# 78: a:=a + 1; goto 75;
-	microinstructions.append({
-		"name": "a := a + 1; goto 75",
-		"AMUX": "0", "COND": "11", "ULA": "00", "DESL": "00",
-		"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
-		"C": "1010", "B": "0110", "A": "1010",
-		"ADDR": "01001011"
-	})
+	microinstructions.append("01100000000110100110101001001011")
+		#"name": "a := a + 1; goto 75",
+		#"AMUX": "0", "COND": "11", "ULA": "00", "DESL": "00",
+		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
+		#"C": "1010", "B": "0110", "A": "1010",
+		#"ADDR": "01001011"
+	
 	
