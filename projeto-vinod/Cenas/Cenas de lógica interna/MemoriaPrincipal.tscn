@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b0cyc2md1xldw"]
+
+[ext_resource type="Script" uid="uid://dwj0xjfcrc0u5" path="res://Scripts/memoriaprincipal.gd" id="1_xq5g3"]
+
+[node name="MemoriaPrincipal" type="Node2D" unique_id=266650011]
+script = ExtResource("1_xq5g3")
