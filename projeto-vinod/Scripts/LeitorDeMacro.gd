@@ -25,7 +25,8 @@ var traducao_opcode : Dictionary = {
 		"RETN" : "1111100000000000",
 		"SWAP" : "1111101000000000",
 		"INSP" : "11111100",
-		"DESP" : "11111100"
+		"DESP" : "11111100",
+		"" : "0000000000000000"
 	}
 
 func decimal_para_binario(numero: int) -> String:

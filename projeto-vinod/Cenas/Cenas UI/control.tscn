@@ -104,6 +104,11 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+text = "ADDD 5
+SUBD 4
+JUMP else
+ADDD 5
+else:"
 placeholder_text = "DIGITE O CÓDIGO AQUI"
 
 [node name="LeitorDeMacro" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/PanelContainer/CanvasLayer/ColorRect/codigo_macro" unique_id=761820345 node_paths=PackedStringArray("leitor") instance=ExtResource("3_loqao")]
