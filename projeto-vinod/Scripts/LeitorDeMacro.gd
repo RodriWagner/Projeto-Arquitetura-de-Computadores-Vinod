@@ -1,7 +1,5 @@
 extends Node2D
 
-@export var leitor : TextEdit;
-
 var traducao_opcode : Dictionary = {
 		"LOAD" : "0000",
 		"STOD" : "0001",
@@ -124,9 +122,8 @@ func _instrucao_binario(instrucao : String, conteudo : String, lista_de_labels :
 
 ## Função responsável por tratar todo o texto em Macro Instrução inserido pelo usuário.
 ## Transforma a escrita humana em binário para o resto do sistema usar.
-func trata_texto() -> PackedStringArray:
-	# recebe o texto
-	var texto : String = leitor.text;
+## Ela recebe o TExtEdit.text como parametro.
+func trata_texto(texto : String) -> PackedStringArray:
 	if (texto == ""):
 		return [];
 		
@@ -148,6 +145,3 @@ func trata_texto() -> PackedStringArray:
 	
 	# retorna a lista de instruções (so que em binário)
 	return lista_de_binario;
-
-func _ready() -> void:
-	print(trata_texto())
