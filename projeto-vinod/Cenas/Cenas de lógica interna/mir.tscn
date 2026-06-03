@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://tbk44hxr3gv6"]
+
+[ext_resource type="Script" uid="uid://smk7imb46cej" path="res://Scripts/ScriptsLogicaInterna/Componentes/mir.gd" id="1_iydyq"]
+
+[node name="mir" type="Node2D" unique_id=298301598]
+script = ExtResource("1_iydyq")
