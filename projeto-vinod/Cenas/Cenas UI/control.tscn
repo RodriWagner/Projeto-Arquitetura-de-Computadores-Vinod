@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bx30tptdlv2px" path="res://Scripts/ScriptsUI/Interface.gd" id="1_loqao"]
 [ext_resource type="Texture2D" uid="uid://cx04hw2qsveih" path="res://Imagens/processador sem fio.png" id="2_loqao"]
 [ext_resource type="Script" uid="uid://d1deiaevcxc5e" path="res://Scripts/ScriptsUI/controla_visibilidade.gd" id="4_4jskr"]
+[ext_resource type="PackedScene" uid="uid://dofyffrpaxm0q" path="res://Cenas/Cenas de lógica interna/barramento_padrao.tscn" id="4_ya72m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uchyk"]
 bg_color = Color(1, 1, 1, 1)
@@ -50,6 +51,26 @@ expand_mode = 1
 layout_mode = 2
 texture = ExtResource("2_loqao")
 expand_mode = 1
+
+[node name="Barramento" parent="PanelContainer/HBoxContainer/Componentes/PanelContainer" unique_id=2119868781 instance=ExtResource("4_ya72m")]
+visible = false
+points = PackedVector2Array(508, 140, 520, 128)
+width = 5.0
+
+[node name="Barramento2" parent="PanelContainer/HBoxContainer/Componentes/PanelContainer" unique_id=1299327731 instance=ExtResource("4_ya72m")]
+visible = false
+points = PackedVector2Array(508, 98, 520, 86)
+width = 5.0
+
+[node name="Barramento3" parent="PanelContainer/HBoxContainer/Componentes/PanelContainer" unique_id=2127604937 instance=ExtResource("4_ya72m")]
+visible = false
+points = PackedVector2Array(508, 56, 520, 44)
+width = 5.0
+
+[node name="Barramento4" parent="PanelContainer/HBoxContainer/Componentes/PanelContainer" unique_id=1354778276 instance=ExtResource("4_ya72m")]
+visible = false
+points = PackedVector2Array(466, 44, 476, 30)
+width = 5.0
 
 [node name="Botões e Texto" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=1211319637]
 layout_mode = 2

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dofyffrpaxm0q"]
+
+[ext_resource type="Script" uid="uid://mckjp53wml0e" path="res://Scripts/ScriptsLogicaInterna/Componentes/barramento.gd" id="1_o658h"]
+
+[node name="Barramento" type="Line2D" unique_id=2119868781]
+width = 8.0
+default_color = Color(0, 0, 0, 1)
+begin_cap_mode = 1
+end_cap_mode = 1
+antialiased = true
+script = ExtResource("1_o658h")
