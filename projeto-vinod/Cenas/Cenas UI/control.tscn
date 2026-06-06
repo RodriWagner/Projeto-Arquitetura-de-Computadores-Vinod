@@ -237,4 +237,5 @@ text = "INICIAR SIMULAÇÃO"
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer2/aumentar_vel" to="." method="_on_aumentar_vel_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer3/pausa" to="." method="_on_pausa_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer3/avança" to="." method="_on_avança_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer4/voltar_menu" to="." method="_on_voltar_menu_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer4/iniciar_simulação" to="." method="_on_iniciar_simulação_pressed"]

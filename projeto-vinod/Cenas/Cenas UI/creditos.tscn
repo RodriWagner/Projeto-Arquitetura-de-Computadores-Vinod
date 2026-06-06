@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://0x30vtbx47h8"]
+
+[ext_resource type="Script" uid="uid://dqkntn0i23guf" path="res://Scripts/ScriptsUI/creditos.gd" id="1_lfl2r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jvln"]
+content_margin_left = 19.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35906926, 0.35906905, 0.35906902, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee56u"]
+content_margin_left = 19.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35906926, 0.35906905, 0.35906902, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ui2m"]
+content_margin_left = 19.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35906926, 0.35906905, 0.35906902, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfl2r"]
+content_margin_left = 19.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35906926, 0.35906905, 0.35906902, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+
+[node name="Creditos" type="Control" unique_id=715967019]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lfl2r")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1182563397]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1121113024]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1264372983]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=622319704]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1429253219]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "CRÉDITOS:"
+
+[node name="Label6" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=626401234]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1172961736]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Enzo Baddini Almada"
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=305568942]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Renan Ricardo Cidinho de Freitas"
+
+[node name="Label4" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1965977083]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Rodrigo Wagner de Souza"
+
+[node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1358720371]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Thiago Luiz Chaves de Castro"
+
+[node name="Label7" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1819153294]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=282959145]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jvln")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ee56u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3ui2m")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_lfl2r")
+text = "VOLTAR PARA O MENU"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

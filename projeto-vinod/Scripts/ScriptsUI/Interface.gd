@@ -47,3 +47,7 @@ func _on_aumentar_vel_pressed() -> void:
 func _on_diminuir_vel_pressed() -> void:
 	gerenciador.decrementa_intervalo_timer()
 	velocidade_label.text = "TEMPO ENTRE SUBCICLOS: " + str(gerenciador.tempo_entre_subciclos) + "s"
+
+
+func _on_voltar_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://Cenas/Cenas UI/menu.tscn")
