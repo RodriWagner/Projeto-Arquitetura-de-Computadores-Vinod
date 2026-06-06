@@ -2,9 +2,94 @@
 
 [ext_resource type="PackedScene" uid="uid://c41mcgxf5p6cx" path="res://Cenas/Cenas UI/control.tscn" id="1_bna0h"]
 [ext_resource type="PackedScene" uid="uid://ctqsf57s84qvv" path="res://Cenas/Cenas de lógica interna/Gerenciador.tscn" id="2_0d1f0"]
+[ext_resource type="FontFile" uid="uid://cqay54kdtmpxm" path="res://Imagens/Hand Drawn Shapes.ttf" id="2_2wkvw"]
 [ext_resource type="PackedScene" uid="uid://b0cyc2md1xldw" path="res://Cenas/Cenas de lógica interna/MemoriaPrincipal.tscn" id="2_qahpq"]
+[ext_resource type="StyleBox" uid="uid://v6qqt3g0j337" path="res://Imagens/botao_maisbonito.tres" id="3_vwcfy"]
 [ext_resource type="PackedScene" uid="uid://dybyv16fmmv1w" path="res://Cenas/Cenas de lógica interna/LeitorDeMacro.tscn" id="4_uv7h8"]
 [ext_resource type="PackedScene" uid="uid://dofyffrpaxm0q" path="res://Cenas/Cenas de lógica interna/barramento_padrao.tscn" id="5_uv7h8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwcfy"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5sm5k"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ekku"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3egq"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_uv7h8"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 0.5019608)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 18
+Button/fonts/font = ExtResource("2_2wkvw")
+Button/styles/disabled = SubResource("StyleBoxFlat_vwcfy")
+Button/styles/focus = SubResource("StyleBoxFlat_5sm5k")
+Button/styles/hover = SubResource("StyleBoxFlat_4ekku")
+Button/styles/normal = ExtResource("3_vwcfy")
+Button/styles/pressed = SubResource("StyleBoxFlat_v3egq")
 
 [node name="main" type="Node2D" unique_id=1166532672]
 
@@ -12,6 +97,7 @@
 offset_left = 2.0
 offset_right = 1278.0
 offset_bottom = 718.0
+theme = SubResource("Theme_uv7h8")
 leitor_de_macro = NodePath("../LeitorDeMacro")
 memoria_principal = NodePath("../MemoriaPrincipal")
 gerenciador = NodePath("../Gerenciador")

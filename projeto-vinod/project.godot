@@ -30,6 +30,10 @@ folder_colors={
 "res://Scripts/": "teal"
 }
 
+[gui]
+
+theme/custom_font="uid://cqay54kdtmpxm"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
