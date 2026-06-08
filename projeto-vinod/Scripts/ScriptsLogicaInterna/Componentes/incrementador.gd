@@ -14,6 +14,9 @@ func agir():
 			result = str(temp & 1) + result
 			temp = temp >> 1
 		
+		if result.length() == 33:
+			result = result.substr(1)
+				
 		saida = result
 	
 	else:
