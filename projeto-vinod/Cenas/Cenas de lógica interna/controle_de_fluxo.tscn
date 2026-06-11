@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cntn71jt5300p"]
+
+[ext_resource type="Script" uid="uid://cnbygnv0las6o" path="res://Scripts/ScriptsLogicaInterna/Componentes/controle_de_fluxo.gd" id="1_04ao1"]
+
+[node name="ControleDeFluxo" type="Node2D" unique_id=1097584056]
+script = ExtResource("1_04ao1")
