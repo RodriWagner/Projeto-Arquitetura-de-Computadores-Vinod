@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b0cyc2md1xldw" path="res://Cenas/Cenas de lógica interna/MemoriaPrincipal.tscn" id="2_qahpq"]
 [ext_resource type="StyleBox" uid="uid://v6qqt3g0j337" path="res://Imagens/botao_maisbonito.tres" id="3_vwcfy"]
 [ext_resource type="PackedScene" uid="uid://dybyv16fmmv1w" path="res://Cenas/Cenas de lógica interna/LeitorDeMacro.tscn" id="4_uv7h8"]
+[ext_resource type="PackedScene" uid="uid://der4kplg7hrt4" path="res://Cenas/Cenas de lógica interna/controle_acesso_mp.tscn" id="5_5sm5k"]
 [ext_resource type="PackedScene" uid="uid://dofyffrpaxm0q" path="res://Cenas/Cenas de lógica interna/barramento_padrao.tscn" id="5_uv7h8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwcfy"]
@@ -103,6 +104,9 @@ memoria_principal = NodePath("../MemoriaPrincipal")
 gerenciador = NodePath("../Gerenciador")
 
 [node name="MemoriaPrincipal" parent="." unique_id=266650011 instance=ExtResource("2_qahpq")]
+
+[node name="ControleAcessoMP" parent="MemoriaPrincipal" unique_id=1735749587 node_paths=PackedStringArray("memoria_principal") instance=ExtResource("5_5sm5k")]
+memoria_principal = NodePath("..")
 
 [node name="Gerenciador" parent="." unique_id=2039617576 instance=ExtResource("2_0d1f0")]
 
