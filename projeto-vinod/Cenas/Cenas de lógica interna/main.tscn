@@ -218,28 +218,30 @@ points = PackedVector2Array(337, 534, 374, 534)
 width = 3.95
 begin_cap_mode = 2
 
-[node name="shifter_registers" parent="Barramentos/CasosSensiveis" unique_id=1114538683 instance=ExtResource("5_uv7h8")]
-points = PackedVector2Array(283, 620, 283, 638, 143, 638, 143, 276, 164, 276)
+[node name="EnvolveRegs" type="Node2D" parent="Barramentos/CasosSensiveis" unique_id=1505981592]
 
-[node name="registers_a" parent="Barramentos/CasosSensiveis" unique_id=88035938 instance=ExtResource("5_uv7h8")]
+[node name="registers_a" parent="Barramentos/CasosSensiveis/EnvolveRegs" unique_id=88035938 instance=ExtResource("5_uv7h8")]
 points = PackedVector2Array(239, 244, 256, 244)
 
-[node name="registers_b" parent="Barramentos/CasosSensiveis" unique_id=337770173 instance=ExtResource("5_uv7h8")]
+[node name="registers_b" parent="Barramentos/CasosSensiveis/EnvolveRegs" unique_id=337770173 instance=ExtResource("5_uv7h8")]
 points = PackedVector2Array(239, 285, 325, 285)
 
-[node name="a_alatch" parent="Barramentos/CasosSensiveis" unique_id=1612259165 instance=ExtResource("5_uv7h8")]
+[node name="a_alatch" parent="Barramentos/CasosSensiveis/EnvolveRegs" unique_id=1612259165 instance=ExtResource("5_uv7h8")]
 points = PackedVector2Array(264, 230, 264, 328)
 
-[node name="b_blatch" parent="Barramentos/CasosSensiveis" unique_id=1836947284 instance=ExtResource("5_uv7h8")]
+[node name="b_blatch" parent="Barramentos/CasosSensiveis/EnvolveRegs" unique_id=1836947284 instance=ExtResource("5_uv7h8")]
 points = PackedVector2Array(333, 231, 333, 329)
 
-[node name="adecoder_registers" parent="Barramentos/CasosSensiveis" unique_id=194891757 instance=ExtResource("5_uv7h8")]
+[node name="shifter_registers" parent="Barramentos/CasosSensiveis/EnvolveRegs" unique_id=1114538683 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(283, 620, 283, 638, 143, 638, 143, 276, 164, 276)
+
+[node name="adecoder_registers" parent="Barramentos/CasosSensiveis/EnvolveRegs" unique_id=194891757 instance=ExtResource("5_uv7h8")]
 points = PackedVector2Array(331, 132, 223, 132, 223, 207)
 
-[node name="bdecoder_registers" parent="Barramentos/CasosSensiveis" unique_id=1578630580 instance=ExtResource("5_uv7h8")]
+[node name="bdecoder_registers" parent="Barramentos/CasosSensiveis/EnvolveRegs" unique_id=1578630580 instance=ExtResource("5_uv7h8")]
 points = PackedVector2Array(331, 91, 202, 91, 202, 206)
 
-[node name="cdecoder_registers" parent="Barramentos/CasosSensiveis" unique_id=684355030 instance=ExtResource("5_uv7h8")]
+[node name="cdecoder_registers" parent="Barramentos/CasosSensiveis/EnvolveRegs" unique_id=684355030 instance=ExtResource("5_uv7h8")]
 points = PackedVector2Array(331, 46, 183, 46, 183, 206)
 
 [node name="mpc_increment" parent="Barramentos" unique_id=1820964864 node_paths=PackedStringArray("origem", "destino") instance=ExtResource("5_uv7h8")]
@@ -335,10 +337,13 @@ clocked = true
 controle = "1"
 
 [node name="DecoderA" parent="Unidade de Controle" unique_id=603825268 instance=ExtResource("16_cvxod")]
+controle = "1"
 
 [node name="DecoderB" parent="Unidade de Controle" unique_id=123193991 instance=ExtResource("16_cvxod")]
+controle = "1"
 
 [node name="DecoderC" parent="Unidade de Controle" unique_id=1146886859 instance=ExtResource("16_cvxod")]
+controle = "1"
 clocked = true
 
 [node name="ControleDeFluxo" parent="Unidade de Controle" unique_id=1097584056 instance=ExtResource("17_m455r")]

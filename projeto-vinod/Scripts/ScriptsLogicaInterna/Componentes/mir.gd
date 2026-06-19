@@ -28,8 +28,8 @@ func agir() -> void:
 	rd.rd = entrada_1.substr(9,1)
 	wr.wr = entrada_1.substr(10,1)
 	enc.controle = entrada_1.substr(11,1)
-	dec_c.controle = entrada_1.substr(12,4)
-	dec_b.controle = entrada_1.substr(16, 4)
-	dec_a.controle = entrada_1.substr(20,4)
+	dec_c.entrada_1 = entrada_1.substr(12,4)
+	dec_b.entrada_1 = entrada_1.substr(16, 4)
+	dec_a.entrada_1 = entrada_1.substr(20,4)
 	end.controle = entrada_1.substr(24,8)
 	
