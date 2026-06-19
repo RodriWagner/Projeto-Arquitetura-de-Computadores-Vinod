@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c1m1n4c6686kc"]
+
+[ext_resource type="Script" uid="uid://dck7hhavx81bf" path="res://Cenas/Cenas UI/memoria_principal.gd" id="1_tc8ja"]
+[ext_resource type="PackedScene" uid="uid://d4i7gleebn84d" path="res://Cenas/Cenas UI/tabela.tscn" id="2_cotuw"]
+
+[node name="Lógica e UI End de Memória" type="Node" unique_id=2071177915]
+script = ExtResource("1_tc8ja")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1580460162]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Tabela" parent="ScrollContainer" unique_id=2021219504 instance=ExtResource("2_cotuw")]
+layout_mode = 2

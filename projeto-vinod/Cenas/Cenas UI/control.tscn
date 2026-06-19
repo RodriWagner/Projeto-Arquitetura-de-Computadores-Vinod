@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cx04hw2qsveih" path="res://Imagens/processador sem fio.png" id="2_loqao"]
 [ext_resource type="Script" uid="uid://d1deiaevcxc5e" path="res://Scripts/ScriptsUI/controla_visibilidade.gd" id="4_4jskr"]
 [ext_resource type="PackedScene" uid="uid://dofyffrpaxm0q" path="res://Cenas/Cenas de lógica interna/barramento_padrao.tscn" id="4_ya72m"]
+[ext_resource type="Script" uid="uid://dck7hhavx81bf" path="res://Cenas/Cenas UI/memoria_principal.gd" id="7_l70cf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uchyk"]
 bg_color = Color(1, 1, 1, 1)
@@ -127,6 +128,7 @@ MacroInstrucao = NodePath("macroinstrucao")
 MicroInstrucao = NodePath("microinstrucao")
 
 [node name="macroinstrucao" type="VBoxContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade" unique_id=57218423]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -165,6 +167,39 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 16.69
 editable = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade" unique_id=370912076]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/VBoxContainer" unique_id=594732684]
+layout_mode = 2
+text = "Memória Principal"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/VBoxContainer" unique_id=167349886]
+layout_mode = 2
+
+[node name="End Memoria" type="Label" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/VBoxContainer/HBoxContainer" unique_id=662411146]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Endereço de Memória"
+
+[node name="dado" type="Label" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/VBoxContainer/HBoxContainer" unique_id=1334225364]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Dado"
+
+[node name="TextEdit" type="VBoxContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/VBoxContainer" unique_id=340475006]
+layout_mode = 2
+script = ExtResource("7_l70cf")
+
+[node name="memoria_principal" type="Node2D" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/VBoxContainer" unique_id=134516222]
+script = ExtResource("7_l70cf")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer" unique_id=1813561386]
 layout_mode = 2

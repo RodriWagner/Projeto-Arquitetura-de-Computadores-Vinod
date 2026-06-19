@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d4i7gleebn84d"]
+
+[ext_resource type="Script" uid="uid://7aewfc21ytrk" path="res://Cenas/Cenas UI/tabela_ui.gd" id="1_bo4fk"]
+
+[node name="Tabela" type="MarginContainer" unique_id=1449935197]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_bo4fk")
+
+[node name="LinhasDaTabela" type="VBoxContainer" parent="." unique_id=691801393]
+layout_mode = 2
