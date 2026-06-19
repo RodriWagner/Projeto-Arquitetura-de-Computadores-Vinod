@@ -39,8 +39,8 @@ func atualiza_subciclos():
 		4:
 			# Habilita saída do MPC
 			lista_de_componentes["MPC"].agir()
-			# Grava dado do barramento C no registrador indicado (a depender do EnC)
-			lista_de_componentes["DecoderC"].agir()
+			# Grava dado do Deslocador (que estaria Barramento C) no registrador indicado (a depender do EnC)
+			lista_de_componentes["DecoderC"].atualiza_em_c()
 			# MBR pega dado para ser gravado na memória
 			lista_de_componentes["MBR"].agir()
 	subciclo = _incrementa_subciclo(subciclo);

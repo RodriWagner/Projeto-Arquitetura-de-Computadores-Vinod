@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dybyv16fmmv1w" path="res://Cenas/Cenas de lógica interna/LeitorDeMacro.tscn" id="4_uv7h8"]
 [ext_resource type="PackedScene" uid="uid://der4kplg7hrt4" path="res://Cenas/Cenas de lógica interna/controle_acesso.tscn" id="5_5sm5k"]
 [ext_resource type="PackedScene" uid="uid://dofyffrpaxm0q" path="res://Cenas/Cenas de lógica interna/barramento_padrao.tscn" id="5_uv7h8"]
+[ext_resource type="Script" uid="uid://co4rs71c4uhtb" path="res://Cenas/Cenas de lógica interna/registradores.gd" id="9_duyd2"]
 [ext_resource type="PackedScene" uid="uid://w3w5c5rngag8" path="res://Cenas/Cenas de lógica interna/registrador_base.tscn" id="9_pg2fq"]
 [ext_resource type="PackedScene" uid="uid://ct2pqh4kkh12r" path="res://Cenas/Cenas de lógica interna/mux.tscn" id="10_duyd2"]
 [ext_resource type="PackedScene" uid="uid://c6iinwo5ipvlv" path="res://Cenas/Cenas de lógica interna/ula.tscn" id="11_jl1pn"]
@@ -114,7 +115,7 @@ gerenciador = NodePath("../GerenciadorTempo")
 
 [node name="GerenciadorTempo" parent="." unique_id=2039617576 node_paths=PackedStringArray("lista_de_componentes") instance=ExtResource("2_0d1f0")]
 lista_de_componentes = {
-"DecoderC": NodePath("../Unidade de Controle/DecoderC"),
+"DecoderC": NodePath("../Via de Dados/Componentes/Registradores"),
 "LatchA": NodePath("../Via de Dados/Componentes/LatchA"),
 "LatchB": NodePath("../Via de Dados/Componentes/LatchB"),
 "MIR": NodePath("../Unidade de Controle/MIR"),
@@ -301,9 +302,41 @@ flag_entrada = 2
 
 [node name="Componentes" type="Node2D" parent="Via de Dados" unique_id=2007277224]
 
-[node name="Registradores" type="Node2D" parent="Via de Dados/Componentes" unique_id=895843889]
+[node name="Registradores" type="Node2D" parent="Via de Dados/Componentes" unique_id=895843889 node_paths=PackedStringArray("decoder_a", "decoder_b", "decoder_c", "barramento_a", "barramento_b", "deslocador")]
+script = ExtResource("9_duyd2")
+decoder_a = NodePath("../../../Unidade de Controle/DecoderA")
+decoder_b = NodePath("../../../Unidade de Controle/DecoderB")
+decoder_c = NodePath("../../../Unidade de Controle/DecoderC")
+barramento_a = NodePath("../../../Barramentos/CasosSensiveis/EnvolveRegs/registers_a")
+barramento_b = NodePath("../../../Barramentos/CasosSensiveis/EnvolveRegs/registers_b")
+deslocador = NodePath("../Deslocador")
 
-[node name="RegistradorBase" parent="Via de Dados/Componentes/Registradores" unique_id=368368964 instance=ExtResource("9_pg2fq")]
+[node name="PC" parent="Via de Dados/Componentes/Registradores" unique_id=368368964 instance=ExtResource("9_pg2fq")]
+
+[node name="AC" parent="Via de Dados/Componentes/Registradores" unique_id=1558313567 instance=ExtResource("9_pg2fq")]
+
+[node name="SP" parent="Via de Dados/Componentes/Registradores" unique_id=528341749 instance=ExtResource("9_pg2fq")]
+
+[node name="IR" parent="Via de Dados/Componentes/Registradores" unique_id=1954077915 instance=ExtResource("9_pg2fq")]
+
+[node name="TIR" parent="Via de Dados/Componentes/Registradores" unique_id=572928770 instance=ExtResource("9_pg2fq")]
+
+[node name="0" parent="Via de Dados/Componentes/Registradores" unique_id=328238455 instance=ExtResource("9_pg2fq")]
+saida = "0000000000000000"
+
+[node name="+1" parent="Via de Dados/Componentes/Registradores" unique_id=408293011 instance=ExtResource("9_pg2fq")]
+saida = "0000000000000001"
+
+[node name="-1" parent="Via de Dados/Componentes/Registradores" unique_id=1264598067 instance=ExtResource("9_pg2fq")]
+saida = "1111111111111111"
+
+[node name="AMASK" parent="Via de Dados/Componentes/Registradores" unique_id=1152601171 instance=ExtResource("9_pg2fq")]
+saida = "0000111111111111"
+
+[node name="SMASK" parent="Via de Dados/Componentes/Registradores" unique_id=45401291 instance=ExtResource("9_pg2fq")]
+saida = "0000000011111111"
+
+[node name="A" parent="Via de Dados/Componentes/Registradores" unique_id=1510421217 instance=ExtResource("9_pg2fq")]
 
 [node name="LatchA" parent="Via de Dados/Componentes" unique_id=959053151 instance=ExtResource("9_pg2fq")]
 clocked = true
@@ -326,9 +359,10 @@ controle = "00"
 [node name="ControleAcessoMemoria" parent="Unidade de Controle/micro_memoria" unique_id=1596271675 node_paths=PackedStringArray("memoria") instance=ExtResource("5_5sm5k")]
 memoria = NodePath("..")
 
-[node name="MIR" parent="Unidade de Controle" unique_id=298301598 node_paths=PackedStringArray("acesso_memoria_controle", "mpc") instance=ExtResource("14_3db8d")]
+[node name="MIR" parent="Unidade de Controle" unique_id=298301598 node_paths=PackedStringArray("acesso_memoria_controle", "mpc", "enc") instance=ExtResource("14_3db8d")]
 acesso_memoria_controle = NodePath("../micro_memoria/ControleAcessoMemoria")
 mpc = NodePath("../MPC")
+enc = NodePath("../../Via de Dados/Componentes/Registradores")
 clocked = true
 
 [node name="Mmux" parent="Unidade de Controle" unique_id=1031232941 instance=ExtResource("10_duyd2")]
@@ -337,14 +371,10 @@ clocked = true
 controle = "1"
 
 [node name="DecoderA" parent="Unidade de Controle" unique_id=603825268 instance=ExtResource("16_cvxod")]
-controle = "1"
 
 [node name="DecoderB" parent="Unidade de Controle" unique_id=123193991 instance=ExtResource("16_cvxod")]
-controle = "1"
 
 [node name="DecoderC" parent="Unidade de Controle" unique_id=1146886859 instance=ExtResource("16_cvxod")]
-controle = "1"
-clocked = true
 
 [node name="ControleDeFluxo" parent="Unidade de Controle" unique_id=1097584056 instance=ExtResource("17_m455r")]
 
