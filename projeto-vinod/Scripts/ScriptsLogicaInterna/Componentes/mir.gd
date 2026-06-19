@@ -14,7 +14,7 @@ extends ComponenteBase
 @export var dec_c : ComponenteBase
 @export var dec_b : ComponenteBase
 @export var dec_a : ComponenteBase
-@export var end : ComponenteBase
+@export var addr : ComponenteBase
 	
 func agir() -> void:
 	entrada_1 = acesso_memoria_controle.acessa_dado(mpc.saida)
@@ -31,5 +31,5 @@ func agir() -> void:
 	dec_c.entrada_1 = entrada_1.substr(12,4)
 	dec_b.entrada_1 = entrada_1.substr(16, 4)
 	dec_a.entrada_1 = entrada_1.substr(20,4)
-	end.controle = entrada_1.substr(24,8)
+	addr.entrada_2 = entrada_1.substr(24,8)
 	

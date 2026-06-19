@@ -359,10 +359,17 @@ controle = "00"
 [node name="ControleAcessoMemoria" parent="Unidade de Controle/micro_memoria" unique_id=1596271675 node_paths=PackedStringArray("memoria") instance=ExtResource("5_5sm5k")]
 memoria = NodePath("..")
 
-[node name="MIR" parent="Unidade de Controle" unique_id=298301598 node_paths=PackedStringArray("acesso_memoria_controle", "mpc", "enc") instance=ExtResource("14_3db8d")]
+[node name="MIR" parent="Unidade de Controle" unique_id=298301598 node_paths=PackedStringArray("acesso_memoria_controle", "mpc", "amux", "ula", "desl", "enc", "dec_c", "dec_b", "dec_a", "addr") instance=ExtResource("14_3db8d")]
 acesso_memoria_controle = NodePath("../micro_memoria/ControleAcessoMemoria")
 mpc = NodePath("../MPC")
+amux = NodePath("../../Via de Dados/Componentes/Amux")
+ula = NodePath("../../Via de Dados/Componentes/ULA")
+desl = NodePath("../../Via de Dados/Componentes/Deslocador")
 enc = NodePath("../../Via de Dados/Componentes/Registradores")
+dec_c = NodePath("../DecoderC")
+dec_b = NodePath("../DecoderB")
+dec_a = NodePath("../DecoderA")
+addr = NodePath("../Mmux")
 clocked = true
 
 [node name="Mmux" parent="Unidade de Controle" unique_id=1031232941 instance=ExtResource("10_duyd2")]
