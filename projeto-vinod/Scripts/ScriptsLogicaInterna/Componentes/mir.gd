@@ -1,5 +1,6 @@
 extends ComponenteBase
 @export var acesso_memoria_controle : ControleAcessoMemoria;
+@export var mpc : ComponenteBase
 
 @export var amux : ComponenteBase
 @export var cond : ComponenteBase
@@ -7,8 +8,8 @@ extends ComponenteBase
 @export var desl : ComponenteBase
 @export var mbr : ComponenteBase
 @export var mar : ComponenteBase
-@export var rd : MBR
-@export var wr : MBR
+@export var rd : ComponenteBase
+@export var wr : ComponenteBase
 @export var enc : ComponenteBase
 @export var dec_c : ComponenteBase
 @export var dec_b : ComponenteBase
@@ -16,6 +17,8 @@ extends ComponenteBase
 @export var end : ComponenteBase
 	
 func agir() -> void:
+	entrada_1 = acesso_memoria_controle.acessa_dado(mpc.saida)
+	
 	amux.controle = entrada_1.substr(0,1)
 	cond.controle = entrada_1.substr(1,2)
 	ula.controle = entrada_1.substr(3,2)
