@@ -1,0 +1,342 @@
+[gd_scene format=3 uid="uid://7l7gujmdmgnc"]
+
+[ext_resource type="PackedScene" uid="uid://c41mcgxf5p6cx" path="res://Cenas/Cenas UI/control.tscn" id="1_bna0h"]
+[ext_resource type="PackedScene" uid="uid://ctqsf57s84qvv" path="res://Cenas/Cenas de lógica interna/Gerenciador.tscn" id="2_0d1f0"]
+[ext_resource type="FontFile" uid="uid://cqay54kdtmpxm" path="res://Imagens/Hand Drawn Shapes.ttf" id="2_2wkvw"]
+[ext_resource type="PackedScene" uid="uid://b0cyc2md1xldw" path="res://Cenas/Cenas de lógica interna/MemoriaPrincipal.tscn" id="2_qahpq"]
+[ext_resource type="StyleBox" uid="uid://v6qqt3g0j337" path="res://Imagens/botao_maisbonito.tres" id="3_vwcfy"]
+[ext_resource type="PackedScene" uid="uid://dybyv16fmmv1w" path="res://Cenas/Cenas de lógica interna/LeitorDeMacro.tscn" id="4_uv7h8"]
+[ext_resource type="PackedScene" uid="uid://der4kplg7hrt4" path="res://Cenas/Cenas de lógica interna/controle_acesso.tscn" id="5_5sm5k"]
+[ext_resource type="PackedScene" uid="uid://dofyffrpaxm0q" path="res://Cenas/Cenas de lógica interna/barramento_padrao.tscn" id="5_uv7h8"]
+[ext_resource type="PackedScene" uid="uid://w3w5c5rngag8" path="res://Cenas/Cenas de lógica interna/registrador_base.tscn" id="9_pg2fq"]
+[ext_resource type="PackedScene" uid="uid://ct2pqh4kkh12r" path="res://Cenas/Cenas de lógica interna/mux.tscn" id="10_duyd2"]
+[ext_resource type="PackedScene" uid="uid://c6iinwo5ipvlv" path="res://Cenas/Cenas de lógica interna/ula.tscn" id="11_jl1pn"]
+[ext_resource type="PackedScene" uid="uid://dh2cptw8ppwur" path="res://Cenas/Cenas de lógica interna/deslocador.tscn" id="12_ijbik"]
+[ext_resource type="PackedScene" uid="uid://liwhxf8uc651" path="res://Cenas/Cenas de lógica interna/micro_memoria.tscn" id="13_7p45e"]
+[ext_resource type="PackedScene" uid="uid://tbk44hxr3gv6" path="res://Cenas/Cenas de lógica interna/mir.tscn" id="14_3db8d"]
+[ext_resource type="PackedScene" uid="uid://2uxsx4v5tu5u" path="res://Cenas/Cenas de lógica interna/incrementador.tscn" id="15_5w1e3"]
+[ext_resource type="PackedScene" uid="uid://bjpj3jryauww0" path="res://Cenas/Cenas de lógica interna/decoder.tscn" id="16_cvxod"]
+[ext_resource type="PackedScene" uid="uid://cntn71jt5300p" path="res://Cenas/Cenas de lógica interna/controle_de_fluxo.tscn" id="17_m455r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwcfy"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5sm5k"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ekku"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3egq"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_uv7h8"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 0.5019608)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 18
+Button/fonts/font = ExtResource("2_2wkvw")
+Button/styles/disabled = SubResource("StyleBoxFlat_vwcfy")
+Button/styles/focus = SubResource("StyleBoxFlat_5sm5k")
+Button/styles/hover = SubResource("StyleBoxFlat_4ekku")
+Button/styles/normal = ExtResource("3_vwcfy")
+Button/styles/pressed = SubResource("StyleBoxFlat_v3egq")
+
+[node name="main" type="Node2D" unique_id=1166532672]
+
+[node name="Interface" parent="." unique_id=1786879715 node_paths=PackedStringArray("leitor_de_macro", "memoria_principal", "gerenciador") instance=ExtResource("1_bna0h")]
+offset_left = 2.0
+offset_right = 1278.0
+offset_bottom = 718.0
+theme = SubResource("Theme_uv7h8")
+leitor_de_macro = NodePath("../LeitorDeMacro")
+memoria_principal = NodePath("../Via de Dados/MemoriaPrincipal")
+gerenciador = NodePath("../GerenciadorTempo")
+
+[node name="GerenciadorTempo" parent="." unique_id=2039617576 node_paths=PackedStringArray("lista_de_componentes") instance=ExtResource("2_0d1f0")]
+lista_de_componentes = {
+"DecoderC": NodePath("../Unidade de Controle/DecoderC"),
+"LatchA": NodePath("../Via de Dados/Componentes/LatchA"),
+"LatchB": NodePath("../Via de Dados/Componentes/LatchB"),
+"MIR": NodePath("../Unidade de Controle/MIR"),
+"MPC": NodePath("../Unidade de Controle/MPC")
+}
+
+[node name="LeitorDeMacro" parent="." unique_id=761820345 instance=ExtResource("4_uv7h8")]
+position = Vector2(2, 0)
+
+[node name="Barramentos" type="Node2D" parent="." unique_id=894033928]
+
+[node name="Clocks" type="Node2D" parent="Barramentos" unique_id=738814081]
+
+[node name="clock_mir" parent="Barramentos/Clocks" unique_id=2119868781 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(496, 227, 412, 227, 412, 457, 423, 457)
+
+[node name="clock_latchB" parent="Barramentos/Clocks" unique_id=346808294 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(496, 216, 378, 216, 378, 342, 362, 342)
+
+[node name="clock_latchA" parent="Barramentos/Clocks" unique_id=1284011669 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(496, 216, 378, 216, 378, 317, 297, 317, 297, 341, 290, 341)
+
+[node name="clock_mar" parent="Barramentos/Clocks" unique_id=1070689801 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(496, 205, 395, 205, 395, 370, 72, 370, 72, 385)
+
+[node name="clock_mpc" parent="Barramentos/Clocks" unique_id=489503483 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(496, 193, 467, 193, 467, 170, 608, 170, 608, 338, 569, 338)
+
+[node name="clock_cdecoder" parent="Barramentos/Clocks" unique_id=332164064 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(495, 193, 441, 193, 441, 59, 400, 59)
+
+[node name="clock_16registers" parent="Barramentos/Clocks" unique_id=1097506658 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(496, 193, 116, 193, 116, 235, 164, 235)
+
+[node name="clock_mbr" parent="Barramentos/Clocks" unique_id=453652252 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(496, 193, 116, 193, 116, 235, 116, 421)
+
+[node name="CasosSensiveis" type="Node2D" parent="Barramentos" unique_id=1962533088]
+
+[node name="SaindoDoMIR" type="Node2D" parent="Barramentos/CasosSensiveis" unique_id=1511016068]
+
+[node name="a_adecoder" parent="Barramentos/CasosSensiveis/SaindoDoMIR" unique_id=1624785328 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(603, 484, 603, 564, 668, 564, 668, 134, 399, 134)
+
+[node name="addr_mmux" parent="Barramentos/CasosSensiveis/SaindoDoMIR" unique_id=2044417183 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(629, 484, 629, 512, 656, 512, 656, 254, 552, 254, 552, 278)
+
+[node name="b_bdecoder" parent="Barramentos/CasosSensiveis/SaindoDoMIR" unique_id=150133312 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(582, 484, 582, 575, 688, 575, 688, 89, 399, 89)
+
+[node name="c_cdecoder" parent="Barramentos/CasosSensiveis/SaindoDoMIR" unique_id=1750971056 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(560, 484, 560, 594, 711, 594, 711, 49, 400, 49)
+
+[node name="enc_cdecoder" parent="Barramentos/CasosSensiveis/SaindoDoMIR" unique_id=1374478878 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(544, 483, 544, 607, 731, 607, 731, 37, 400, 37)
+
+[node name="wr_wr" parent="Barramentos/CasosSensiveis/SaindoDoMIR" unique_id=32022786 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(531, 484, 531, 697, 72, 697)
+
+[node name="wr_mbr" parent="Barramentos/CasosSensiveis/SaindoDoMIR" unique_id=1279603522 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(87, 697, 87, 452, 92, 452)
+
+[node name="rd_rd" parent="Barramentos/CasosSensiveis/SaindoDoMIR" unique_id=1196255208 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(519, 483, 519, 681, 72, 681)
+
+[node name="rd_mbr" parent="Barramentos/CasosSensiveis/SaindoDoMIR" unique_id=1798890960 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(74, 677, 74, 439, 92, 439)
+
+[node name="mar_mar" parent="Barramentos/CasosSensiveis/SaindoDoMIR" unique_id=650158730 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(505, 483, 505, 670, 41, 670, 41, 403, 51, 403)
+
+[node name="mbr_mbr" parent="Barramentos/CasosSensiveis/SaindoDoMIR" unique_id=242893978 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(492, 483, 492, 655, 106, 655, 106, 465)
+
+[node name="alu_alu" parent="Barramentos/CasosSensiveis/SaindoDoMIR" unique_id=354199260 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(462, 483, 462, 559, 327, 559)
+end_cap_mode = 2
+
+[node name="cond_microseqlogic" parent="Barramentos/CasosSensiveis/SaindoDoMIR" unique_id=1842757447 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(448, 483, 448, 530, 423, 530)
+
+[node name="amux_amux" parent="Barramentos/CasosSensiveis/SaindoDoMIR" unique_id=1403502757 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(433, 482, 433, 487, 273, 487)
+
+[node name="sh_shifter" parent="Barramentos/CasosSensiveis/SaindoDoMIR" unique_id=1950619333 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(478, 483, 478, 607, 327, 607)
+
+[node name="mpc_control_store" parent="Barramentos/CasosSensiveis" unique_id=286039740 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(539, 352, 539, 368)
+
+[node name="control_store_mir" parent="Barramentos/CasosSensiveis" unique_id=1052575503 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(538, 406, 538, 428)
+
+[node name="aluN_microseqlogic" parent="Barramentos/CasosSensiveis" unique_id=368504727 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(342, 523, 374, 523)
+width = 3.955
+begin_cap_mode = 2
+
+[node name="aluZ_microseqlogic" parent="Barramentos/CasosSensiveis" unique_id=48244705 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(337, 534, 374, 534)
+width = 3.95
+begin_cap_mode = 2
+
+[node name="shifter_registers" parent="Barramentos/CasosSensiveis" unique_id=1114538683 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(283, 620, 283, 638, 143, 638, 143, 276, 164, 276)
+
+[node name="registers_a" parent="Barramentos/CasosSensiveis" unique_id=88035938 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(239, 244, 256, 244)
+
+[node name="registers_b" parent="Barramentos/CasosSensiveis" unique_id=337770173 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(239, 285, 325, 285)
+
+[node name="a_alatch" parent="Barramentos/CasosSensiveis" unique_id=1612259165 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(264, 230, 264, 328)
+
+[node name="b_blatch" parent="Barramentos/CasosSensiveis" unique_id=1836947284 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(333, 231, 333, 329)
+
+[node name="adecoder_registers" parent="Barramentos/CasosSensiveis" unique_id=194891757 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(331, 132, 223, 132, 223, 207)
+
+[node name="bdecoder_registers" parent="Barramentos/CasosSensiveis" unique_id=1578630580 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(331, 91, 202, 91, 202, 206)
+
+[node name="cdecoder_registers" parent="Barramentos/CasosSensiveis" unique_id=684355030 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(331, 46, 183, 46, 183, 206)
+
+[node name="mpc_increment" parent="Barramentos" unique_id=1820964864 node_paths=PackedStringArray("origem", "destino") instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(497, 338, 510, 338)
+origem = NodePath("../../Unidade de Controle/MPC")
+destino = NodePath("../../Unidade de Controle/IncrementaMPC")
+
+[node name="mmux_mpc" parent="Barramentos" unique_id=1868305876 node_paths=PackedStringArray("origem", "destino") instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(540, 305, 540, 324)
+origem = NodePath("../../Unidade de Controle/Mmux")
+destino = NodePath("../../Unidade de Controle/MPC")
+
+[node name="increment_mmux" parent="Barramentos" unique_id=1724320125 node_paths=PackedStringArray("origem", "destino") instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(458, 324, 458, 254, 528, 254, 528, 279)
+origem = NodePath("../../Unidade de Controle/IncrementaMPC")
+destino = NodePath("../../Unidade de Controle/Mmux")
+
+[node name="alu_shifter" parent="Barramentos" unique_id=758083452 node_paths=PackedStringArray("origem", "destino") instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(283, 565, 283, 594)
+origem = NodePath("../../Via de Dados/Componentes/ULA")
+destino = NodePath("../../Via de Dados/Componentes/Deslocador")
+
+[node name="shifter_mbr" parent="Barramentos" unique_id=1441557973 node_paths=PackedStringArray("origem") instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(283, 619, 283, 638, 123, 638, 123, 465)
+origem = NodePath("../../Via de Dados/Componentes/Deslocador")
+
+[node name="mbr_amux" parent="Barramentos" unique_id=1049204913 node_paths=PackedStringArray("destino") instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(139, 446, 231, 446, 231, 471)
+destino = NodePath("../../Via de Dados/Componentes/Amux")
+
+[node name="amux_a" parent="Barramentos" unique_id=1655756108 node_paths=PackedStringArray("origem", "destino") instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(243, 498, 243, 514)
+origem = NodePath("../../Via de Dados/Componentes/Amux")
+destino = NodePath("../../Via de Dados/Componentes/ULA")
+
+[node name="blatch_mar" parent="Barramentos" unique_id=65266742 node_paths=PackedStringArray("origem") instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(322, 355, 322, 403, 97, 403)
+origem = NodePath("../../Via de Dados/Componentes/LatchB")
+
+[node name="blatch_alu" parent="Barramentos" unique_id=717075688 node_paths=PackedStringArray("origem", "destino") instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(322, 355, 322, 403, 322, 515)
+origem = NodePath("../../Via de Dados/Componentes/LatchB")
+destino = NodePath("../../Via de Dados/Componentes/ULA")
+flag_entrada = 2
+
+[node name="alatch_amux" parent="Barramentos" unique_id=278879961 node_paths=PackedStringArray("origem", "destino") instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(256, 355, 256, 471)
+origem = NodePath("../../Via de Dados/Componentes/LatchA")
+destino = NodePath("../../Via de Dados/Componentes/Amux")
+flag_entrada = 2
+
+[node name="Via de Dados" type="Node2D" parent="." unique_id=880308341]
+
+[node name="MemoriaPrincipal" parent="Via de Dados" unique_id=266650011 instance=ExtResource("2_qahpq")]
+
+[node name="ControleAcessoMP" parent="Via de Dados/MemoriaPrincipal" unique_id=1735749587 instance=ExtResource("5_5sm5k")]
+
+[node name="Componentes" type="Node2D" parent="Via de Dados" unique_id=2007277224]
+
+[node name="Registradores" type="Node2D" parent="Via de Dados/Componentes" unique_id=895843889]
+
+[node name="RegistradorBase" parent="Via de Dados/Componentes/Registradores" unique_id=368368964 instance=ExtResource("9_pg2fq")]
+
+[node name="LatchA" parent="Via de Dados/Componentes" unique_id=959053151 instance=ExtResource("9_pg2fq")]
+clocked = true
+
+[node name="LatchB" parent="Via de Dados/Componentes" unique_id=1318358315 instance=ExtResource("9_pg2fq")]
+clocked = true
+
+[node name="Amux" parent="Via de Dados/Componentes" unique_id=1810147326 instance=ExtResource("10_duyd2")]
+
+[node name="ULA" parent="Via de Dados/Componentes" unique_id=1882756823 instance=ExtResource("11_jl1pn")]
+
+[node name="Deslocador" parent="Via de Dados/Componentes" unique_id=1526665294 instance=ExtResource("12_ijbik")]
+
+[node name="Unidade de Controle" type="Node2D" parent="." unique_id=1774968066]
+
+[node name="micro_memoria" parent="Unidade de Controle" unique_id=1430280428 instance=ExtResource("13_7p45e")]
+
+[node name="ControleAcessoMemoria" parent="Unidade de Controle/micro_memoria" unique_id=1596271675 node_paths=PackedStringArray("memoria") instance=ExtResource("5_5sm5k")]
+memoria = NodePath("..")
+
+[node name="MIR" parent="Unidade de Controle" unique_id=298301598 instance=ExtResource("14_3db8d")]
+clocked = true
+
+[node name="Mmux" parent="Unidade de Controle" unique_id=1031232941 instance=ExtResource("10_duyd2")]
+
+[node name="IncrementaMPC" parent="Unidade de Controle" unique_id=197948484 instance=ExtResource("15_5w1e3")]
+
+[node name="DecoderA" parent="Unidade de Controle" unique_id=603825268 instance=ExtResource("16_cvxod")]
+
+[node name="DecoderB" parent="Unidade de Controle" unique_id=123193991 instance=ExtResource("16_cvxod")]
+
+[node name="DecoderC" parent="Unidade de Controle" unique_id=1146886859 instance=ExtResource("16_cvxod")]
+clocked = true
+
+[node name="ControleDeFluxo" parent="Unidade de Controle" unique_id=1097584056 instance=ExtResource("17_m455r")]
+
+[node name="MPC" parent="Unidade de Controle" unique_id=813905925 instance=ExtResource("9_pg2fq")]
+clocked = true

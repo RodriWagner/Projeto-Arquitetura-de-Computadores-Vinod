@@ -5,7 +5,7 @@ extends Control
 @export var leitor_de_texto : TextEdit;
 
 @export_subgroup("Memoria Principal")
-@export var memoria_principal : MP;
+@export var memoria_principal : MemoriaPrincipal;
 
 @export_subgroup("Gerenciador de Tempo")
 @export var gerenciador : Gerenciador;
