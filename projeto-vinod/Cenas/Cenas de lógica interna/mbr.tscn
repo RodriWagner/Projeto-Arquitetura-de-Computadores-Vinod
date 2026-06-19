@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b0pqo2dpnx5d1"]
+
+[ext_resource type="Script" uid="uid://vbkl8oxuebrf" path="res://Scripts/ScriptsLogicaInterna/Componentes/mbr.gd" id="1_kbe40"]
+
+[node name="mbr" type="Node2D" unique_id=1014754384]
+script = ExtResource("1_kbe40")
