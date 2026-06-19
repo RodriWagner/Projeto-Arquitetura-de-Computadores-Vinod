@@ -324,6 +324,7 @@ memoria = NodePath("..")
 
 [node name="MIR" parent="Unidade de Controle" unique_id=298301598 instance=ExtResource("14_3db8d")]
 clocked = true
+saida = null
 
 [node name="Mmux" parent="Unidade de Controle" unique_id=1031232941 instance=ExtResource("10_duyd2")]
 
