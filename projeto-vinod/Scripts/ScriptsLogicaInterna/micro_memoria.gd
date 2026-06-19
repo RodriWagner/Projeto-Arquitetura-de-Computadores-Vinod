@@ -1,6 +1,6 @@
-extends ComponenteBase
+class_name MicroMemoria extends Memoria
 
-var microinstructions: PackedStringArray = []
+var linhas_da_memoria: PackedStringArray = []
 
 ## Microinstrução lida após agir() ser chamado.
 ## O gerenciador lê este dicionário e distribui os campos de controle.
@@ -26,7 +26,7 @@ func _ready() -> void:
 	# Mapeamento da ULA: 00=SOMA, 01=AND, 10=PASSA A, 11=NOT A
 
 	# 0: mar:=pc; rd;
-	microinstructions.append("00010000110000000000000000000000")
+	linhas_da_memoria.append("00010000110000000000000000000000")
 		#"name": "mar := pc; rd",
 		
 		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
@@ -36,7 +36,7 @@ func _ready() -> void:
 	
 
 	# 1: pc:=pc + 1; rd;
-	microinstructions.append("00000000010100000110000000000000")
+	linhas_da_memoria.append("00000000010100000110000000000000")
 		#"name": "pc := pc + 1; rd",
 		#"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "1", "WR": "0", "ENC": "1",
@@ -45,7 +45,7 @@ func _ready() -> void:
 	
 
 	# 2: ir:=mbr; if n then goto 28;
-	microinstructions.append("10110000000100110101010100011100")
+	linhas_da_memoria.append("10110000000100110101010100011100")
 		#"name": "ir := mbr; if n then goto 28",
 		#"AMUX": "1", "COND": "01", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -54,7 +54,7 @@ func _ready() -> void:
 	
 
 	# 3: tir:=lshift(ir + ir); if n then goto 19;
-	microinstructions.append("00100100000101000011001100010011")
+	linhas_da_memoria.append("00100100000101000011001100010011")
 		#"name": "tir := lshift(ir + ir); if n then goto 19",
 		#"AMUX": "0", "COND": "01", "ULA": "00", "DESL": "10",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -63,7 +63,7 @@ func _ready() -> void:
 	
 
 	# 4: tir:=lshift(tir); if n then goto 11;
-	microinstructions.append("00110100000101000101010000001011")
+	linhas_da_memoria.append("00110100000101000101010000001011")
 		#"name": "tir := lshift(tir); if n then goto 11",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "10",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -72,7 +72,7 @@ func _ready() -> void:
 	
 
 	# 5: alu:=tir; if n then goto 9;
-	microinstructions.append("00110000000000000101010000001001")
+	linhas_da_memoria.append("00110000000000000101010000001001")
 		#"name": "alu := tir; if n then goto 9",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
@@ -81,7 +81,7 @@ func _ready() -> void:
 	
 
 	# 6: mar:=ir; rd;
-	microinstructions.append("00010000110000000011010100000000")
+	linhas_da_memoria.append("00010000110000000011010100000000")
 		#"name": "mar := ir; rd",
 		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "1", "RD": "1", "WR": "0", "ENC": "0",
@@ -90,7 +90,7 @@ func _ready() -> void:
 	
 
 	# 7: rd;
-	microinstructions.append("00010000010000000101010100000000")
+	linhas_da_memoria.append("00010000010000000101010100000000")
 		#"name": "rd",
 		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "1", "WR": "0", "ENC": "0",
@@ -99,7 +99,7 @@ func _ready() -> void:
 	
 
 	# 8: ac:=mbr; goto 0;
-	microinstructions.append("11110000000100010101010100000000")
+	linhas_da_memoria.append("11110000000100010101010100000000")
 		#"name": "ac := mbr; goto 0",
 		#"AMUX": "1", "COND": "11", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -108,7 +108,7 @@ func _ready() -> void:
 	
 
 	# 9: mar:=ir; mbr:=ac; wr;
-	microinstructions.append("00010001101000000011000100000000")
+	linhas_da_memoria.append("00010001101000000011000100000000")
 		#"name": "mar := ir; mbr := ac; wr",
 		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
 		#"MBR": "1", "MAR": "1", "RD": "0", "WR": "1", "ENC": "0",
@@ -117,7 +117,7 @@ func _ready() -> void:
 	
 
 	# 10: wr; goto 0;
-	microinstructions.append("01110000001000000101010100000000")
+	linhas_da_memoria.append("01110000001000000101010100000000")
 		#"name": "wr; goto 0",
 		#"AMUX": "0", "COND": "11", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "1", "ENC": "0",
@@ -126,7 +126,7 @@ func _ready() -> void:
 	
 
 	# 11: alu:=tir; if n then goto 15;
-	microinstructions.append("00110000000000000101010000001111")
+	linhas_da_memoria.append("00110000000000000101010000001111")
 		#"name": "alu := tir; if n then goto 15",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
@@ -135,7 +135,7 @@ func _ready() -> void:
 	
 
 	# 12: mar:=ir; rd;
-	microinstructions.append("00010000110000000011010100000000")
+	linhas_da_memoria.append("00010000110000000011010100000000")
 		#"name": "mar := ir; rd",
 		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "1", "RD": "1", "WR": "0", "ENC": "0",
@@ -144,7 +144,7 @@ func _ready() -> void:
 	
 
 	# 13: rd;
-	microinstructions.append("00010000010000000101010100000000")
+	linhas_da_memoria.append("00010000010000000101010100000000")
 		#"name": "rd",
 		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "1", "WR": "0", "ENC": "0",
@@ -153,7 +153,7 @@ func _ready() -> void:
 	
 
 	# 14: ac:=mbr + ac; goto 0;
-	microinstructions.append("")
+	linhas_da_memoria.append("")
 		#"name": "ac := mbr + ac; goto 0",
 		#"AMUX": "1", "COND": "11", "ULA": "00", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -162,7 +162,7 @@ func _ready() -> void:
 	
 
 	# 15: mar:=ir; rd;
-	microinstructions.append("00010000110000000011010100000000")
+	linhas_da_memoria.append("00010000110000000011010100000000")
 		#"name": "mar := ir; rd",
 		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "1", "RD": "1", "WR": "0", "ENC": "0",
@@ -171,7 +171,7 @@ func _ready() -> void:
 
 
 	# 16: rd;
-	microinstructions.append("00010000010000000101010100000000")
+	linhas_da_memoria.append("00010000010000000101010100000000")
 		#"name": "rd",
 		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "1", "WR": "0", "ENC": "0",
@@ -180,7 +180,7 @@ func _ready() -> void:
 	
 
 	# 17: a:=inv(mbr);
-	microinstructions.append("10011000000110100101010100000000")
+	linhas_da_memoria.append("10011000000110100101010100000000")
 		#"name": "a := inv(mbr)",
 		#"AMUX": "1", "COND": "00", "ULA": "11", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -189,7 +189,7 @@ func _ready() -> void:
 	
 
 	# 18: ac:=ac + a; goto 0;
-	microinstructions.append("01100000000100011010000100000000")
+	linhas_da_memoria.append("01100000000100011010000100000000")
 		#"name": "ac := ac + a; goto 0",
 		#"AMUX": "0", "COND": "11", "ULA": "00", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -198,7 +198,7 @@ func _ready() -> void:
 	
 
 	# 19: tir:=lshift(tir); if n then goto 25;
-	microinstructions.append("00110100000101000101010000011001")
+	linhas_da_memoria.append("00110100000101000101010000011001")
 		#"name": "tir := lshift(tir); if n then goto 25",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "10",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -207,7 +207,7 @@ func _ready() -> void:
 	
 
 	# 20: alu:=tir; if n then goto 23;
-	microinstructions.append("00110000000000000101010000010111")
+	linhas_da_memoria.append("00110000000000000101010000010111")
 		#"name": "alu := tir; if n then goto 23",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
@@ -216,7 +216,7 @@ func _ready() -> void:
 	
 
 	# 21: alu:=ac; if n then goto 0;
-	microinstructions.append("00110000000000000101000100000000")
+	linhas_da_memoria.append("00110000000000000101000100000000")
 		#"name": "alu := ac; if n then goto 0",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
@@ -225,7 +225,7 @@ func _ready() -> void:
 
 
 	# 22: pc:=band(ir,amask); goto 0;
-	microinstructions.append("01101000000100001000001100000000")
+	linhas_da_memoria.append("01101000000100001000001100000000")
 		#"name": "pc := band(ir,amask); goto 0",
 		#"AMUX": "0", "COND": "11", "ULA": "01", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -234,7 +234,7 @@ func _ready() -> void:
 	
 
 	# 23: alu:=ac; if z then goto 22;
-	microinstructions.append("01010000000000000101000100010110")
+	linhas_da_memoria.append("01010000000000000101000100010110")
 		#"name": "alu := ac; if z then goto 22",
 		#"AMUX": "0", "COND": "10", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
@@ -243,7 +243,7 @@ func _ready() -> void:
 	
 
 	# 24: goto 0;
-	microinstructions.append("01110000000000000101010100000000")
+	linhas_da_memoria.append("01110000000000000101010100000000")
 		#"name": "goto 0",
 		#"AMUX": "0", "COND": "11", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
@@ -252,7 +252,7 @@ func _ready() -> void:
 	
 
 	# 25: alu:=tir; if n then goto 27;
-	microinstructions.append("00110000000000000101010000011011")
+	linhas_da_memoria.append("00110000000000000101010000011011")
 		#"name": "alu := tir; if n then goto 27",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
@@ -261,7 +261,7 @@ func _ready() -> void:
 	
 
 	# 26: pc:=band(ir,amask); goto 0;
-	microinstructions.append("01101000000100001000001100000000")
+	linhas_da_memoria.append("01101000000100001000001100000000")
 		#"name": "pc := band(ir,amask); goto 0",
 		#"AMUX": "0", "COND": "11", "ULA": "01", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -270,7 +270,7 @@ func _ready() -> void:
 	
 
 	# 27: ac:=band(ir,amask); goto 0;
-	microinstructions.append("01101000000100011000001100000000")
+	linhas_da_memoria.append("01101000000100011000001100000000")
 		#"name": "ac := band(ir,amask); goto 0",
 		#"AMUX": "0", "COND": "11", "ULA": "01", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -279,7 +279,7 @@ func _ready() -> void:
 	
 
 	# 28: tir:=lshift(ir + ir); if n then goto 40;
-	microinstructions.append("00100100000101000011001100101000")
+	linhas_da_memoria.append("00100100000101000011001100101000")
 		#"name": "tir := lshift(ir + ir); if n then goto 40",
 		#"AMUX": "0", "COND": "01", "ULA": "00", "DESL": "10",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -287,7 +287,7 @@ func _ready() -> void:
 		#"ADDR": "00101000"
 
 	# 29: tir:=lshift(tir); if n then goto 35;
-	microinstructions.append("00110100000101000101010000100011")
+	linhas_da_memoria.append("00110100000101000101010000100011")
 		#"name": "tir := lshift(tir); if n then goto 35",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "10",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -296,7 +296,7 @@ func _ready() -> void:
 	
 
 	# 30: alu:=tir; if n then goto 33;
-	microinstructions.append("00110000000000000101010000100001")
+	linhas_da_memoria.append("00110000000000000101010000100001")
 		#"name": "alu := tir; if n then goto 33",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
@@ -305,7 +305,7 @@ func _ready() -> void:
 	
 
 	# 31: a:=ir + sp;
-	microinstructions.append("00000000000110100010001100000000")
+	linhas_da_memoria.append("00000000000110100010001100000000")
 		#"name": "a := ir + sp",
 		#"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -314,7 +314,7 @@ func _ready() -> void:
 	
 
 	# 32: mar:=a; rd; goto 7;
-	microinstructions.append("01110000110000001010010100000111")
+	linhas_da_memoria.append("01110000110000001010010100000111")
 		#"name": "mar := a; rd; goto 7",
 		#"AMUX": "0", "COND": "11", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "1", "RD": "1", "WR": "0", "ENC": "0",
@@ -323,7 +323,7 @@ func _ready() -> void:
 	
 
 	# 33: a:=ir + sp;
-	microinstructions.append("00000000000110100010001100000000")
+	linhas_da_memoria.append("00000000000110100010001100000000")
 		#"name": "a := ir + sp",
 		#"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -332,7 +332,7 @@ func _ready() -> void:
 	
 
 	# 34: mar:=a; mbr:=ac; wr; goto 10;
-	microinstructions.append("01110001101000001010000100001010")
+	linhas_da_memoria.append("01110001101000001010000100001010")
 		#"name": "mar := a; mbr := ac; wr; goto 10",
 		#"AMUX": "0", "COND": "11", "ULA": "10", "DESL": "00",
 		#"MBR": "1", "MAR": "1", "RD": "0", "WR": "1", "ENC": "0",
@@ -341,7 +341,7 @@ func _ready() -> void:
 	
 
 	# 35: alu:=tir; if n then goto 38;
-	microinstructions.append("00110000000000000101010000100110")
+	linhas_da_memoria.append("00110000000000000101010000100110")
 		#"name": "alu := tir; if n then goto 38",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
@@ -350,7 +350,7 @@ func _ready() -> void:
 	
 
 	# 36: a:=ir + sp;
-	microinstructions.append("00000000000110100010001100000000")
+	linhas_da_memoria.append("00000000000110100010001100000000")
 		#"name": "a := ir + sp",
 		#"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -358,7 +358,7 @@ func _ready() -> void:
 		#"ADDR": "00000000"
 	
 	# 37: mar:=a; rd; goto 13;
-	microinstructions.append("01110000110000001010010100001101")
+	linhas_da_memoria.append("01110000110000001010010100001101")
 		#"name": "mar := a; rd; goto 13",
 		#"AMUX": "0", "COND": "11", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "1", "RD": "1", "WR": "0", "ENC": "0",
@@ -367,7 +367,7 @@ func _ready() -> void:
 	
 
 	# 38: a:=ir + sp;
-	microinstructions.append("00000000000110100010001100000000")
+	linhas_da_memoria.append("00000000000110100010001100000000")
 		#"name": "a := ir + sp",
 		#"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -376,7 +376,7 @@ func _ready() -> void:
 	
 
 	# 39: mar:=a; rd; goto 16;
-	microinstructions.append("011100001100000010100101000100000")
+	linhas_da_memoria.append("011100001100000010100101000100000")
 		#"name": "mar := a; rd; goto 16",
 		#"AMUX": "0", "COND": "11", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "1", "RD": "1", "WR": "0", "ENC": "0",
@@ -385,7 +385,7 @@ func _ready() -> void:
 	
 
 	# 40: tir:=lshift(tir); if n then goto 46;
-	microinstructions.append("00110100000101000101010000101110")
+	linhas_da_memoria.append("00110100000101000101010000101110")
 		#"name": "tir := lshift(tir); if n then goto 46",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "10",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -394,7 +394,7 @@ func _ready() -> void:
 	
 
 	# 41: alu:=tir; if n then goto 44;
-	microinstructions.append("00110000000000000101010000101100")
+	linhas_da_memoria.append("00110000000000000101010000101100")
 		#"name": "alu := tir; if n then goto 44",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
@@ -403,7 +403,7 @@ func _ready() -> void:
 	
 
 	# 42: alu:=ac; if n then goto 22;
-	microinstructions.append("00110000000000000101000100010110")
+	linhas_da_memoria.append("00110000000000000101000100010110")
 		#"name": "alu := ac; if n then goto 22",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
@@ -412,7 +412,7 @@ func _ready() -> void:
 	
 
 	# 43: goto 0;
-	microinstructions.append("01110000000000000101010100000000")
+	linhas_da_memoria.append("01110000000000000101010100000000")
 		#"name": "goto 0",
 		#"AMUX": "0", "COND": "11", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
@@ -420,7 +420,7 @@ func _ready() -> void:
 		#"ADDR": "00000000"
 
 	# 44: alu:=ac; if z then goto 0;
-	microinstructions.append("01010000000000000101000100000000")
+	linhas_da_memoria.append("01010000000000000101000100000000")
 		#"name": "alu := ac; if z then goto 0",
 		#"AMUX": "0", "COND": "10", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
@@ -429,7 +429,7 @@ func _ready() -> void:
 	
 
 	# 45: pc:=band(ir,amask); goto 0;
-	microinstructions.append("01101000000100001000001100000000")
+	linhas_da_memoria.append("01101000000100001000001100000000")
 		#"name": "pc := band(ir,amask); goto 0",
 		#"AMUX": "0", "COND": "11", "ULA": "01", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -438,7 +438,7 @@ func _ready() -> void:
 	
 
 	# 46: tir:=lshift(tir); if n then goto 50;
-	microinstructions.append("00110100000101000101010000110010")
+	linhas_da_memoria.append("00110100000101000101010000110010")
 		#"name": "tir := lshift(tir); if n then goto 50",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "10",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -447,7 +447,7 @@ func _ready() -> void:
 	
 
 	# 47: sp:=sp + (-1);
-	microinstructions.append("00000000000100100111001000000000")
+	linhas_da_memoria.append("00000000000100100111001000000000")
 		#"name": "sp := sp + (-1)",
 		#"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -456,7 +456,7 @@ func _ready() -> void:
 	#
 
 	# 48: mar:=sp; mbr:=pc; wr;
-	microinstructions.append("00010001101000000010000000000000")
+	linhas_da_memoria.append("00010001101000000010000000000000")
 		#"name": "mar := sp; mbr := pc; wr",
 		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
 		#"MBR": "1", "MAR": "1", "RD": "0", "WR": "1", "ENC": "0",
@@ -465,7 +465,7 @@ func _ready() -> void:
 	
 
 	# 49: pc:=band(ir,amask); wr; goto 0;
-	microinstructions.append("01101000001100001000001100000000")
+	linhas_da_memoria.append("01101000001100001000001100000000")
 		#"name": "pc := band(ir,amask); wr; goto 0",
 		#"AMUX": "0", "COND": "11", "ULA": "01", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "1", "ENC": "1",
@@ -474,7 +474,7 @@ func _ready() -> void:
 	
 
 	# 50: tir:=lshift(tir); if n then goto 65;
-	microinstructions.append("00110100000101000101010001000001")
+	linhas_da_memoria.append("00110100000101000101010001000001")
 		#"name": "tir := lshift(tir); if n then goto 65",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "10",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -483,7 +483,7 @@ func _ready() -> void:
 	
 
 	# 51: tir:=lshift(tir); if n then goto 59;
-	microinstructions.append("00110100000101000101010000111011")
+	linhas_da_memoria.append("00110100000101000101010000111011")
 		#"name": "tir := lshift(tir); if n then goto 59",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "10",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -492,7 +492,7 @@ func _ready() -> void:
 	
 
 	# 52: alu:=tir; if n then goto 56;
-	microinstructions.append("00110000000000000101010000111000")
+	linhas_da_memoria.append("00110000000000000101010000111000")
 		#"name": "alu := tir; if n then goto 56",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
@@ -501,7 +501,7 @@ func _ready() -> void:
 	
 
 	# 53: mar:=ac; rd;
-	microinstructions.append("00010000110000000001010100000000")
+	linhas_da_memoria.append("00010000110000000001010100000000")
 		#"name": "mar := ac; rd",
 		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "1", "RD": "1", "WR": "0", "ENC": "0",
@@ -510,7 +510,7 @@ func _ready() -> void:
 	
 
 	# 54: sp:=sp + (-1); rd;
-	microinstructions.append("00000000010100100111001000000000")
+	linhas_da_memoria.append("00000000010100100111001000000000")
 		#"name": "sp := sp + (-1); rd",
 		#"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "1", "WR": "0", "ENC": "1",
@@ -519,7 +519,7 @@ func _ready() -> void:
 	
 
 	# 55: mar:=sp; wr; goto 10;
-	microinstructions.append("01110000101000000010010100001010")
+	linhas_da_memoria.append("01110000101000000010010100001010")
 		#"name": "mar := sp; wr; goto 10",
 		#"AMUX": "0", "COND": "11", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "1", "RD": "0", "WR": "1", "ENC": "0",
@@ -528,7 +528,7 @@ func _ready() -> void:
 	
 
 	# 56: mar:=sp; sp:=sp + 1; rd;
-	microinstructions.append("00000000110100100010011000000000")
+	linhas_da_memoria.append("00000000110100100010011000000000")
 		#"name": "mar := sp; sp := sp + 1; rd",
 		#"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
 		#"MBR": "0", "MAR": "1", "RD": "1", "WR": "0", "ENC": "1",
@@ -537,7 +537,7 @@ func _ready() -> void:
 	
 
 	# 57: rd;
-	microinstructions.append("00010000010000000101010100000000")
+	linhas_da_memoria.append("00010000010000000101010100000000")
 		#"name": "rd",
 		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "1", "WR": "0", "ENC": "0",
@@ -546,7 +546,7 @@ func _ready() -> void:
 	
 	
 	# 58: mar:=ac; wr; goto 10;
-	microinstructions.append("01110000101000000001010100001010")
+	linhas_da_memoria.append("01110000101000000001010100001010")
 		#"name": "mar := ac; wr; goto 10",
 		#"AMUX": "0", "COND": "11", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "1", "RD": "0", "WR": "1", "ENC": "0",
@@ -555,7 +555,7 @@ func _ready() -> void:
 	
 
 	# 59: alu:=tir; if n then goto 62;
-	microinstructions.append("00110000000000000101010000111110")
+	linhas_da_memoria.append("00110000000000000101010000111110")
 		#"name": "alu := tir; if n then goto 62",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
@@ -564,7 +564,7 @@ func _ready() -> void:
 	
 
 	# 60: sp:=sp + (-1);
-	microinstructions.append("00000000010100100111001000000000")
+	linhas_da_memoria.append("00000000010100100111001000000000")
 		#"name": "sp := sp + (-1); rd",
 		#"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "1", "WR": "0", "ENC": "1",
@@ -573,7 +573,7 @@ func _ready() -> void:
 	
 
 	# 61: mar:=sp; mbr:=ac; wr; goto 10;
-	microinstructions.append("01110001101000000010000100001010")
+	linhas_da_memoria.append("01110001101000000010000100001010")
 		#"name": "mar := sp; mbr := ac; wr; goto 10",
 		#"AMUX": "0", "COND": "11", "ULA": "10", "DESL": "00",
 		#"MBR": "1", "MAR": "1", "RD": "0", "WR": "1", "ENC": "0",
@@ -582,7 +582,7 @@ func _ready() -> void:
 	
 
 	# 62: mar:=sp; sp:=sp + 1; rd;
-	microinstructions.append("00000000110100100010011000000000")
+	linhas_da_memoria.append("00000000110100100010011000000000")
 		#"name": "mar := sp; sp := sp + 1; rd",
 		#"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
 		#"MBR": "0", "MAR": "1", "RD": "1", "WR": "0", "ENC": "1",
@@ -591,7 +591,7 @@ func _ready() -> void:
 	
 
 	# 63: rd;
-	microinstructions.append("00010000010000000101010100000000")
+	linhas_da_memoria.append("00010000010000000101010100000000")
 		#"name": "rd",
 		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "1", "WR": "0", "ENC": "0",
@@ -599,7 +599,7 @@ func _ready() -> void:
 		#"ADDR": "00000000"
 
 	# 64: ac:=mbr; goto 0;
-	microinstructions.append("11110000000100010101010100000000")
+	linhas_da_memoria.append("11110000000100010101010100000000")
 		#"name": "ac := mbr; goto 0",
 		#"AMUX": "1", "COND": "11", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -608,7 +608,7 @@ func _ready() -> void:
 	
 
 	# 65: tir:=lshift(tir); if n then goto 73;
-	microinstructions.append("00110100000101000101010001001001")
+	linhas_da_memoria.append("00110100000101000101010001001001")
 		#"name": "tir := lshift(tir); if n then goto 73",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "10",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -617,7 +617,7 @@ func _ready() -> void:
 	
 
 	# 66: alu:=tir; if n then goto 70;
-	microinstructions.append("00110000000000000101010001000110")
+	linhas_da_memoria.append("00110000000000000101010001000110")
 		#"name": "alu := tir; if n then goto 70",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
@@ -626,7 +626,7 @@ func _ready() -> void:
 	
 
 	# 67: mar:=sp; sp:=sp + 1; rd;
-	microinstructions.append("00000000110100100010011000000000")
+	linhas_da_memoria.append("00000000110100100010011000000000")
 		#"name": "mar := sp; sp := sp + 1; rd",
 		#"AMUX": "0", "COND": "00", "ULA": "00", "DESL": "00",
 		#"MBR": "0", "MAR": "1", "RD": "1", "WR": "0", "ENC": "1",
@@ -635,7 +635,7 @@ func _ready() -> void:
 	
 
 	# 68: rd;
-	microinstructions.append("00010000010000000101010100000000")
+	linhas_da_memoria.append("00010000010000000101010100000000")
 		#"name": "rd",
 		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "1", "WR": "0", "ENC": "0",
@@ -643,7 +643,7 @@ func _ready() -> void:
 		#"ADDR": "00000000"
 
 	# 69: pc:=mbr; goto 0;
-	microinstructions.append("11110000000100000101010100000000")
+	linhas_da_memoria.append("11110000000100000101010100000000")
 		#"name": "pc := mbr; goto 0",
 		#"AMUX": "1", "COND": "11", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -652,7 +652,7 @@ func _ready() -> void:
 	
 	
 	# 70: a:=ac;
-	microinstructions.append("00010000000110100101000100000000")
+	linhas_da_memoria.append("00010000000110100101000100000000")
 		#"name": "a := ac",
 		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -661,7 +661,7 @@ func _ready() -> void:
 	
 
 	# 71: ac:=sp;
-	microinstructions.append("00010000000100010101001000000000")
+	linhas_da_memoria.append("00010000000100010101001000000000")
 		#"name": "ac := sp",
 		#"AMUX": "0", "COND": "00", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -670,7 +670,7 @@ func _ready() -> void:
 	
 
 	# 72: sp:=a; goto 0;
-	microinstructions.append("01110000000100100101101000000000")
+	linhas_da_memoria.append("01110000000100100101101000000000")
 		#"name": "sp := a; goto 0",
 		#"AMUX": "0", "COND": "11", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -679,7 +679,7 @@ func _ready() -> void:
 	
 
 	# 73: alu:=tir; if n then goto 76;
-	microinstructions.append("00110000000000000101010001001100")
+	linhas_da_memoria.append("00110000000000000101010001001100")
 		#"name": "alu := tir; if n then goto 76",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",
@@ -688,7 +688,7 @@ func _ready() -> void:
 	
 
 	# 74: a:=band(ir,smask);
-	microinstructions.append("00001000000110101001001100000000")
+	linhas_da_memoria.append("00001000000110101001001100000000")
 		#"name": "a := band(ir,smask)",
 		#"AMUX": "0", "COND": "00", "ULA": "01", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -697,7 +697,7 @@ func _ready() -> void:
 	
 
 	# 75: sp:=sp + a; goto 0;
-	microinstructions.append("01100000000100101010001000000000")
+	linhas_da_memoria.append("01100000000100101010001000000000")
 		#"name": "sp := sp + a; goto 0",
 		#"AMUX": "0", "COND": "11", "ULA": "00", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -706,7 +706,7 @@ func _ready() -> void:
 	
 
 	# 76: a:=band(ir,smask);
-	microinstructions.append("00001000000110101001001100000000")
+	linhas_da_memoria.append("00001000000110101001001100000000")
 		#"name": "a := band(ir,smask)",
 		#"AMUX": "0", "COND": "00", "ULA": "01", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -715,7 +715,7 @@ func _ready() -> void:
 	
 
 	# 77: a:=inv(a);
-	microinstructions.append("00011000000110100101101000000000")
+	linhas_da_memoria.append("00011000000110100101101000000000")
 		#"name": "a := inv(a)",
 		#"AMUX": "0", "COND": "00", "ULA": "11", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -724,7 +724,7 @@ func _ready() -> void:
 	
 
 	# 78: a:=a + 1; goto 75;
-	microinstructions.append("01100000000110100110101001001011")
+	linhas_da_memoria.append("01100000000110100110101001001011")
 		#"name": "a := a + 1; goto 75",
 		#"AMUX": "0", "COND": "11", "ULA": "00", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",

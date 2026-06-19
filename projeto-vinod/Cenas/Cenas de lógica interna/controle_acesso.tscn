@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://der4kplg7hrt4"]
+
+[ext_resource type="Script" uid="uid://bbovqsivxpd8s" path="res://Scripts/ScriptsLogicaInterna/controle_acesso.gd" id="1_icr4j"]
+
+[node name="ControleAcessoMemoria" type="Node2D" unique_id=1735749587]
+script = ExtResource("1_icr4j")
