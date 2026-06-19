@@ -1,8 +1,11 @@
-extends Control
+class_name Interface extends Control
 
 @export_subgroup("Leitor de Macro")
 @export var leitor_de_macro : LeitorDeMacro;
 @export var leitor_de_texto : TextEdit;
+
+@export_subgroup("Lista de Micros")
+@export var imprimidor_de_texto : TextEdit;
 
 @export_subgroup("Memoria Principal")
 @export var memoria_principal : MemoriaPrincipal;
@@ -20,7 +23,7 @@ func _on_iniciar_simulação_pressed() -> void:
 	# Escreve programa na memória
 	memoria_principal.escreve_programa_em_memoria(leitor_de_macro.trata_texto(leitor_de_texto.text));
 	# Inicia gerenciador de tempo
-	gerenciador.timer_dos_subciclos.start()
+	gerenciador.timer_dos_subciclos.start(gerenciador.tempo_entre_subciclos)
 	iniciou = true
 
 
@@ -32,10 +35,10 @@ func _on_avança_pressed() -> void:
 func _on_pausa_pressed() -> void:
 	var pause = $"PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer3/pausa"
 	if(gerenciador.timer_ativado and iniciou):
-		gerenciador.timer_ativado = false
+		gerenciador.ativa_desativa_timer()
 		pause.text = "DESPAUSA"
 	else:
-		gerenciador.timer_ativado = true
+		gerenciador.ativa_desativa_timer()
 		pause.text = "PAUSA"
 
 

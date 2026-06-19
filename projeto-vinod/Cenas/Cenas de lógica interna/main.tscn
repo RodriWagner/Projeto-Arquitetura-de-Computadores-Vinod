@@ -8,13 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://dybyv16fmmv1w" path="res://Cenas/Cenas de lógica interna/LeitorDeMacro.tscn" id="4_uv7h8"]
 [ext_resource type="PackedScene" uid="uid://der4kplg7hrt4" path="res://Cenas/Cenas de lógica interna/controle_acesso.tscn" id="5_5sm5k"]
 [ext_resource type="PackedScene" uid="uid://dofyffrpaxm0q" path="res://Cenas/Cenas de lógica interna/barramento_padrao.tscn" id="5_uv7h8"]
-[ext_resource type="Script" uid="uid://co4rs71c4uhtb" path="res://Cenas/Cenas de lógica interna/registradores.gd" id="9_duyd2"]
+[ext_resource type="Script" uid="uid://co4rs71c4uhtb" path="res://Scripts/ScriptsLogicaInterna/registradores.gd" id="9_duyd2"]
 [ext_resource type="PackedScene" uid="uid://w3w5c5rngag8" path="res://Cenas/Cenas de lógica interna/registrador_base.tscn" id="9_pg2fq"]
 [ext_resource type="PackedScene" uid="uid://ct2pqh4kkh12r" path="res://Cenas/Cenas de lógica interna/mux.tscn" id="10_duyd2"]
 [ext_resource type="PackedScene" uid="uid://c6iinwo5ipvlv" path="res://Cenas/Cenas de lógica interna/ula.tscn" id="11_jl1pn"]
 [ext_resource type="PackedScene" uid="uid://dh2cptw8ppwur" path="res://Cenas/Cenas de lógica interna/deslocador.tscn" id="12_ijbik"]
 [ext_resource type="PackedScene" uid="uid://liwhxf8uc651" path="res://Cenas/Cenas de lógica interna/micro_memoria.tscn" id="13_7p45e"]
 [ext_resource type="PackedScene" uid="uid://tbk44hxr3gv6" path="res://Cenas/Cenas de lógica interna/mir.tscn" id="14_3db8d"]
+[ext_resource type="PackedScene" uid="uid://b0pqo2dpnx5d1" path="res://Cenas/Cenas de lógica interna/mbr.tscn" id="14_jl1pn"]
 [ext_resource type="PackedScene" uid="uid://2uxsx4v5tu5u" path="res://Cenas/Cenas de lógica interna/incrementador.tscn" id="15_5w1e3"]
 [ext_resource type="PackedScene" uid="uid://bjpj3jryauww0" path="res://Cenas/Cenas de lógica interna/decoder.tscn" id="16_cvxod"]
 [ext_resource type="PackedScene" uid="uid://cntn71jt5300p" path="res://Cenas/Cenas de lógica interna/controle_de_fluxo.tscn" id="17_m455r"]
@@ -118,6 +119,8 @@ lista_de_componentes = {
 "DecoderC": NodePath("../Via de Dados/Componentes/Registradores"),
 "LatchA": NodePath("../Via de Dados/Componentes/LatchA"),
 "LatchB": NodePath("../Via de Dados/Componentes/LatchB"),
+"MAR": NodePath("../Via de Dados/Componentes/MAR"),
+"MBR": NodePath("../Via de Dados/Componentes/MBR"),
 "MIR": NodePath("../Unidade de Controle/MIR"),
 "MPC": NodePath("../Unidade de Controle/MPC")
 }
@@ -203,22 +206,6 @@ points = PackedVector2Array(433, 482, 433, 487, 273, 487)
 [node name="sh_shifter" parent="Barramentos/CasosSensiveis/SaindoDoMIR" unique_id=1950619333 instance=ExtResource("5_uv7h8")]
 points = PackedVector2Array(478, 483, 478, 607, 327, 607)
 
-[node name="mpc_control_store" parent="Barramentos/CasosSensiveis" unique_id=286039740 instance=ExtResource("5_uv7h8")]
-points = PackedVector2Array(539, 352, 539, 368)
-
-[node name="control_store_mir" parent="Barramentos/CasosSensiveis" unique_id=1052575503 instance=ExtResource("5_uv7h8")]
-points = PackedVector2Array(538, 406, 538, 428)
-
-[node name="aluN_microseqlogic" parent="Barramentos/CasosSensiveis" unique_id=368504727 instance=ExtResource("5_uv7h8")]
-points = PackedVector2Array(342, 523, 374, 523)
-width = 3.955
-begin_cap_mode = 2
-
-[node name="aluZ_microseqlogic" parent="Barramentos/CasosSensiveis" unique_id=48244705 instance=ExtResource("5_uv7h8")]
-points = PackedVector2Array(337, 534, 374, 534)
-width = 3.95
-begin_cap_mode = 2
-
 [node name="EnvolveRegs" type="Node2D" parent="Barramentos/CasosSensiveis" unique_id=1505981592]
 
 [node name="registers_a" parent="Barramentos/CasosSensiveis/EnvolveRegs" unique_id=88035938 instance=ExtResource("5_uv7h8")]
@@ -245,6 +232,22 @@ points = PackedVector2Array(331, 91, 202, 91, 202, 206)
 [node name="cdecoder_registers" parent="Barramentos/CasosSensiveis/EnvolveRegs" unique_id=684355030 instance=ExtResource("5_uv7h8")]
 points = PackedVector2Array(331, 46, 183, 46, 183, 206)
 
+[node name="mpc_control_store" parent="Barramentos/CasosSensiveis" unique_id=286039740 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(539, 352, 539, 368)
+
+[node name="control_store_mir" parent="Barramentos/CasosSensiveis" unique_id=1052575503 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(538, 406, 538, 428)
+
+[node name="aluN_microseqlogic" parent="Barramentos/CasosSensiveis" unique_id=368504727 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(342, 523, 374, 523)
+width = 3.955
+begin_cap_mode = 2
+
+[node name="aluZ_microseqlogic" parent="Barramentos/CasosSensiveis" unique_id=48244705 instance=ExtResource("5_uv7h8")]
+points = PackedVector2Array(337, 534, 374, 534)
+width = 3.95
+begin_cap_mode = 2
+
 [node name="mpc_increment" parent="Barramentos" unique_id=1820964864 node_paths=PackedStringArray("origem", "destino") instance=ExtResource("5_uv7h8")]
 points = PackedVector2Array(497, 338, 510, 338)
 origem = NodePath("../../Unidade de Controle/MPC")
@@ -265,12 +268,14 @@ points = PackedVector2Array(283, 565, 283, 594)
 origem = NodePath("../../Via de Dados/Componentes/ULA")
 destino = NodePath("../../Via de Dados/Componentes/Deslocador")
 
-[node name="shifter_mbr" parent="Barramentos" unique_id=1441557973 node_paths=PackedStringArray("origem") instance=ExtResource("5_uv7h8")]
+[node name="shifter_mbr" parent="Barramentos" unique_id=1441557973 node_paths=PackedStringArray("origem", "destino") instance=ExtResource("5_uv7h8")]
 points = PackedVector2Array(283, 619, 283, 638, 123, 638, 123, 465)
 origem = NodePath("../../Via de Dados/Componentes/Deslocador")
+destino = NodePath("../../Via de Dados/Componentes/MBR")
 
-[node name="mbr_amux" parent="Barramentos" unique_id=1049204913 node_paths=PackedStringArray("destino") instance=ExtResource("5_uv7h8")]
+[node name="mbr_amux" parent="Barramentos" unique_id=1049204913 node_paths=PackedStringArray("origem", "destino") instance=ExtResource("5_uv7h8")]
 points = PackedVector2Array(139, 446, 231, 446, 231, 471)
+origem = NodePath("../../Via de Dados/Componentes/MBR")
 destino = NodePath("../../Via de Dados/Componentes/Amux")
 
 [node name="amux_a" parent="Barramentos" unique_id=1655756108 node_paths=PackedStringArray("origem", "destino") instance=ExtResource("5_uv7h8")]
@@ -278,9 +283,10 @@ points = PackedVector2Array(243, 498, 243, 514)
 origem = NodePath("../../Via de Dados/Componentes/Amux")
 destino = NodePath("../../Via de Dados/Componentes/ULA")
 
-[node name="blatch_mar" parent="Barramentos" unique_id=65266742 node_paths=PackedStringArray("origem") instance=ExtResource("5_uv7h8")]
+[node name="blatch_mar" parent="Barramentos" unique_id=65266742 node_paths=PackedStringArray("origem", "destino") instance=ExtResource("5_uv7h8")]
 points = PackedVector2Array(322, 355, 322, 403, 97, 403)
 origem = NodePath("../../Via de Dados/Componentes/LatchB")
+destino = NodePath("../../Via de Dados/Componentes/MAR")
 
 [node name="blatch_alu" parent="Barramentos" unique_id=717075688 node_paths=PackedStringArray("origem", "destino") instance=ExtResource("5_uv7h8")]
 points = PackedVector2Array(322, 355, 322, 403, 322, 515)
@@ -298,7 +304,8 @@ flag_entrada = 2
 
 [node name="MemoriaPrincipal" parent="Via de Dados" unique_id=266650011 instance=ExtResource("2_qahpq")]
 
-[node name="ControleAcessoMP" parent="Via de Dados/MemoriaPrincipal" unique_id=1735749587 instance=ExtResource("5_5sm5k")]
+[node name="ControleAcessoMP" parent="Via de Dados/MemoriaPrincipal" unique_id=1735749587 node_paths=PackedStringArray("memoria") instance=ExtResource("5_5sm5k")]
+memoria = NodePath("..")
 
 [node name="Componentes" type="Node2D" parent="Via de Dados" unique_id=2007277224]
 
@@ -352,6 +359,15 @@ controle = "00"
 [node name="Deslocador" parent="Via de Dados/Componentes" unique_id=1526665294 instance=ExtResource("12_ijbik")]
 controle = "00"
 
+[node name="MAR" parent="Via de Dados/Componentes" unique_id=373609624 instance=ExtResource("9_pg2fq")]
+
+[node name="MBR" parent="Via de Dados/Componentes" unique_id=1014754384 node_paths=PackedStringArray("controle_memoria") instance=ExtResource("14_jl1pn")]
+controle_memoria = NodePath("../../MemoriaPrincipal/ControleAcessoMP")
+
+[node name="ControleDeFluxo" parent="Via de Dados/Componentes" unique_id=1097584056 node_paths=PackedStringArray("ula", "MMUX") instance=ExtResource("17_m455r")]
+ula = NodePath("../ULA")
+MMUX = NodePath("../../../Unidade de Controle/Mmux")
+
 [node name="Unidade de Controle" type="Node2D" parent="." unique_id=1774968066]
 
 [node name="micro_memoria" parent="Unidade de Controle" unique_id=1430280428 instance=ExtResource("13_7p45e")]
@@ -359,12 +375,18 @@ controle = "00"
 [node name="ControleAcessoMemoria" parent="Unidade de Controle/micro_memoria" unique_id=1596271675 node_paths=PackedStringArray("memoria") instance=ExtResource("5_5sm5k")]
 memoria = NodePath("..")
 
-[node name="MIR" parent="Unidade de Controle" unique_id=298301598 node_paths=PackedStringArray("acesso_memoria_controle", "mpc", "amux", "ula", "desl", "enc", "dec_c", "dec_b", "dec_a", "addr") instance=ExtResource("14_3db8d")]
+[node name="MIR" parent="Unidade de Controle" unique_id=298301598 node_paths=PackedStringArray("acesso_memoria_controle", "interface", "mpc", "amux", "cond", "ula", "desl", "mbr", "mar", "rd", "wr", "enc", "dec_c", "dec_b", "dec_a", "addr") instance=ExtResource("14_3db8d")]
 acesso_memoria_controle = NodePath("../micro_memoria/ControleAcessoMemoria")
+interface = NodePath("../../Interface")
 mpc = NodePath("../MPC")
 amux = NodePath("../../Via de Dados/Componentes/Amux")
+cond = NodePath("../../Via de Dados/Componentes/ControleDeFluxo")
 ula = NodePath("../../Via de Dados/Componentes/ULA")
 desl = NodePath("../../Via de Dados/Componentes/Deslocador")
+mbr = NodePath("../../Via de Dados/Componentes/MBR")
+mar = NodePath("../../Via de Dados/Componentes/MAR")
+rd = NodePath("../../Via de Dados/Componentes/MBR")
+wr = NodePath("../../Via de Dados/Componentes/MBR")
 enc = NodePath("../../Via de Dados/Componentes/Registradores")
 dec_c = NodePath("../DecoderC")
 dec_b = NodePath("../DecoderB")
@@ -383,7 +405,7 @@ controle = "1"
 
 [node name="DecoderC" parent="Unidade de Controle" unique_id=1146886859 instance=ExtResource("16_cvxod")]
 
-[node name="ControleDeFluxo" parent="Unidade de Controle" unique_id=1097584056 instance=ExtResource("17_m455r")]
+[node name="ControleDeFluxo" parent="Unidade de Controle" unique_id=956690104 instance=ExtResource("17_m455r")]
 
 [node name="MPC" parent="Unidade de Controle" unique_id=813905925 instance=ExtResource("9_pg2fq")]
 controle = "1"

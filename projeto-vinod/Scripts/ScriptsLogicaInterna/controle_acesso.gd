@@ -10,4 +10,5 @@ func acessa_dado(endereco : String) -> String:
 
 ## Insere dado no endereco passado
 func insere_dado(dado : String, endereco : String) -> void:
+	print(memoria.linhas_da_memoria)
 	memoria.linhas_da_memoria[endereco.bin_to_int()] = dado;

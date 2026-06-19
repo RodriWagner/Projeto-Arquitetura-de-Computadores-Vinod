@@ -1,5 +1,7 @@
 extends ComponenteBase
 
+func _ready() -> void:
+	saida = "0".repeat(32);
 
 # Se controle == '1', saida assume valor de entrada_1. Se controle == '0', nada acontece. 
 func agir():

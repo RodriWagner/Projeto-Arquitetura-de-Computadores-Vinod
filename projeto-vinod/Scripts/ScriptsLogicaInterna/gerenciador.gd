@@ -54,7 +54,7 @@ func atualiza_ciclos():
 	atualiza_subciclos()
 
 
-func _ativa_desativa_timer() -> void:
+func ativa_desativa_timer() -> void:
 	if timer_ativado:
 		timer_ativado = false
 		timer_dos_subciclos.stop()

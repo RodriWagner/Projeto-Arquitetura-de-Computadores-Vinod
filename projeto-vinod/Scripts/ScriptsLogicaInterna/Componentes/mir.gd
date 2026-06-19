@@ -1,23 +1,27 @@
 extends ComponenteBase
 @export var acesso_memoria_controle : ControleAcessoMemoria;
-@export var mpc : ComponenteBase
+@export var interface : Interface
 
+@export_subgroup("Sinais de controle")
+@export var mpc : ComponenteBase
 @export var amux : ComponenteBase
 @export var cond : ComponenteBase
 @export var ula : ComponenteBase
 @export var desl : ComponenteBase
-@export var mbr : ComponenteBase
+@export var mbr : MBR
 @export var mar : ComponenteBase
-@export var rd : ComponenteBase
-@export var wr : ComponenteBase
+@export var rd : MBR
+@export var wr : MBR
 @export var enc : ComponenteBase
 @export var dec_c : ComponenteBase
 @export var dec_b : ComponenteBase
 @export var dec_a : ComponenteBase
 @export var addr : ComponenteBase
+
 	
 func agir() -> void:
 	entrada_1 = acesso_memoria_controle.acessa_dado(mpc.saida)
+	interface.imprimidor_de_texto.text += "\n" + mpc.saida
 	
 	amux.controle = entrada_1.substr(0,1)
 	cond.controle = entrada_1.substr(1,2)

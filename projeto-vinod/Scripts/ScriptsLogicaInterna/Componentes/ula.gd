@@ -1,7 +1,7 @@
-extends ComponenteBase
+class_name ULA extends ComponenteBase
 
-var flag_n: bool = false
-var flag_z: bool = false
+var flag_n: String = "0"
+var flag_z: String = "0"
 
 
 func agir():
@@ -12,6 +12,7 @@ func agir():
 			var b: int = entrada_2.bin_to_int()
 			var resultado: int = (a + b) & 0xFFFF
 			saida = _int_para_bin16(resultado)
+			
 
 		"01":
 			var a: int = entrada_1.bin_to_int()
@@ -32,8 +33,12 @@ func agir():
 	_calcular_flags()
 
 func _calcular_flags() -> void:
-	flag_n = saida[0] == "1"
-	flag_z = saida == "0000000000000000"
+	flag_n = saida[0]
+	print(saida)
+	if (saida == "0000000000000000"):
+		flag_z = "1"
+	else: 
+		flag_z = "0"
 
 func _int_para_bin16(valor: int) -> String:
 	var resultado: String = ""

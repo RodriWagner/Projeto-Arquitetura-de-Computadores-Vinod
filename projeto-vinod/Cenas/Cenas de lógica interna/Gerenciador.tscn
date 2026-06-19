@@ -7,5 +7,6 @@ script = ExtResource("1_y2nxc")
 timer_dos_subciclos = NodePath("TimerDosCiclos")
 
 [node name="TimerDosCiclos" type="Timer" parent="." unique_id=1530563372]
+wait_time = 2.0
 
 [connection signal="timeout" from="TimerDosCiclos" to="." method="atualiza_subciclos"]

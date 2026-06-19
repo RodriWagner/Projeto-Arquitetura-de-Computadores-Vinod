@@ -1,7 +1,7 @@
 class_name LeitorDeMacro extends Node2D
 
 var traducao_opcode : Dictionary = {
-		"LOAD" : "0000",
+		"LODD" : "0000",
 		"STOD" : "0001",
 		"ADDD" : "0010",
 		"SUBD" : "0011",
@@ -95,7 +95,7 @@ func _remove_labels(texto_em_linhas : PackedStringArray, lista_de_labels : Array
 ## O conteudo é transformado em binario e adicionado ao opcode.
 ## A instrução completa é retornado em formato de string.
 func _instrucao_binario(instrucao : String, conteudo : String, lista_de_labels : Array[Dictionary]) -> String:
-	var instrucao_binario : String = traducao_opcode[instrucao];
+	var instrucao_binario : String = traducao_opcode[instrucao.to_upper()];
 	if (conteudo.is_valid_int()):
 		var conteudo_binario : String = _decimal_para_binario(int(conteudo));
 		var zero_faltando = 16 - instrucao_binario.length() - conteudo_binario.length();
