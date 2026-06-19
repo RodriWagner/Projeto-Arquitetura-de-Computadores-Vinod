@@ -1,5 +1,6 @@
 extends ComponenteBase
 
+
 # Se controle == '1', saida assume valor de entrada_1. Se controle == '0', nada acontece. 
 func agir():
 	

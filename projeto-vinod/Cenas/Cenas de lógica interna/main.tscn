@@ -312,8 +312,10 @@ clocked = true
 [node name="Amux" parent="Via de Dados/Componentes" unique_id=1810147326 instance=ExtResource("10_duyd2")]
 
 [node name="ULA" parent="Via de Dados/Componentes" unique_id=1882756823 instance=ExtResource("11_jl1pn")]
+controle = "00"
 
 [node name="Deslocador" parent="Via de Dados/Componentes" unique_id=1526665294 instance=ExtResource("12_ijbik")]
+controle = "00"
 
 [node name="Unidade de Controle" type="Node2D" parent="." unique_id=1774968066]
 
@@ -339,4 +341,5 @@ clocked = true
 [node name="ControleDeFluxo" parent="Unidade de Controle" unique_id=1097584056 instance=ExtResource("17_m455r")]
 
 [node name="MPC" parent="Unidade de Controle" unique_id=813905925 instance=ExtResource("9_pg2fq")]
+controle = "1"
 clocked = true

@@ -9,7 +9,7 @@ var entrada_1 : String = "0"
 var entrada_2 : String = "0"
 
 ## Controle
-var controle : String = "0"
+@export var controle : String = "0"
 
 @export var clocked : bool = false;
 
