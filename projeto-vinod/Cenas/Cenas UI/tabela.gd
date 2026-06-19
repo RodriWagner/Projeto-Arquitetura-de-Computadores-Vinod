@@ -17,6 +17,11 @@ func getLinha(i: int):
 func qtdLinhas():
 	return dados.size()
 
+##metodos
+
+func alteraTabela(endereco: int, valor: String):
+	dados[endereco][1] = valor
+
 func _to_string() -> String:
 	var resultado: String = "" 
 	

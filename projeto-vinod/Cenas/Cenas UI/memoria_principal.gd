@@ -5,7 +5,8 @@ func _ready() -> void:
 	
 	var tabela = Tabela.New(dados)
 	print(tabela)
-
+	tabela.alteraTabela(1, "ffsfs")
+	print(tabela)
 	
 	$ScrollContainer/Tabela.dado = tabela
 	$ScrollContainer/Tabela.apareceNaTela()

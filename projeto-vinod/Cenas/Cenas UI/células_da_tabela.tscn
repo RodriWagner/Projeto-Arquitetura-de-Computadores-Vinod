@@ -1,5 +1,12 @@
 [gd_scene format=3 uid="uid://cauydnhfso1e1"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1p3ss"]
+bg_color = Color(0.06879826, 0.06879829, 0.06879823, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l0gxf"]
+bg_color = Color(0.99999994, 0.26001006, 0.6249431, 1)
+draw_center = false
+
 [node name="CélulasDaTabela" type="Label" unique_id=942404265]
 anchors_preset = 15
 anchor_right = 1.0
@@ -8,6 +15,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_1p3ss")
+theme_override_styles/focus = SubResource("StyleBoxFlat_l0gxf")
 horizontal_alignment = 1
 vertical_alignment = 1

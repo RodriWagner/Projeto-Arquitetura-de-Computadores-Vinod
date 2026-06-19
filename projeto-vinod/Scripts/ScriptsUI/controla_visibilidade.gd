@@ -2,24 +2,40 @@ extends Control
 
 @export var MacroInstrucao : VBoxContainer
 @export var MicroInstrucao : VBoxContainer
+@export var MemoriaPrincipal_UI : VBoxContainer
 
-#troca entre microinstrucao e macroinstrucao
+var cont = 0
+
+@onready var paginas = [MacroInstrucao, MicroInstrucao, MemoriaPrincipal_UI]
+
 func _on_seta_esq_pressed() -> void:
-	
-	if (MicroInstrucao.visible == true):
+	if cont % 3 == 0:
+		MemoriaPrincipal_UI.visible = false
 		MicroInstrucao.visible = false
 		MacroInstrucao.visible = true
-	else:
+	elif cont % 3 == 1:
+		MemoriaPrincipal_UI.visible = false
 		MicroInstrucao.visible = true
 		MacroInstrucao.visible = false
+	elif cont % 3 == 2:
+		MemoriaPrincipal_UI.visible = true
+		MicroInstrucao.visible = false
+		MacroInstrucao.visible = false
+  
+	cont += 1
 
-
-#troca entre microinstrucao e macroinstrucao
 func _on_seta_dir_pressed() -> void:
-	
-	if (MicroInstrucao.visible == true):
+	if cont % 3 == 0:
+		MemoriaPrincipal_UI.visible = false
 		MicroInstrucao.visible = false
 		MacroInstrucao.visible = true
-	else:
+	elif cont % 3 == 1:
+		MemoriaPrincipal_UI.visible = false
 		MicroInstrucao.visible = true
 		MacroInstrucao.visible = false
+	elif cont % 3 == 2:
+		MemoriaPrincipal_UI.visible = true
+		MicroInstrucao.visible = false
+		MacroInstrucao.visible = false
+  
+	cont += 1
