@@ -6,8 +6,6 @@ extends Control
 
 var cont = 0
 
-@onready var paginas = [MacroInstrucao, MicroInstrucao, MemoriaPrincipal_UI]
-
 func _on_seta_esq_pressed() -> void:
 	if cont % 3 == 0:
 		MemoriaPrincipal_UI.visible = false
