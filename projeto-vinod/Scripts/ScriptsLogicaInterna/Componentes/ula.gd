@@ -34,7 +34,7 @@ func agir():
 
 func _calcular_flags() -> void:
 	flag_n = saida[0]
-	print(saida)
+	#print(saida)
 	if (saida == "0000000000000000"):
 		flag_z = "1"
 	else: 

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dybyv16fmmv1w" path="res://Cenas/Cenas de lógica interna/LeitorDeMacro.tscn" id="4_uv7h8"]
 [ext_resource type="PackedScene" uid="uid://der4kplg7hrt4" path="res://Cenas/Cenas de lógica interna/controle_acesso.tscn" id="5_5sm5k"]
 [ext_resource type="PackedScene" uid="uid://dofyffrpaxm0q" path="res://Cenas/Cenas de lógica interna/barramento_padrao.tscn" id="5_uv7h8"]
-[ext_resource type="Script" uid="uid://co4rs71c4uhtb" path="res://Scripts/ScriptsLogicaInterna/registradores.gd" id="9_duyd2"]
+[ext_resource type="PackedScene" uid="uid://ck2y7f8v6il7x" path="res://Cenas/Cenas de lógica interna/registradores.tscn" id="9_jl1pn"]
 [ext_resource type="PackedScene" uid="uid://w3w5c5rngag8" path="res://Cenas/Cenas de lógica interna/registrador_base.tscn" id="9_pg2fq"]
 [ext_resource type="PackedScene" uid="uid://ct2pqh4kkh12r" path="res://Cenas/Cenas de lógica interna/mux.tscn" id="10_duyd2"]
 [ext_resource type="PackedScene" uid="uid://c6iinwo5ipvlv" path="res://Cenas/Cenas de lógica interna/ula.tscn" id="11_jl1pn"]
@@ -214,11 +214,13 @@ points = PackedVector2Array(239, 244, 256, 244)
 [node name="registers_b" parent="Barramentos/CasosSensiveis/EnvolveRegs" unique_id=337770173 instance=ExtResource("5_uv7h8")]
 points = PackedVector2Array(239, 285, 325, 285)
 
-[node name="a_alatch" parent="Barramentos/CasosSensiveis/EnvolveRegs" unique_id=1612259165 instance=ExtResource("5_uv7h8")]
+[node name="a_alatch" parent="Barramentos/CasosSensiveis/EnvolveRegs" unique_id=1612259165 node_paths=PackedStringArray("destino") instance=ExtResource("5_uv7h8")]
 points = PackedVector2Array(264, 230, 264, 328)
+destino = NodePath("../../../../Via de Dados/Componentes/LatchA")
 
-[node name="b_blatch" parent="Barramentos/CasosSensiveis/EnvolveRegs" unique_id=1836947284 instance=ExtResource("5_uv7h8")]
+[node name="b_blatch" parent="Barramentos/CasosSensiveis/EnvolveRegs" unique_id=1836947284 node_paths=PackedStringArray("destino") instance=ExtResource("5_uv7h8")]
 points = PackedVector2Array(333, 231, 333, 329)
+destino = NodePath("../../../../Via de Dados/Componentes/LatchB")
 
 [node name="shifter_registers" parent="Barramentos/CasosSensiveis/EnvolveRegs" unique_id=1114538683 instance=ExtResource("5_uv7h8")]
 points = PackedVector2Array(283, 620, 283, 638, 143, 638, 143, 276, 164, 276)
@@ -309,47 +311,21 @@ memoria = NodePath("..")
 
 [node name="Componentes" type="Node2D" parent="Via de Dados" unique_id=2007277224]
 
-[node name="Registradores" type="Node2D" parent="Via de Dados/Componentes" unique_id=895843889 node_paths=PackedStringArray("decoder_a", "decoder_b", "decoder_c", "barramento_a", "barramento_b", "deslocador")]
-script = ExtResource("9_duyd2")
+[node name="Registradores" parent="Via de Dados/Componentes" unique_id=484466616 node_paths=PackedStringArray("decoder_a", "decoder_b", "decoder_c", "barramento_a", "barramento_b", "deslocador") instance=ExtResource("9_jl1pn")]
 decoder_a = NodePath("../../../Unidade de Controle/DecoderA")
 decoder_b = NodePath("../../../Unidade de Controle/DecoderB")
 decoder_c = NodePath("../../../Unidade de Controle/DecoderC")
-barramento_a = NodePath("../../../Barramentos/CasosSensiveis/EnvolveRegs/registers_a")
-barramento_b = NodePath("../../../Barramentos/CasosSensiveis/EnvolveRegs/registers_b")
+barramento_a = NodePath("../../../Barramentos/CasosSensiveis/EnvolveRegs/a_alatch")
+barramento_b = NodePath("../../../Barramentos/CasosSensiveis/EnvolveRegs/b_blatch")
 deslocador = NodePath("../Deslocador")
-
-[node name="PC" parent="Via de Dados/Componentes/Registradores" unique_id=368368964 instance=ExtResource("9_pg2fq")]
-
-[node name="AC" parent="Via de Dados/Componentes/Registradores" unique_id=1558313567 instance=ExtResource("9_pg2fq")]
-
-[node name="SP" parent="Via de Dados/Componentes/Registradores" unique_id=528341749 instance=ExtResource("9_pg2fq")]
-
-[node name="IR" parent="Via de Dados/Componentes/Registradores" unique_id=1954077915 instance=ExtResource("9_pg2fq")]
-
-[node name="TIR" parent="Via de Dados/Componentes/Registradores" unique_id=572928770 instance=ExtResource("9_pg2fq")]
-
-[node name="0" parent="Via de Dados/Componentes/Registradores" unique_id=328238455 instance=ExtResource("9_pg2fq")]
-saida = "0000000000000000"
-
-[node name="+1" parent="Via de Dados/Componentes/Registradores" unique_id=408293011 instance=ExtResource("9_pg2fq")]
-saida = "0000000000000001"
-
-[node name="-1" parent="Via de Dados/Componentes/Registradores" unique_id=1264598067 instance=ExtResource("9_pg2fq")]
-saida = "1111111111111111"
-
-[node name="AMASK" parent="Via de Dados/Componentes/Registradores" unique_id=1152601171 instance=ExtResource("9_pg2fq")]
-saida = "0000111111111111"
-
-[node name="SMASK" parent="Via de Dados/Componentes/Registradores" unique_id=45401291 instance=ExtResource("9_pg2fq")]
-saida = "0000000011111111"
-
-[node name="A" parent="Via de Dados/Componentes/Registradores" unique_id=1510421217 instance=ExtResource("9_pg2fq")]
 
 [node name="LatchA" parent="Via de Dados/Componentes" unique_id=959053151 instance=ExtResource("9_pg2fq")]
 clocked = true
+saida = "0000000000000000"
 
 [node name="LatchB" parent="Via de Dados/Componentes" unique_id=1318358315 instance=ExtResource("9_pg2fq")]
 clocked = true
+saida = "0000000000000000"
 
 [node name="Amux" parent="Via de Dados/Componentes" unique_id=1810147326 instance=ExtResource("10_duyd2")]
 
@@ -400,10 +376,13 @@ clocked = true
 controle = "1"
 
 [node name="DecoderA" parent="Unidade de Controle" unique_id=603825268 instance=ExtResource("16_cvxod")]
+controle = "1"
 
 [node name="DecoderB" parent="Unidade de Controle" unique_id=123193991 instance=ExtResource("16_cvxod")]
+controle = "1"
 
 [node name="DecoderC" parent="Unidade de Controle" unique_id=1146886859 instance=ExtResource("16_cvxod")]
+controle = "1"
 
 [node name="ControleDeFluxo" parent="Unidade de Controle" unique_id=956690104 instance=ExtResource("17_m455r")]
 
