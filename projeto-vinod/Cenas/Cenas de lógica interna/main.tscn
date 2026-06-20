@@ -365,6 +365,7 @@ MMUX = NodePath("../../../Unidade de Controle/Mmux")
 
 [node name="ControleAcessoMemoria" parent="Unidade de Controle/micro_memoria" unique_id=1596271675 node_paths=PackedStringArray("memoria") instance=ExtResource("5_5sm5k")]
 memoria = NodePath("..")
+tamanho_base_endereco = 32
 
 [node name="MIR" parent="Unidade de Controle" unique_id=298301598 node_paths=PackedStringArray("acesso_memoria_controle", "interface", "mpc", "amux", "cond", "ula", "desl", "mbr", "mar", "rd", "wr", "enc", "dec_c", "dec_b", "dec_a", "addr") instance=ExtResource("14_3db8d")]
 acesso_memoria_controle = NodePath("../micro_memoria/ControleAcessoMemoria")
