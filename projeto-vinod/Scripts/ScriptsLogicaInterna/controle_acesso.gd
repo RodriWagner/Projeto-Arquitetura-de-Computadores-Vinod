@@ -21,4 +21,5 @@ func acessa_dado(endereco : String) -> String:
 func insere_dado(dado : String, endereco : String) -> void:
 	endereco = _limpa_endereco_de_acesso(endereco)
 	print(memoria.linhas_da_memoria)
+	#print("controleacesso: "+"Inseriu")
 	memoria.linhas_da_memoria[endereco.bin_to_int()] = dado;
