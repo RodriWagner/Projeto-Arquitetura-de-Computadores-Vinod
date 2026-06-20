@@ -279,6 +279,7 @@ destino = NodePath("../../Via de Dados/Componentes/MBR")
 points = PackedVector2Array(139, 446, 231, 446, 231, 471)
 origem = NodePath("../../Via de Dados/Componentes/MBR")
 destino = NodePath("../../Via de Dados/Componentes/Amux")
+flag_entrada = 2
 
 [node name="amux_a" parent="Barramentos" unique_id=1655756108 node_paths=PackedStringArray("origem", "destino") instance=ExtResource("5_uv7h8")]
 points = PackedVector2Array(243, 498, 243, 514)
@@ -300,7 +301,6 @@ flag_entrada = 2
 points = PackedVector2Array(256, 355, 256, 471)
 origem = NodePath("../../Via de Dados/Componentes/LatchA")
 destino = NodePath("../../Via de Dados/Componentes/Amux")
-flag_entrada = 2
 
 [node name="Via de Dados" type="Node2D" parent="." unique_id=880308341]
 

@@ -12,7 +12,7 @@ func agir():
 			var b: int = entrada_2.bin_to_int()
 			var resultado: int = (a + b) & 0xFFFF
 			saida = _int_para_bin16(resultado)
-			#print(entrada_1 +"e"+entrada_2+"a "+saida)
+			print(entrada_1 +"e"+entrada_2+"a "+saida)
 			
 
 		"01":
