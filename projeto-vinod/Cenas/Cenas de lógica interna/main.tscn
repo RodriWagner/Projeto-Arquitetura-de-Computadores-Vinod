@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://tbk44hxr3gv6" path="res://Cenas/Cenas de lógica interna/mir.tscn" id="14_3db8d"]
 [ext_resource type="PackedScene" uid="uid://b0pqo2dpnx5d1" path="res://Cenas/Cenas de lógica interna/mbr.tscn" id="14_jl1pn"]
 [ext_resource type="PackedScene" uid="uid://2uxsx4v5tu5u" path="res://Cenas/Cenas de lógica interna/incrementador.tscn" id="15_5w1e3"]
+[ext_resource type="Script" uid="uid://bkpakqnj814aw" path="res://Cenas/Cenas de lógica interna/conector_mar_mbr.gd" id="15_7p45e"]
 [ext_resource type="PackedScene" uid="uid://bjpj3jryauww0" path="res://Cenas/Cenas de lógica interna/decoder.tscn" id="16_cvxod"]
 [ext_resource type="PackedScene" uid="uid://cntn71jt5300p" path="res://Cenas/Cenas de lógica interna/controle_de_fluxo.tscn" id="17_m455r"]
 
@@ -344,9 +345,10 @@ controle = "1"
 clocked = true
 saida = "000000000000"
 
-[node name="mar_mbr" parent="Via de Dados/Componentes/MAR" unique_id=1828828349 node_paths=PackedStringArray("origem", "destino") instance=ExtResource("5_uv7h8")]
-origem = NodePath("..")
-destino = NodePath("../../MBR")
+[node name="conector_mar_mbr" type="Node2D" parent="Via de Dados/Componentes/MAR" unique_id=1854603768 node_paths=PackedStringArray("mar", "mbr")]
+script = ExtResource("15_7p45e")
+mar = NodePath("..")
+mbr = NodePath("../../MBR")
 
 [node name="MBR" parent="Via de Dados/Componentes" unique_id=1014754384 node_paths=PackedStringArray("controle_memoria") instance=ExtResource("14_jl1pn")]
 controle_memoria = NodePath("../../MemoriaPrincipal/ControleAcessoMP")
