@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://ck2y7f8v6il7x"]
+
+[ext_resource type="Script" uid="uid://co4rs71c4uhtb" path="res://Scripts/ScriptsLogicaInterna/registradores.gd" id="1_00kpi"]
+[ext_resource type="PackedScene" uid="uid://w3w5c5rngag8" path="res://Cenas/Cenas de lógica interna/registrador_base.tscn" id="2_rixb2"]
+
+[node name="Registradores" type="Node2D" unique_id=484466616]
+script = ExtResource("1_00kpi")
+
+[node name="PC" parent="." unique_id=368368964 instance=ExtResource("2_rixb2")]
+clocked = true
+saida = "0000000000000000"
+
+[node name="AC" parent="." unique_id=1477538869 instance=ExtResource("2_rixb2")]
+controle = "1"
+clocked = true
+saida = "0000000000000000"
+
+[node name="SP" parent="." unique_id=827881650 instance=ExtResource("2_rixb2")]
+controle = "1"
+clocked = true
+saida = "1111000000000000"
+
+[node name="IR" parent="." unique_id=1434678871 instance=ExtResource("2_rixb2")]
+controle = "1"
+clocked = true
+saida = "0000000000000000"
+
+[node name="TIR" parent="." unique_id=511103478 instance=ExtResource("2_rixb2")]
+controle = "1"
+clocked = true
+saida = "0000000000000000"
+
+[node name="0" parent="." unique_id=1777023473 instance=ExtResource("2_rixb2")]
+clocked = true
+saida = "0000000000000000"
+
+[node name="+1" parent="." unique_id=1839569183 instance=ExtResource("2_rixb2")]
+clocked = true
+saida = "0000000000000001"
+
+[node name="-1" parent="." unique_id=236876465 instance=ExtResource("2_rixb2")]
+clocked = true
+saida = "1111111111111111"
+
+[node name="AMASK" parent="." unique_id=1163607507 instance=ExtResource("2_rixb2")]
+clocked = true
+saida = "0000111111111111"
+
+[node name="SMASK" parent="." unique_id=959140502 instance=ExtResource("2_rixb2")]
+clocked = true
+saida = "0000000011111111"
+
+[node name="A" parent="." unique_id=585740461 instance=ExtResource("2_rixb2")]
+controle = "1"
+clocked = true
+saida = "0000000000000000"

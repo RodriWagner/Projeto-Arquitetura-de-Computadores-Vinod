@@ -1,7 +1,7 @@
 class_name LeitorDeMacro extends Node2D
 
 var traducao_opcode : Dictionary = {
-		"LOAD" : "0000",
+		"LODD" : "0000",
 		"STOD" : "0001",
 		"ADDD" : "0010",
 		"SUBD" : "0011",
@@ -34,10 +34,12 @@ func _decimal_para_binario(numero: int) -> String:
 	var binario: String = ""
 	var temp: int = numero
 	
+	# Tratamento para complemento de 2 em valores negativos (Assumindo 16 bits)
+	if temp < 0:
+		temp = (1 << 16) + temp
+	
 	while temp > 0:
-		# Adiciona o bit menos significativo à esquerda da string
 		binario = str(temp & 1) + binario
-		# Desloca os bits para a direita
 		temp = temp >> 1
 		
 	return binario
@@ -95,7 +97,7 @@ func _remove_labels(texto_em_linhas : PackedStringArray, lista_de_labels : Array
 ## O conteudo é transformado em binario e adicionado ao opcode.
 ## A instrução completa é retornado em formato de string.
 func _instrucao_binario(instrucao : String, conteudo : String, lista_de_labels : Array[Dictionary]) -> String:
-	var instrucao_binario : String = traducao_opcode[instrucao];
+	var instrucao_binario : String = traducao_opcode[instrucao.to_upper()];
 	if (conteudo.is_valid_int()):
 		var conteudo_binario : String = _decimal_para_binario(int(conteudo));
 		var zero_faltando = 16 - instrucao_binario.length() - conteudo_binario.length();
@@ -105,6 +107,7 @@ func _instrucao_binario(instrucao : String, conteudo : String, lista_de_labels :
 			print("Numero grande demais, perda de dados");
 			conteudo_binario.substr(zero_faltando*(-1));
 		var instrucao_completa = instrucao_binario + conteudo_binario;
+		#print("leitordemacro: "+instrucao_completa)
 		return instrucao_completa;
 	else:
 		for i in lista_de_labels:
@@ -117,6 +120,7 @@ func _instrucao_binario(instrucao : String, conteudo : String, lista_de_labels :
 					print("Numero grande demais, perda de dados");
 					label_binario.substr(zero_faltando*(-1));
 				var instrucao_completa = instrucao_binario + label_binario;
+				#print("leitordemacro: "+instrucao_completa)
 				return instrucao_completa;
 		return traducao_opcode[instrucao];
 

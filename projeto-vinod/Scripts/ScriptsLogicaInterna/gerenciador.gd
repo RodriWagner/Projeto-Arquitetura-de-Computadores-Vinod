@@ -34,27 +34,18 @@ func atualiza_subciclos():
 			lista_de_componentes["LatchA"].agir()
 			lista_de_componentes["LatchB"].agir()
 		3:
-			# AMUX está sempre ativo, mas ativamos por código para otimizar simulação
 			lista_de_componentes["MAR"].agir()
 		4:
 			# Habilita saída do MPC
 			lista_de_componentes["MPC"].agir()
-			# Grava dado do barramento C no registrador indicado (a depender do EnC)
-			lista_de_componentes["DecoderC"].agir()
+			# Grava dado do Deslocador (que estaria Barramento C) no registrador indicado (a depender do EnC)
+			lista_de_componentes["DecoderC"].atualiza_em_c()
 			# MBR pega dado para ser gravado na memória
 			lista_de_componentes["MBR"].agir()
 	subciclo = _incrementa_subciclo(subciclo);
 
-## Função chamada toda vez que um ciclo é atualizado.
-## Responsável fazer subciclos em frames diferentes e seguidos, compondo um ciclo.
-func atualiza_ciclos():
-	atualiza_subciclos()
-	atualiza_subciclos()
-	atualiza_subciclos()
-	atualiza_subciclos()
 
-
-func _ativa_desativa_timer() -> void:
+func ativa_desativa_timer() -> void:
 	if timer_ativado:
 		timer_ativado = false
 		timer_dos_subciclos.stop()

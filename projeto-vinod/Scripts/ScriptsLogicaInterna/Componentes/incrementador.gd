@@ -14,6 +14,9 @@ func agir():
 			result = str(temp & 1) + result
 			temp = temp >> 1
 		
+		while (result.length() < 32):
+			result = "0" + result;
+		
 		if result.length() == 33:
 			result = result.substr(1)
 				

@@ -24,7 +24,7 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="Theme" id="Theme_ya72m"]
 
-[node name="Interface" type="Control" unique_id=1786879715 node_paths=PackedStringArray("leitor_de_texto", "velocidade_label")]
+[node name="Interface" type="Control" unique_id=1786879715 node_paths=PackedStringArray("leitor_de_texto", "imprimidor_de_texto", "velocidade_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,6 +33,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_loqao")
 leitor_de_texto = NodePath("PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/macroinstrucao/codigo_macro")
+imprimidor_de_texto = NodePath("PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/microinstrucao/codigo_micro")
 velocidade_label = NodePath("PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer2/Label")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=2071102827]

@@ -10,4 +10,5 @@ func agir():
 		saida = entrada_1
 	
 	else:
-		print("Erro no MUX: Controle inválido: " + controle)
+		print("Erro no Registrador: Controle inválido: " + controle)
+	
