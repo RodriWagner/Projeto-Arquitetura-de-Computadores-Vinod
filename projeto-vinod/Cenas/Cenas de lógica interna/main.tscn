@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://w3w5c5rngag8" path="res://Cenas/Cenas de lógica interna/registrador_base.tscn" id="9_pg2fq"]
 [ext_resource type="PackedScene" uid="uid://ct2pqh4kkh12r" path="res://Cenas/Cenas de lógica interna/mux.tscn" id="10_duyd2"]
 [ext_resource type="PackedScene" uid="uid://c6iinwo5ipvlv" path="res://Cenas/Cenas de lógica interna/ula.tscn" id="11_jl1pn"]
+[ext_resource type="Script" uid="uid://bn70t1k2n5lr2" path="res://Scripts/ScriptsLogicaInterna/Componentes/amux.gd" id="12_7p45e"]
 [ext_resource type="PackedScene" uid="uid://dh2cptw8ppwur" path="res://Cenas/Cenas de lógica interna/deslocador.tscn" id="12_ijbik"]
 [ext_resource type="PackedScene" uid="uid://liwhxf8uc651" path="res://Cenas/Cenas de lógica interna/micro_memoria.tscn" id="13_7p45e"]
 [ext_resource type="PackedScene" uid="uid://tbk44hxr3gv6" path="res://Cenas/Cenas de lógica interna/mir.tscn" id="14_3db8d"]
@@ -330,7 +331,7 @@ clocked = true
 saida = "0000000000000000"
 
 [node name="Amux" parent="Via de Dados/Componentes" unique_id=1810147326 instance=ExtResource("10_duyd2")]
-saida = "0000000000000000"
+script = ExtResource("12_7p45e")
 
 [node name="ULA" parent="Via de Dados/Componentes" unique_id=1882756823 instance=ExtResource("11_jl1pn")]
 controle = "00"

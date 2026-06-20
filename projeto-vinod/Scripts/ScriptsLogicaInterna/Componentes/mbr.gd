@@ -19,3 +19,5 @@ func agir():
 	# Escrita na memória
 	if wr == "1":
 		controle_memoria.insere_dado(saida, endereco_memoria)
+	
+	#print("mbr: "+saida)

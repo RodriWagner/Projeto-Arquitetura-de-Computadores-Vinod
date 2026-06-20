@@ -12,7 +12,7 @@ func agir():
 			var b: int = entrada_2.bin_to_int()
 			var resultado: int = (a + b) & 0xFFFF
 			saida = _int_para_bin16(resultado)
-			print(entrada_1 +"e"+entrada_2+"a "+saida)
+			#print(entrada_1 +"e"+entrada_2+"a "+saida)
 			
 
 		"01":
@@ -25,7 +25,8 @@ func agir():
 			saida = _int_para_bin16((~a) & 0xFFFF)
 
 		"10":
-			saida = entrada_2
+			saida = entrada_1
+			#print("ula "+ entrada_1)
 
 		_:
 			print("Erro ULA: Controle inválido: " + controle)
