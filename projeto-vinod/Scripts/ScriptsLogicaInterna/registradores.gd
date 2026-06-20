@@ -29,5 +29,5 @@ func atualiza_em_c():
 		if decoder_c.saida.reverse()[i] == "1":
 			if controle == "1":
 				get_child(i).saida = deslocador.saida;
-				print("regs escrita: "+get_child(i).name + " "+ get_child(i).saida)
+				#print("regs escrita: "+get_child(i).name + " "+ get_child(i).saida)
 			break;

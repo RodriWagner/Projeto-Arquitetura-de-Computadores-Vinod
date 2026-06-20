@@ -153,7 +153,7 @@ func _ready() -> void:
 	
 
 	# 14: ac:=mbr + ac; goto 0;
-	linhas_da_memoria.append("")
+	linhas_da_memoria.append("11100000000100010001010100000000")
 		#"name": "ac := mbr + ac; goto 0",
 		#"AMUX": "1", "COND": "11", "ULA": "00", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "1",
@@ -376,7 +376,7 @@ func _ready() -> void:
 	
 
 	# 39: mar:=a; rd; goto 16;
-	linhas_da_memoria.append("011100001100000010100101000100000")
+	linhas_da_memoria.append("01110000110000001010010100010000")
 		#"name": "mar := a; rd; goto 16",
 		#"AMUX": "0", "COND": "11", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "1", "RD": "1", "WR": "0", "ENC": "0",
