@@ -30,6 +30,5 @@ func agir():
 	
 	if (MMUX):
 		MMUX.controle = saida
-		print(MMUX.controle)
 	else:
 		print("MMUX está null no controle de fluxo")

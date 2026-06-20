@@ -320,14 +320,17 @@ barramento_b = NodePath("../../../Barramentos/CasosSensiveis/EnvolveRegs/b_blatc
 deslocador = NodePath("../Deslocador")
 
 [node name="LatchA" parent="Via de Dados/Componentes" unique_id=959053151 instance=ExtResource("9_pg2fq")]
+controle = "1"
 clocked = true
 saida = "0000000000000000"
 
 [node name="LatchB" parent="Via de Dados/Componentes" unique_id=1318358315 instance=ExtResource("9_pg2fq")]
+controle = "1"
 clocked = true
 saida = "0000000000000000"
 
 [node name="Amux" parent="Via de Dados/Componentes" unique_id=1810147326 instance=ExtResource("10_duyd2")]
+saida = "0000000000000000"
 
 [node name="ULA" parent="Via de Dados/Componentes" unique_id=1882756823 instance=ExtResource("11_jl1pn")]
 controle = "00"
@@ -339,6 +342,7 @@ controle = "00"
 
 [node name="MBR" parent="Via de Dados/Componentes" unique_id=1014754384 node_paths=PackedStringArray("controle_memoria") instance=ExtResource("14_jl1pn")]
 controle_memoria = NodePath("../../MemoriaPrincipal/ControleAcessoMP")
+saida = "0000000000000000"
 
 [node name="ControleDeFluxo" parent="Via de Dados/Componentes" unique_id=1097584056 node_paths=PackedStringArray("ula", "MMUX") instance=ExtResource("17_m455r")]
 ula = NodePath("../ULA")
@@ -391,3 +395,4 @@ MMUX = NodePath("../Mmux")
 [node name="MPC" parent="Unidade de Controle" unique_id=813905925 instance=ExtResource("9_pg2fq")]
 controle = "1"
 clocked = true
+saida = "00000000000000000000000000000000"
