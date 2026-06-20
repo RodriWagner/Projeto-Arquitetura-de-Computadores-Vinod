@@ -105,6 +105,7 @@ func _instrucao_binario(instrucao : String, conteudo : String, lista_de_labels :
 			print("Numero grande demais, perda de dados");
 			conteudo_binario.substr(zero_faltando*(-1));
 		var instrucao_completa = instrucao_binario + conteudo_binario;
+		#print("leitordemacro: "+instrucao_completa)
 		return instrucao_completa;
 	else:
 		for i in lista_de_labels:
@@ -117,6 +118,7 @@ func _instrucao_binario(instrucao : String, conteudo : String, lista_de_labels :
 					print("Numero grande demais, perda de dados");
 					label_binario.substr(zero_faltando*(-1));
 				var instrucao_completa = instrucao_binario + label_binario;
+				#print("leitordemacro: "+instrucao_completa)
 				return instrucao_completa;
 		return traducao_opcode[instrucao];
 
