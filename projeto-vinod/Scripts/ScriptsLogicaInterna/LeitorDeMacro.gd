@@ -34,10 +34,12 @@ func _decimal_para_binario(numero: int) -> String:
 	var binario: String = ""
 	var temp: int = numero
 	
+	# Tratamento para complemento de 2 em valores negativos (Assumindo 16 bits)
+	if temp < 0:
+		temp = (1 << 16) + temp
+	
 	while temp > 0:
-		# Adiciona o bit menos significativo à esquerda da string
 		binario = str(temp & 1) + binario
-		# Desloca os bits para a direita
 		temp = temp >> 1
 		
 	return binario
