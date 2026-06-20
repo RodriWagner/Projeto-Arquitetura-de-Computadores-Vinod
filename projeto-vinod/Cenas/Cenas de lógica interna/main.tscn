@@ -339,9 +339,17 @@ controle = "00"
 controle = "00"
 
 [node name="MAR" parent="Via de Dados/Componentes" unique_id=373609624 instance=ExtResource("9_pg2fq")]
+controle = "1"
+clocked = true
+saida = "000000000000"
+
+[node name="mar_mbr" parent="Via de Dados/Componentes/MAR" unique_id=1828828349 node_paths=PackedStringArray("origem", "destino") instance=ExtResource("5_uv7h8")]
+origem = NodePath("..")
+destino = NodePath("../../MBR")
 
 [node name="MBR" parent="Via de Dados/Componentes" unique_id=1014754384 node_paths=PackedStringArray("controle_memoria") instance=ExtResource("14_jl1pn")]
 controle_memoria = NodePath("../../MemoriaPrincipal/ControleAcessoMP")
+clocked = true
 saida = "0000000000000000"
 
 [node name="ControleDeFluxo" parent="Via de Dados/Componentes" unique_id=1097584056 node_paths=PackedStringArray("ula", "MMUX") instance=ExtResource("17_m455r")]

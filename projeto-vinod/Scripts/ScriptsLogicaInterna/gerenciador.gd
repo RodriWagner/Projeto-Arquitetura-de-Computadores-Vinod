@@ -34,7 +34,6 @@ func atualiza_subciclos():
 			lista_de_componentes["LatchA"].agir()
 			lista_de_componentes["LatchB"].agir()
 		3:
-			# AMUX está sempre ativo, mas ativamos por código para otimizar simulação
 			lista_de_componentes["MAR"].agir()
 		4:
 			# Habilita saída do MPC

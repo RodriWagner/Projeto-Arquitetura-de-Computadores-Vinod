@@ -5,7 +5,7 @@ class_name MBR extends ComponenteBase
 var mbr: String = "0"
 var rd: String = "0"
 var wr: String = "0"
-var endereco_memoria: String = "0000000000000000"
+var endereco_memoria: String = "000000000000"
 
 func agir():
 	# Pega o dado após ele passar pelo shifter (Barramento C)
