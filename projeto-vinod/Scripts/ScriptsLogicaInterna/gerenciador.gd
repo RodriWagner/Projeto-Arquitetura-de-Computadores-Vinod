@@ -45,14 +45,6 @@ func atualiza_subciclos():
 			lista_de_componentes["MBR"].agir()
 	subciclo = _incrementa_subciclo(subciclo);
 
-## Função chamada toda vez que um ciclo é atualizado.
-## Responsável fazer subciclos em frames diferentes e seguidos, compondo um ciclo.
-func atualiza_ciclos():
-	atualiza_subciclos()
-	atualiza_subciclos()
-	atualiza_subciclos()
-	atualiza_subciclos()
-
 
 func ativa_desativa_timer() -> void:
 	if timer_ativado:

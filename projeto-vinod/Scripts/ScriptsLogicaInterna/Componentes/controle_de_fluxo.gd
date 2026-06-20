@@ -7,8 +7,6 @@ extends ComponenteBase
 func _ready() -> void:
 	controle = "00"
 
-func _process(_delta: float) -> void:
-	print(controle)
 
 func agir():
 	match controle:
@@ -32,3 +30,6 @@ func agir():
 	
 	if (MMUX):
 		MMUX.controle = saida
+		print(MMUX.controle)
+	else:
+		print("MMUX está null no controle de fluxo")

@@ -384,7 +384,9 @@ controle = "1"
 [node name="DecoderC" parent="Unidade de Controle" unique_id=1146886859 instance=ExtResource("16_cvxod")]
 controle = "1"
 
-[node name="ControleDeFluxo" parent="Unidade de Controle" unique_id=956690104 instance=ExtResource("17_m455r")]
+[node name="ControleDeFluxo" parent="Unidade de Controle" unique_id=956690104 node_paths=PackedStringArray("ula", "MMUX") instance=ExtResource("17_m455r")]
+ula = NodePath("../../Via de Dados/Componentes/ULA")
+MMUX = NodePath("../Mmux")
 
 [node name="MPC" parent="Unidade de Controle" unique_id=813905925 instance=ExtResource("9_pg2fq")]
 controle = "1"
