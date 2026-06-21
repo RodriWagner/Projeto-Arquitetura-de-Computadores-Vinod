@@ -19,9 +19,14 @@ var iniciou : bool = false
 func _ready() -> void:
 	velocidade_label.text = "TEMPO ENTRE SUBCICLOS: " + str(gerenciador.tempo_entre_subciclos) + "s"
 
+
 func _on_iniciar_simulação_pressed() -> void:
 	# Escreve programa na memória
-	memoria_principal.escreve_programa_em_memoria(leitor_de_macro.trata_texto(leitor_de_texto.text));
+	var macro_em_binario : PackedStringArray = leitor_de_macro.trata_texto(leitor_de_texto.text)
+	if (macro_em_binario.is_empty()):
+		leitor_de_texto.text = "Error de escrita ou instrução inválida"
+		return
+	memoria_principal.escreve_programa_em_memoria(macro_em_binario);
 	# Inicia gerenciador de tempo
 	gerenciador.timer_dos_subciclos.start(gerenciador.tempo_entre_subciclos)
 	iniciou = true
