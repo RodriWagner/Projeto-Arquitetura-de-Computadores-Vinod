@@ -96,8 +96,12 @@ func _remove_labels(texto_em_linhas : PackedStringArray, lista_de_labels : Array
 ## Conteudo é a variavel do que ela usa. Jumps usam enderecos de linha e ADDD usam numeros, por exemplo.
 ## O conteudo é transformado em binario e adicionado ao opcode.
 ## A instrução completa é retornado em formato de string.
+## Se for feita leitura errada, ele retorna a string "error"
 func _instrucao_binario(instrucao : String, conteudo : String, lista_de_labels : Array[Dictionary]) -> String:
-	var instrucao_binario : String = traducao_opcode[instrucao.to_upper()];
+	var instrucao_binario : String = traducao_opcode.get(instrucao.to_upper(), "null");
+	# trata erros:
+	if (instrucao_binario == "null"): return "error"
+	
 	if (conteudo.is_valid_int()):
 		var conteudo_binario : String = _decimal_para_binario(int(conteudo));
 		var zero_faltando = 16 - instrucao_binario.length() - conteudo_binario.length();
@@ -122,7 +126,7 @@ func _instrucao_binario(instrucao : String, conteudo : String, lista_de_labels :
 				var instrucao_completa = instrucao_binario + label_binario;
 				#print("leitordemacro: "+instrucao_completa)
 				return instrucao_completa;
-		return traducao_opcode[instrucao];
+		return instrucao_binario;
 
 ## Função responsável por tratar todo o texto em Macro Instrução inserido pelo usuário.
 ## Transforma a escrita humana em binário para o resto do sistema usar.
@@ -143,9 +147,13 @@ func trata_texto(texto : String) -> PackedStringArray:
 		var instrucao := i.split(" ");
 		# Se não tiver passando parametro quer dizer que, em binário, não tem conteudo (situações como push e pop)
 		if (instrucao.size()>1):
-			lista_de_binario.append(_instrucao_binario(instrucao[0], instrucao[1], lista_de_labels));
+			var instrucao_em_binario : String = _instrucao_binario(instrucao[0], instrucao[1], lista_de_labels)
+			if (instrucao_em_binario == "error"): return []
+			lista_de_binario.append(instrucao_em_binario);
 		else:
-			lista_de_binario.append(_instrucao_binario(instrucao[0], "", lista_de_labels));
+			var instrucao_em_binario : String = _instrucao_binario(instrucao[0], "", lista_de_labels)
+			if (instrucao_em_binario == "error"): return []
+			lista_de_binario.append(instrucao_em_binario);
 	
 	# retorna a lista de instruções (so que em binário)
 	return lista_de_binario;

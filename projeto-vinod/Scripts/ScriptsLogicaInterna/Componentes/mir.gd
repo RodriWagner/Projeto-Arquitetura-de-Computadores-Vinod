@@ -21,7 +21,7 @@ extends ComponenteBase
 	
 func agir() -> void:
 	entrada_1 = acesso_memoria_controle.acessa_dado(mpc.saida)
-	interface.imprimidor_de_texto.text += "\n" + mpc.saida
+	interface.imprimidor_de_texto.text += "\n" + acesso_memoria_controle.memoria.micro_da_linha[mpc.saida.bin_to_int()]
 	
 	amux.controle = entrada_1.substr(0,1)
 	cond.controle = entrada_1.substr(1,2)
