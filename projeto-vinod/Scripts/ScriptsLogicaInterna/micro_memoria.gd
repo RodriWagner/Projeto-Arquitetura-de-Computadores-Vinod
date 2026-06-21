@@ -77,8 +77,8 @@ func _ready() -> void:
 	
 
 	# 5: alu:=tir; if n then goto 9;
-	linhas_da_memoria.append("5: 00110000000000000101010000001001")
-	micro_da_linha.append("alu:=tir; if n then goto 9;")
+	linhas_da_memoria.append("00110000000000000101010000001001")
+	micro_da_linha.append("5: alu:=tir; if n then goto 9;")
 		#"name": "alu := tir; if n then goto 9",
 		#"AMUX": "0", "COND": "01", "ULA": "10", "DESL": "00",
 		#"MBR": "0", "MAR": "0", "RD": "0", "WR": "0", "ENC": "0",

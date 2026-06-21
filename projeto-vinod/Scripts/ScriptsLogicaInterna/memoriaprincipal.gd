@@ -20,6 +20,7 @@ func escreve_programa_em_memoria(macros_em_binario : PackedStringArray, inicio :
 		tabela_ui.dado.alteraTabela(i, macros_em_binario[i])
 		i+=1;
 	tabela_ui.atualizaTabela()
+	
 
 func _init() -> void:
 	

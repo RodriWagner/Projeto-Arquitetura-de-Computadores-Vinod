@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://d1deiaevcxc5e" path="res://Scripts/ScriptsUI/controla_visibilidade.gd" id="4_4jskr"]
 [ext_resource type="PackedScene" uid="uid://dofyffrpaxm0q" path="res://Cenas/Cenas de lógica interna/barramento_padrao.tscn" id="4_ya72m"]
 [ext_resource type="PackedScene" uid="uid://c1m1n4c6686kc" path="res://Cenas/Cenas UI/Interface_MemoriaPrincipal.tscn" id="6_jarvx"]
-[ext_resource type="Script" uid="uid://ch12cq1shdkk5" path="res://Scripts/ScriptsUI/c_decoderCodigo.gd" id="7_l70cf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uchyk"]
 bg_color = Color(1, 1, 1, 1)
@@ -32,9 +31,6 @@ content_margin_left = 10.0
 content_margin_left = 200.0
 
 [sub_resource type="Theme" id="Theme_ya72m"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jarvx"]
-size = Vector2(61, 36)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jarvx"]
 bg_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
@@ -297,17 +293,6 @@ text = "VOLTAR PARA O MENU"
 layout_mode = 2
 size_flags_horizontal = 3
 text = "INICIAR SIMULAÇÃO"
-
-[node name="Controla Visibilidade dos Dados" type="Node" parent="." unique_id=1198790824]
-
-[node name="CDecoder" type="Area2D" parent="Controla Visibilidade dos Dados" unique_id=133905810 node_paths=PackedStringArray("caixa_de_interface")]
-visible = false
-script = ExtResource("7_l70cf")
-caixa_de_interface = NodePath("../../MarginContainer/PanelContainer/VBoxContainer/TextEdit")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Controla Visibilidade dos Dados/CDecoder" unique_id=1901886363]
-position = Vector2(364.5, 48)
-shape = SubResource("RectangleShape2D_jarvx")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=108445050]
 visible = false

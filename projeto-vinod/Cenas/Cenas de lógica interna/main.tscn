@@ -327,8 +327,9 @@ destino = NodePath("../../Via de Dados/Componentes/Amux")
 [node name="MemoriaPrincipal" parent="Via de Dados" unique_id=266650011 node_paths=PackedStringArray("tabela_ui") instance=ExtResource("2_qahpq")]
 tabela_ui = NodePath("../../Interface/PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/memoria_principal/MarginContainer/Lógica e UI End de Memória/ScrollContainer/Tabela")
 
-[node name="ControleAcessoMP" parent="Via de Dados/MemoriaPrincipal" unique_id=1735749587 node_paths=PackedStringArray("memoria") instance=ExtResource("5_5sm5k")]
+[node name="ControleAcessoMP" parent="Via de Dados/MemoriaPrincipal" unique_id=1735749587 node_paths=PackedStringArray("memoria", "tabela_ui") instance=ExtResource("5_5sm5k")]
 memoria = NodePath("..")
+tabela_ui = NodePath("../../../Interface/PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/memoria_principal/MarginContainer/Lógica e UI End de Memória/ScrollContainer/Tabela")
 
 [node name="Componentes" type="Node2D" parent="Via de Dados" unique_id=2007277224]
 
@@ -429,6 +430,7 @@ clocked = true
 saida = "00000000000000000000000000000000"
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2140649814]
+visible = false
 anchors_preset = -1
 offset_right = 176.0
 offset_bottom = 155.0
