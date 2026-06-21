@@ -20,6 +20,7 @@ func acessa_dado(endereco : String) -> String:
 ## Insere dado no endereco passado
 func insere_dado(dado : String, endereco : String) -> void:
 	endereco = _limpa_endereco_de_acesso(endereco)
-	print(memoria.linhas_da_memoria)
+	print("controle_acesso Esse é o dado: "+dado+" nesse lugar: "+endereco)
 	#print("controleacesso: "+"Inseriu")
 	memoria.linhas_da_memoria[endereco.bin_to_int()] = dado;
+	print(memoria.linhas_da_memoria)
