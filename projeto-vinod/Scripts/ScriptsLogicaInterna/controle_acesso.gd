@@ -23,4 +23,12 @@ func insere_dado(dado : String, endereco : String) -> void:
 	print("controle_acesso Esse é o dado: "+dado+" nesse lugar: "+endereco)
 	#print("controleacesso: "+"Inseriu")
 	memoria.linhas_da_memoria[endereco.bin_to_int()] = dado;
-	print(memoria.linhas_da_memoria)
+	print("50 primeiros")
+	for i in range(0,50):
+	
+		print(memoria.linhas_da_memoria[i])
+	
+	print("100 ultimos")
+		
+	for i in range(4000,4096):
+		print(memoria.linhas_da_memoria[i])
