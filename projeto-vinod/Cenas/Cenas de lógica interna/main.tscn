@@ -105,6 +105,24 @@ Button/styles/hover = SubResource("StyleBoxFlat_4ekku")
 Button/styles/normal = ExtResource("3_vwcfy")
 Button/styles/pressed = SubResource("StyleBoxFlat_v3egq")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvxod"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.14767182, 0.14767182, 0.1476717, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m455r"]
+bg_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xxv6"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="main" type="Node2D" unique_id=1166532672]
 
 [node name="Interface" parent="." unique_id=1786879715 node_paths=PackedStringArray("leitor_de_macro", "memoria_principal", "gerenciador") instance=ExtResource("1_bna0h")]
@@ -306,7 +324,8 @@ destino = NodePath("../../Via de Dados/Componentes/Amux")
 
 [node name="Via de Dados" type="Node2D" parent="." unique_id=880308341]
 
-[node name="MemoriaPrincipal" parent="Via de Dados" unique_id=266650011 instance=ExtResource("2_qahpq")]
+[node name="MemoriaPrincipal" parent="Via de Dados" unique_id=266650011 node_paths=PackedStringArray("tabela_ui") instance=ExtResource("2_qahpq")]
+tabela_ui = NodePath("../../Interface/PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/memoria_principal/MarginContainer/Lógica e UI End de Memória/ScrollContainer/Tabela")
 
 [node name="ControleAcessoMP" parent="Via de Dados/MemoriaPrincipal" unique_id=1735749587 node_paths=PackedStringArray("memoria") instance=ExtResource("5_5sm5k")]
 memoria = NodePath("..")
@@ -408,3 +427,33 @@ MMUX = NodePath("../Mmux")
 controle = "1"
 clocked = true
 saida = "00000000000000000000000000000000"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2140649814]
+anchors_preset = -1
+offset_right = 176.0
+offset_bottom = 155.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=91117467]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cvxod")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer" unique_id=472545221]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=1579707009]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_styles/normal = SubResource("StyleBoxFlat_m455r")
+
+[node name="TextEdit" type="TextEdit" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=2043113935]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.4
+theme_override_styles/normal = SubResource("StyleBoxFlat_0xxv6")
+
+[editable path="Interface"]
+[editable path="Interface/PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/memoria_principal/MarginContainer/Lógica e UI End de Memória"]

@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://d1deiaevcxc5e" path="res://Scripts/ScriptsUI/controla_visibilidade.gd" id="4_4jskr"]
 [ext_resource type="PackedScene" uid="uid://dofyffrpaxm0q" path="res://Cenas/Cenas de lógica interna/barramento_padrao.tscn" id="4_ya72m"]
 [ext_resource type="PackedScene" uid="uid://c1m1n4c6686kc" path="res://Cenas/Cenas UI/Interface_MemoriaPrincipal.tscn" id="6_jarvx"]
+[ext_resource type="Script" uid="uid://ch12cq1shdkk5" path="res://Scripts/ScriptsUI/c_decoderCodigo.gd" id="7_l70cf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uchyk"]
 bg_color = Color(1, 1, 1, 1)
@@ -22,7 +23,24 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jarvx"]
+content_margin_left = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l70cf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7s3hm"]
+content_margin_left = 200.0
+
 [sub_resource type="Theme" id="Theme_ya72m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jarvx"]
+size = Vector2(61, 36)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jarvx"]
+bg_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l70cf"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="Interface" type="Control" unique_id=1786879715 node_paths=PackedStringArray("leitor_de_texto", "imprimidor_de_texto", "velocidade_label")]
 layout_mode = 3
@@ -31,6 +49,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_loqao")
 leitor_de_texto = NodePath("PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/macroinstrucao/codigo_macro")
 imprimidor_de_texto = NodePath("PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/microinstrucao/codigo_micro")
@@ -43,22 +62,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_uchyk")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=541106867]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Componentes" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=54325199]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.42
+mouse_filter = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer/Componentes" unique_id=1157504782]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.63
+mouse_filter = 2
 
 [node name="Processador com fio" type="TextureRect" parent="PanelContainer/HBoxContainer/Componentes/PanelContainer" unique_id=316753912]
+visible = false
 layout_mode = 2
 texture = ExtResource("1_jmrqb")
 expand_mode = 1
@@ -130,7 +154,6 @@ MicroInstrucao = NodePath("microinstrucao")
 MemoriaPrincipal_UI = NodePath("memoria_principal")
 
 [node name="macroinstrucao" type="VBoxContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade" unique_id=57218423]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -147,6 +170,8 @@ text = "MACROINSTRUÇÃO"
 [node name="codigo_macro" type="TextEdit" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/macroinstrucao" unique_id=674906271]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jarvx")
 placeholder_text = "DIGITE O CÓDIGO AQUI"
 
 [node name="microinstrucao" type="VBoxContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade" unique_id=1954092893]
@@ -162,15 +187,19 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l70cf")
 text = "MICROINSTRUÇÃO"
 
 [node name="codigo_micro" type="TextEdit" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/microinstrucao" unique_id=1506595967]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 16.69
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7s3hm")
 editable = false
 
 [node name="memoria_principal" type="VBoxContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade" unique_id=370912076]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -200,8 +229,9 @@ text = "DADO"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Lógica e UI End de Memória" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/memoria_principal/MarginContainer" unique_id=2071177915 instance=ExtResource("6_jarvx")]
+[node name="Lógica e UI End de Memória" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade/memoria_principal/MarginContainer" unique_id=2071177915 node_paths=PackedStringArray("interface") instance=ExtResource("6_jarvx")]
 layout_mode = 2
+interface = NodePath("../../../../../../../../..")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer" unique_id=1813561386]
 layout_mode = 2
@@ -267,6 +297,48 @@ text = "VOLTAR PARA O MENU"
 layout_mode = 2
 size_flags_horizontal = 3
 text = "INICIAR SIMULAÇÃO"
+
+[node name="Controla Visibilidade dos Dados" type="Node" parent="." unique_id=1198790824]
+
+[node name="CDecoder" type="Area2D" parent="Controla Visibilidade dos Dados" unique_id=133905810 node_paths=PackedStringArray("caixa_de_interface")]
+visible = false
+script = ExtResource("7_l70cf")
+caixa_de_interface = NodePath("../../MarginContainer/PanelContainer/VBoxContainer/TextEdit")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controla Visibilidade dos Dados/CDecoder" unique_id=1901886363]
+position = Vector2(364.5, 48)
+shape = SubResource("RectangleShape2D_jarvx")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=108445050]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.135
+anchor_bottom = 0.21700001
+offset_right = 0.19999695
+offset_bottom = -0.2400055
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1459203101]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ya72m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer" unique_id=1427024424]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=1570492779]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_styles/normal = SubResource("StyleBoxFlat_jarvx")
+
+[node name="TextEdit" type="TextEdit" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=900613322]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.4
+theme_override_styles/normal = SubResource("StyleBoxFlat_l70cf")
 
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer/seta_esq" to="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade" method="_on_seta_esq_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/HBoxContainer/seta_dir" to="PanelContainer/HBoxContainer/Botões e Texto/PanelContainer2/VBoxContainer/controla_visibilidade" method="_on_seta_dir_pressed"]

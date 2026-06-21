@@ -1,12 +1,15 @@
 extends Node
 
+@export var interface: Control
+
 func _ready() -> void:
-	var dados = [[1,2], [3,4],[1,2], [3,4],[1,2], [3,4],[1,2], [3,4],[1,2], [3,4],[1,2], [3,4],[1,2], [3,4],[1,2], [3,4],[1,2], [3,4],[1,2], [3,4],[1,2], [3,4],[1,2], [3,4],[1,2], [3,4],[1,2], [3,4],[1,2], [3,4],[1,2], [3,4],[1,2], [3,4],[1,2], [3,4],[1,2], [3,4],[1,2], [3,4],[1,2], [3,4] ]
+	var dados : Array
+	var i := 0;
+	while (i<4096):
+		dados.append([i, interface.memoria_principal.linhas_da_memoria[i]])
+		i+=1;
 	
 	var tabela = Tabela.New(dados)
-	print(tabela)
-	tabela.alteraTabela(1, "ffsfs")
-	print(tabela)
 	
 	$ScrollContainer/Tabela.dado = tabela
 	$ScrollContainer/Tabela.apareceNaTela()

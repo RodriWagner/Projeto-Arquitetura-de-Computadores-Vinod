@@ -17,3 +17,19 @@ func apareceNaTela():
 				var celula = celulaTabela.instantiate()
 				celula.text = str(valor)
 				linha.add_child(celula)
+
+func atualizaTabela():
+	if dado:
+		print("oi")
+		var linhas_visiveis = $LinhasDaTabela.get_children()
+		var qtd_linhas_dados = dado.qtdLinhas()
+		
+		var limite = min(linhas_visiveis.size(), qtd_linhas_dados)
+		
+		for l in range(limite):
+			var linha_atual = linhas_visiveis[l]
+			var celulas = linha_atual.get_children()
+			var valores_atualizados = dado.getLinha(l)
+			
+			for c in range(min(celulas.size(), valores_atualizados.size())):
+				celulas[c].text = str(valores_atualizados[c])
