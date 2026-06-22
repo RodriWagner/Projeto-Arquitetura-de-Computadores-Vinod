@@ -10,12 +10,16 @@ config_version=5
 
 [application]
 
-config/name="Projeto Vinod"
+config/name="SimuladorMIC1"
+config/name_localized={
+"en": "MIC1Simulator"
+}
 run/main_scene="uid://dq00ve2wwdkhm"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/show_image=false
 boot_splash/use_filter=false
-config/icon="res://icon.svg"
+config/icon="uid://c7ucp1ko1p0p8"
+config/windows_native_icon="res://Imagens/imagem-processador.ico"
 
 [display]
 
